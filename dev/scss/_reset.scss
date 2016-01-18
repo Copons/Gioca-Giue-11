@@ -1,0 +1,34 @@
+html {
+  box-sizing: border-box;
+  font-size: $font-size-root;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@at-root {
+  @viewport {
+    width: device-width;
+  }
+}
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  font: {
+    family: font-family(base);
+    size: font-size(base);
+  }
+  line-height: $line-height;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover, &:focus {
+    color: $link-hover-color;
+  }
+}
