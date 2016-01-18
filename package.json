@@ -1,0 +1,28 @@
+{
+  "name": "gg11",
+  "version": "0.1.0",
+  "description": "The eleventh theme.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Copons/gg-framework.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "flexbox",
+    "wordpress"
+  ],
+  "author": "Copons",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-autoprefixer": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-express": "latest",
+    "grunt-sass": "latest",
+    "grunt-sync": "latest",
+    "load-grunt-tasks": "latest"
+  }
+}
