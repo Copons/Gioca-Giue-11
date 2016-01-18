@@ -3,7 +3,8 @@
 $sizes: (
   padding:                    1.6rem,
   title-left-padding:         7.2rem,
-  drawer-width:               24rem
+  drawer-width:               24rem,
+  icon:                       4.8rem
 );
 
 @function size($index) {
@@ -44,7 +45,12 @@ $colors: (
   success:                    #2ecc71,
   info:                       #3498db,
   warning:                    #f39c12,
-  danger:                     #e74c3c
+  danger:                     #e74c3c,
+
+  gg-sky:                     #7ebbe7,
+  gg-aqua:                    #2f9b96,
+  gg-orange:                  #ff5b09,
+  gg-orange-light:            #f9a704
 );
 
 @function color($color) {

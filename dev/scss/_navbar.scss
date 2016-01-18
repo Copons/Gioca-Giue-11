@@ -1,0 +1,34 @@
+.gg-navbar {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  position: fixed;
+
+  width: 100vw;
+  margin: 0;
+  padding: size(padding);
+
+  background-color: color(gg-orange);
+}
+
+
+
+
+.gg-menu-icon {
+  position: relative;
+  width: size(icon);
+  height: size(icon);
+  margin: -1.2rem 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  color: $body-bg;
+  line-height: size(icon);
+  text-align: center;
+
+  &:hover, &:active, &:visited {
+    color: $body-bg;
+  }
+}

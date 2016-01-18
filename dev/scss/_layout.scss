@@ -10,6 +10,43 @@
 
 
 
+.gg-obfuscator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: z(raised) - 1;
+  visibility: hidden;
+
+  background-color: transparent;
+
+  transition-duration: 0.2s;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
+  &.is-visible {
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: visible;
+  }
+
+  /*@supports (pointer-events: auto) {
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition-property: opacity;
+    visibility: visible;
+    pointer-events: none;
+    &.is-visible {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }*/
+}
+
+
+
+
+
 .gg-drawer {
   display: flex;
   flex-direction: column;
@@ -38,7 +75,7 @@
   transition-property: transform;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 
-  &.open {
+  &.is-visible {
     transform: translateX(0);
   }
 
