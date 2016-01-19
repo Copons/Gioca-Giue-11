@@ -106,6 +106,7 @@
 
 
 .gg-appbar-icon {
+  color: $body-bg;
   &:hover, &:active, &:visited {
     color: $body-bg;
   }
@@ -113,6 +114,7 @@
 
 
 .gg-searchbar-icon {
+  color: color(gray);
   &:hover, &:active, &:visited {
     color: color(gray);
   }

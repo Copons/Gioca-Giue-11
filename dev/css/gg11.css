@@ -2450,10 +2450,7 @@ body {
   line-height: 1.5; }
 
 a {
-  color: #2980b9;
   text-decoration: none; }
-  a:hover, a:focus {
-    color: #1b557a; }
 
 .shadow-low, .gg-drawer, .gg-appbar, .gg-appbar-menu {
   box-shadow: 0 0.15em 0.3em 0 rgba(0, 0, 0, 0.16), 0 0.15em 0.6em 0 rgba(0, 0, 0, 0.12); }
@@ -2599,11 +2596,15 @@ a {
   line-height: 48px;
   text-align: center; }
 
-.gg-appbar-icon:hover, .gg-appbar-icon:active, .gg-appbar-icon:visited {
+.gg-appbar-icon {
   color: #ffffff; }
+  .gg-appbar-icon:hover, .gg-appbar-icon:active, .gg-appbar-icon:visited {
+    color: #ffffff; }
 
-.gg-searchbar-icon:hover, .gg-searchbar-icon:active, .gg-searchbar-icon:visited {
+.gg-searchbar-icon {
   color: #95a5a6; }
+  .gg-searchbar-icon:hover, .gg-searchbar-icon:active, .gg-searchbar-icon:visited {
+    color: #95a5a6; }
 
 .gg-appbar-menu {
   display: flex;
