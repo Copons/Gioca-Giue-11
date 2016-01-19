@@ -42,13 +42,17 @@ module.exports = function(grunt) {
         },
         files: {
           'dev/js/gg11.min.js': [
+            'dev/js/plugins/*.js',
             'dev/js/gg11.js'
           ]
         }
       },
       build: {
         files: {
-          'dist/js/gg11.min.js': 'dev/js/gg11.js'
+          'dist/js/gg11.min.js': [
+            'dev/js/plugins/*.js',
+            'dev/js/gg11.js'
+          ]
         }
       }
     },
@@ -96,6 +100,7 @@ module.exports = function(grunt) {
       scripts: {
         files: [
           'dev/js/libs/**/*.js',
+          'dev/js/plugins/**/*.js',
           'dev/js/gg11.js'
         ],
         tasks: ['uglify:dev']

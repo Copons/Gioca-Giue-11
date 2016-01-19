@@ -1,4 +1,4 @@
-(function () {
+(function ($) {
   'use strict';
 
   // Constants
@@ -61,11 +61,11 @@
       return;
     }
     if (currScrollTop > prevScrollTop && currScrollTop > ggHeaderHeight) {
-      $ggHeader.removeClass(IS_VISIBLE);
-      $ggSearchBar.removeClass(IS_VISIBLE);
+      $ggHeader.ggToggle('hide');
+      $ggSearchBar.ggToggle('hide');
     }
     else if (currScrollTop + $(window).height() < $(document).height()) {
-      $ggHeader.addClass(IS_VISIBLE);
+      $ggHeader.ggToggle('show');
     }
     prevScrollTop = currScrollTop;
   }
@@ -76,14 +76,14 @@
 
   $ggDrawerToggle.on('click', function (event) {
     event.preventDefault();
-    $ggDrawer.toggleClass(IS_VISIBLE);
-    $ggObfuscator.toggleClass(IS_VISIBLE);
+    $ggDrawer.ggToggle();
+    $ggObfuscator.ggToggle();
   });
 
   $ggObfuscator.on('click', function (event) {
     event.preventDefault();
-    $ggDrawer.removeClass(IS_VISIBLE);
-    $ggObfuscator.removeClass(IS_VISIBLE);
+    $ggDrawer.ggToggle('hide');
+    $ggObfuscator.ggToggle('hide');
   });
 
 
@@ -93,7 +93,7 @@
 
   $ggAppBarMenuToggle.on('click', function (event) {
     event.preventDefault();
-    $ggAppBarMenu.addClass(IS_VISIBLE);
+    $ggAppBarMenu.ggToggle('show');
   });
 
 
@@ -103,22 +103,26 @@
 
   $ggSearchBarToggle.on('click', function (event) {
     event.preventDefault();
-    $ggSearchBar.toggleClass(IS_VISIBLE);
+    $ggSearchBar.ggToggle();
+    setTimeout(function () {
+      $ggSearchBarSearch.focus();
+    }, 150);
   });
 
   $ggSearchBarSearch.on('keyup', function () {
     if ($(this).val()) {
-      $ggSearchBarCancel.addClass(IS_VISIBLE);
+      $ggSearchBarCancel.ggToggle('show');
     }
     else {
-      $ggSearchBarCancel.removeClass(IS_VISIBLE);
+      $ggSearchBarCancel.ggToggle('hide');
     }
   });
 
   $ggSearchBarCancel.on('click', function (event) {
     event.preventDefault();
     $ggSearchBarSearch.val('');
-    $ggSearchBarCancel.removeClass(IS_VISIBLE);
+    $ggSearchBarCancel.ggToggle('hide');
+    $ggSearchBarSearch.focus();
   });
 
 
@@ -129,28 +133,12 @@
   $(document).on('click', function (event) {
 
     // Close the appbar menu
-    if (
-      $ggAppBarMenu.hasClass(IS_VISIBLE) &&
-      !$ggAppBarMenuToggle.is(event.target) &&
-      $ggAppBarMenuToggle.has(event.target).length === 0 &&
-      !$ggAppBarMenu.is(event.target) &&
-      $ggAppBarMenu.has(event.target).length === 0
-    ) {
-      $ggAppBarMenu.removeClass(IS_VISIBLE);
-    }
+    $ggAppBarMenu.ggCloseOutside([$ggAppBarMenuToggle], event);
 
     // Close the searchbar
-    if (
-      $ggSearchBar.hasClass(IS_VISIBLE) &&
-      !$ggAppBar.is(event.target) &&
-      $ggAppBar.has(event.target).length === 0 &&
-      !$ggSearchBar.is(event.target) &&
-      $ggSearchBar.has(event.target).length === 0
-    ) {
-      $ggSearchBar.removeClass(IS_VISIBLE);
-    }
+    //$ggSearchBar.ggCloseOutside([$ggAppBar], event);
 
   });
 
 
-})();
+}(jQuery));
