@@ -1,0 +1,71 @@
+html {
+  box-sizing: border-box;
+  font-size: $font-size-root;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #7ebbe7;
+}
+
+.logo {
+  width: 562px;
+  height: 61px;
+  background-image: url(http://www.giocagiue.it/wp-content/themes/Gioca-Giue-10/img/logo.png);
+  transform: scale(0.1);
+  text-align: center;
+  animation-name: logo;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+@keyframes logo {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+.hills {
+  position: fixed;
+  bottom: 0;
+  left: -450vw;
+  width: 1000vw;
+  height: 10vh;
+  text-align: center;
+  transform: scale(0.5);
+  transform-origin: bottom center;
+  background-image: url(http://www.giocagiue.it/wp-content/themes/Gioca-Giue-10/img/hills.png);
+  background-position: bottom;
+  background-size: contain;
+  animation-name: hills;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+@keyframes hills {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
