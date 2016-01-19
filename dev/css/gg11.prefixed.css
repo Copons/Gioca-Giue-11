@@ -2456,7 +2456,7 @@ a {
   a:hover, a:focus {
     color: #1b557a; }
 
-.shadow-low, .gg-drawer {
+.shadow-low, .gg-drawer, .gg-appbar, .gg-appbar-menu {
   box-shadow: 0 0.15em 0.3em 0 rgba(0, 0, 0, 0.16), 0 0.15em 0.6em 0 rgba(0, 0, 0, 0.12); }
 
 .shadow-high {
@@ -2470,22 +2470,22 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 200vh;
   -webkit-overflow-scrolling: touch; }
 
 .gg-obfuscator {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 4;
   visibility: hidden;
   background-color: transparent;
   transition-duration: 0.2s;
-  transition-property: background-color;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: visibility, background-color;
   /*@supports (pointer-events: auto) {
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
@@ -2517,32 +2517,42 @@ a {
   z-index: 5;
   overflow: visible;
   overflow-y: auto;
-  width: 24rem;
+  width: 240px;
   height: 100vh;
   max-height: 100vh;
-  padding: 1.6rem;
+  padding: 16px;
   border-right: 1px solid #ecf0f1;
   background: #ffffff;
-  -webkit-transform: translateX(-34rem);
-          transform: translateX(-34rem);
+  -webkit-transform: translateX(-250px);
+          transform: translateX(-250px);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   will-change: transform;
   transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  transition-property: transform; }
   .gg-drawer.is-visible {
     -webkit-transform: translateX(0);
             transform: translateX(0); }
 
-.gg-navbar {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.gg-header {
+  position: fixed;
+  top: -70px;
+  width: 100%;
+  height: 56px;
+  margin: 0;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: top; }
+  .gg-header.is-visible {
+    top: 0; }
+
+.gg-appbar,
+.gg-searchbar {
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
@@ -2552,25 +2562,99 @@ a {
   -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  position: fixed;
-  width: 100vw;
-  margin: 0;
-  padding: 1.6rem;
-  background-color: #ff5b09; }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; }
 
-.gg-menu-icon {
+.gg-appbar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #ff5b09;
+  color: #ffffff; }
+  .gg-appbar h1 {
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    height: 24px;
+    margin: 16px;
+    font-size: 2.0rem;
+    font-weight: bold;
+    line-height: 2.4rem; }
+
+.gg-searchbar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  background-color: #ffffff;
+  color: #95a5a6;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: visibility, opacity;
+  transition-delay: 0s; }
+  .gg-searchbar.is-visible {
+    visibility: visible;
+    opacity: 1; }
+  .gg-searchbar form {
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    height: 24px;
+    margin: 16px; }
+    .gg-searchbar form input {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      color: #000000;
+      font-size: 2.0rem;
+      line-height: 2.4rem; }
+  .gg-searchbar .gg-searchbar-cancel {
+    display: none; }
+    .gg-searchbar .gg-searchbar-cancel.is-visible {
+      display: block; }
+
+.gg-appbar-icon,
+.gg-searchbar-icon {
   position: relative;
-  width: 4.8rem;
-  height: 4.8rem;
-  margin: -1.2rem 0;
+  width: 48px;
+  height: 48px;
+  margin: 4px;
   padding: 0;
   overflow: hidden;
   border-radius: 50%;
-  color: #ffffff;
-  line-height: 4.8rem;
+  line-height: 48px;
   text-align: center; }
-  .gg-menu-icon:hover, .gg-menu-icon:active, .gg-menu-icon:visited {
-    color: #ffffff; }
+
+.gg-appbar-icon:hover, .gg-appbar-icon:active, .gg-appbar-icon:visited {
+  color: #ffffff; }
+
+.gg-searchbar-icon:hover, .gg-searchbar-icon:active, .gg-searchbar-icon:visited {
+  color: #95a5a6; }
+
+.gg-appbar-menu {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 100px;
+  height: 100px;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  background: #ffffff;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: visibility, opacity; }
+  .gg-appbar-menu.is-visible {
+    visibility: visible;
+    opacity: 1; }
 
 /*!
  * Waves v0.7.4

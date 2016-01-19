@@ -1,34 +1,144 @@
-.gg-navbar {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
+.gg-header {
   position: fixed;
-
-  width: 100vw;
+  top: -70px;
+  width: 100%;
+  height: 56px;
   margin: 0;
-  padding: size(padding);
 
-  background-color: color(gg-orange);
+  @include transition();
+  transition-property: top;
+
+  &.is-visible {
+    top: 0;
+  }
 }
 
 
 
 
-.gg-menu-icon {
+.gg-appbar,
+.gg-searchbar {
+  flex-direction: row;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+.gg-appbar {
+  display: flex;
+  background-color: color(gg-orange);
+  @extend .shadow-low;
+  color: $body-bg;
+
+  h1 {
+    flex-grow: 1;
+    height: 24px;
+    margin: size(padding);
+
+    font-size: 2.0rem;
+    font-weight: bold;
+    line-height: 2.4rem;
+  }
+}
+
+
+.gg-searchbar {
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  background-color: $body-bg;
+  color: color(gray);
+
+  @include transition();
+  transition-property: visibility, opacity;
+  transition-delay: 0s;
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  form {
+    flex-grow: 1;
+    height: 24px;
+    margin: size(padding);
+
+    input {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      color: $body-color;
+      font-size: 2.0rem;
+      line-height: 2.4rem;
+    }
+  }
+
+  .gg-searchbar-cancel {
+    display: none;
+    &.is-visible {
+      display: block;
+    }
+  }
+}
+
+
+
+
+.gg-appbar-icon,
+.gg-searchbar-icon {
   position: relative;
   width: size(icon);
   height: size(icon);
-  margin: -1.2rem 0;
+  margin: size(padding) / 4;
   padding: 0;
   overflow: hidden;
   border-radius: 50%;
-  color: $body-bg;
   line-height: size(icon);
   text-align: center;
+}
 
+
+.gg-appbar-icon {
   &:hover, &:active, &:visited {
     color: $body-bg;
+  }
+}
+
+
+.gg-searchbar-icon {
+  &:hover, &:active, &:visited {
+    color: color(gray);
+  }
+}
+
+
+
+
+.gg-appbar-menu {
+  display: flex;
+  position: absolute;
+  top: size(padding) / 4;
+  right: size(padding) / 4;
+  width: 100px;
+  height: 100px;
+  z-index: z(raised);
+  visibility: hidden;
+  opacity: 0;
+  background: $body-bg;
+  @extend .shadow-low;
+
+  @include transition();
+  transition-property: visibility, opacity;
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
   }
 }

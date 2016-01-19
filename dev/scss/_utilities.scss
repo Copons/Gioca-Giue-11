@@ -6,3 +6,8 @@
   box-shadow: 0 0.3em 0.8em 0 rgba(color(black), 0.18),
               0 0.25em 1em 0 rgba(color(black), 0.15);
 }
+
+@mixin transition ($duration : 0.2s) {
+  transition-duration: $duration;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}

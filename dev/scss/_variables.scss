@@ -1,10 +1,10 @@
 // Metrics
 
 $sizes: (
-  padding:                    1.6rem,
-  title-left-padding:         7.2rem,
-  drawer-width:               24rem,
-  icon:                       4.8rem
+  padding:                    16px,
+  title-left-padding:         72px,
+  drawer-width:               240px,
+  icon:                       48px
 );
 
 @function size($index) {
