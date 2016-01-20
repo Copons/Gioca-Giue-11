@@ -2446,6 +2446,7 @@ html {
 body {
   background-color: #ffffff;
   color: #000000;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
   line-height: 1.5; }
 
@@ -2611,8 +2612,7 @@ a {
   position: absolute;
   top: 4px;
   right: 4px;
-  width: 100px;
-  height: 100px;
+  width: 200px;
   z-index: 5;
   visibility: hidden;
   opacity: 0;
@@ -2623,6 +2623,26 @@ a {
   .gg-appbar-menu.is-visible {
     visibility: visible;
     opacity: 1; }
+  .gg-appbar-menu ul {
+    width: 100%;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none; }
+    .gg-appbar-menu ul li {
+      display: block;
+      margin: 0;
+      padding: 0; }
+    .gg-appbar-menu ul a {
+      display: flex;
+      width: 100%;
+      padding: 0 16px;
+      color: #000000; }
+      .gg-appbar-menu ul a:hover {
+        color: #000000; }
+      .gg-appbar-menu ul a span {
+        line-height: 4.8rem; }
+      .gg-appbar-menu ul a span:first-child {
+        flex-grow: 1; }
 
 /*!
  * Waves v0.7.4

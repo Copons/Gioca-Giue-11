@@ -128,8 +128,7 @@
   position: absolute;
   top: size(padding) / 4;
   right: size(padding) / 4;
-  width: 100px;
-  height: 100px;
+  width: 200px;
   z-index: z(raised);
   visibility: hidden;
   opacity: 0;
@@ -142,5 +141,32 @@
   &.is-visible {
     visibility: visible;
     opacity: 1;
+  }
+
+  ul {
+    width: 100%;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    li {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      display: flex;
+      width: 100%;
+      padding: 0 16px;
+      color: $body-color;
+      &:hover {
+        color: $body-color;
+      }
+      span {
+        line-height: 4.8rem;
+      }
+      span:first-child {
+        flex-grow: 1;
+      }
+    }
   }
 }

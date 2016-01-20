@@ -73,17 +73,12 @@ $link-hover-color:            darken($link-color, 15%);
 
 // Typography
 
-$font-families: (
-  sans-serif:                 sans-serif,
-  serif:                      serif,
-  monospace:                  monospace
-);
+$font-family-sans-serif:      'Open Sans', sans-serif;
+$font-family-serif:           serif;
+$font-family-monospace:       monospace;
 
-@function font-family($family) {
-  @return map-get($font-families, $family);
-}
 
-$font-family-base:            font-family(sans-serif);
+$font-family-base:            $font-family-sans-serif;
 
 
 $font-size-root:              62.5%;

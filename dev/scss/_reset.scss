@@ -19,7 +19,7 @@ body {
   background-color: $body-bg;
   color: $body-color;
   font: {
-    family: font-family(base);
+    family: $font-family-base;
     size: font-size(base);
   }
   line-height: $line-height;
