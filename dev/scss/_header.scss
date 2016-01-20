@@ -157,8 +157,11 @@
       display: flex;
       width: 100%;
       padding: 0 16px;
-      color: $body-color;
+      color: color(md-gray-800);
       &:hover {
+        color: color(md-gray-800);
+      }
+      &:active, &:focus {
         color: $body-color;
       }
       span {

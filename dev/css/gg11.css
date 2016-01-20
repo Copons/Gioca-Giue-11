@@ -2636,8 +2636,10 @@ a {
       display: flex;
       width: 100%;
       padding: 0 16px;
-      color: #000000; }
+      color: #424242; }
       .gg-appbar-menu ul a:hover {
+        color: #424242; }
+      .gg-appbar-menu ul a:active, .gg-appbar-menu ul a:focus {
         color: #000000; }
       .gg-appbar-menu ul a span {
         line-height: 4.8rem; }

@@ -50,7 +50,15 @@ $colors: (
   gg-sky:                     #7ebbe7,
   gg-aqua:                    #2f9b96,
   gg-orange:                  #ff5b09,
-  gg-orange-light:            #f9a704
+  gg-orange-light:            #f9a704,
+
+  md-deep-orange:             #ff5722,
+  md-orange:                  #ff9800,
+  md-teal:                    #009688,
+  md-blue:                    #2196f3,
+  md-green:                   #4caf50,
+
+  md-gray-800:                #424242
 );
 
 @function color($color) {

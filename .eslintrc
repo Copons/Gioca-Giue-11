@@ -6,7 +6,8 @@
 
   "globals" : {
     "_" : true,
-    "Waves" : true
+    "Waves" : true,
+    "Hammer" : true
   },
 
   "rules" : {
