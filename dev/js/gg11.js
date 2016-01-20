@@ -1,13 +1,6 @@
 (function ($) {
   'use strict';
 
-  // Constants
-
-  var IS_VISIBLE = 'is-visible';
-
-
-
-
   // Variables
 
   var $ggHeader = $('.gg-header');
@@ -17,7 +10,7 @@
   var $ggDrawer = $('.gg-drawer');
   var $ggDrawerToggle = $('.gg-drawer-toggle');
 
-  var $ggAppBar = $('.gg-appbar');
+  //var $ggAppBar = $('.gg-appbar');
   var $ggAppBarMenu = $('.gg-appbar-menu');
   var $ggAppBarMenuToggle = $('.gg-appbar-menu-toggle');
 
@@ -39,7 +32,6 @@
 
 
   // Slide toggle the header on scroll
-
   var windowDidScroll;
   var ggHeaderHeight = $ggHeader.outerHeight();
   var prevScrollTop = $(window).scrollTop();

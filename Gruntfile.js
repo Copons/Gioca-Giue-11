@@ -2,118 +2,86 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg : grunt.file.readJSON('package.json'),
 
-    sass: {
-      options: {
-        sourceMap: true
+    sass : {
+      options : {
+        sourceMap : true
       },
-      dev: {
-        files: {
-          'dev/css/gg11.css': 'dev/scss/gg11.scss'
+      dist : {
+        files : {
+          'dev/css/gg11.css' : 'dev/scss/gg11.scss'
         }
       }
     },
 
-    autoprefixer: {
-      dev: {
-        options: {
-          browsers: ['last 2 versions'],
-          map: true
+    autoprefixer : {
+      dist : {
+        options : {
+          browsers : ['last 2 versions'],
+          map : true
         },
-        files: {
-          'dev/css/gg11.prefixed.css': 'dev/css/gg11.css'
+        files : {
+          'dev/css/gg11.prefixed.css' : 'dev/css/gg11.css'
         }
       }
     },
 
-    cssmin: {
-      build: {
-        files: {
-          'dist/css/gg11.min.css': 'dev/css/gg11.prefixed.css'
-        }
-      }
-    },
-
-    uglify: {
-      dev: {
-        options: {
-          sourceMap: true
-        },
-        files: {
-          'dev/js/gg11.min.js': [
-            'dev/js/plugins/*.js',
-            'dev/js/gg11.js'
-          ]
-        }
+    cssmin : {
+      options : {
+        sourceMap : true
       },
-      build: {
-        files: {
-          'dist/js/gg11.min.js': [
+      dist : {
+        files : {
+          'dev/css/bundle/gg11.min.css' : 'dev/css/gg11.prefixed.css'
+        }
+      }
+    },
+
+    uglify : {
+      options : {
+        sourceMap : true
+      },
+      dist : {
+        files : {
+          'dev/js/bundle/gg11.min.js' : [
             'dev/js/plugins/*.js',
-            'dev/js/gg11.js'
+            'dev/js/*.js'
           ]
         }
       }
     },
 
-    sync: {
-      build: {
-        files: [
-          {
-            cwd: 'dev',
-            src: [
-              'css/**',
-              'fonts/**',
-              'js/**',
-              'img/**',
-              '*'
-            ],
-            dest: 'dist/'
-          }
-        ],
-        verbose: true,
-        failOnError: true,
-        updateAndDelete: true
-      }
-    },
-
-    express: {
-      dev: {
-        options: {
-          port: 3000,
-          hostname: 'localhost',
-          bases: ['./dev'],
-          livereload: true
+    express : {
+      dev : {
+        options : {
+          port : 3000,
+          hostname : 'localhost',
+          bases : ['./dev'],
+          livereload : true
         }
       }
     },
 
-    watch: {
-      options: {
-        livereload: true
+    watch : {
+      options : {
+        livereload : true
       },
-      styles: {
-        files: ['dev/scss/**/*.scss'],
-        tasks: ['sass:dev', 'autoprefixer:dev']
+      styles : {
+        files : ['dev/scss/**/*.scss'],
+        tasks : ['sass', 'autoprefixer', 'cssmin']
       },
-      scripts: {
-        files: [
+      scripts : {
+        files : [
           'dev/js/libs/**/*.js',
           'dev/js/plugins/**/*.js',
-          'dev/js/gg11.js'
+          'dev/js/*.js'
         ],
-        tasks: ['uglify:dev']
+        tasks: ['uglify']
       },
-      test: {
-        files: ['dev/**/*']
-      }
     }
 
   });
 
   grunt.registerTask('serve', ['express', 'watch']);
-
-  grunt.registerTask('build', ['sass:dev', 'autoprefixer:dev', 'cssmin:build', 'uglify:build', 'sync:build']);
-
 };
