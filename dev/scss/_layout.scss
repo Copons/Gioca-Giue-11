@@ -1,3 +1,10 @@
+/**
+ * .gg-layout
+ */
+
+
+
+
 .gg-layout {
   display: flex;
   flex-direction: column;
@@ -5,76 +12,4 @@
   width: 100%;
   height: 200vh;
   -webkit-overflow-scrolling: touch;
-}
-
-
-
-
-.gg-obfuscator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: z(raised) - 1;
-  visibility: hidden;
-
-  background-color: transparent;
-
-  @include transition();
-  transition-property: visibility, background-color;
-
-  &.is-visible {
-    background-color: rgba(0, 0, 0, 0.5);
-    visibility: visible;
-  }
-
-  /*@supports (pointer-events: auto) {
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition-property: opacity;
-    visibility: visible;
-    pointer-events: none;
-    &.is-visible {
-      pointer-events: auto;
-      opacity: 1;
-    }
-  }*/
-}
-
-
-
-
-
-.gg-drawer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: z(raised);
-  overflow: visible;
-  overflow-y: auto;
-
-  width: size(drawer-width);
-  height: 100vh;
-  max-height: 100vh;
-  padding: size(padding);
-
-  border-right: 1px solid color(gray-lighter);
-  background: $body-bg;
-  @extend .shadow-low;
-
-  transform: translateX(- size(drawer-width) - 10px);
-  transform-style: preserve-3d;
-  will-change: transform;
-
-  @include transition();
-  transition-property: transform;
-
-  &.is-visible {
-    transform: translateX(0);
-  }
-
 }

@@ -2453,12 +2453,20 @@ body {
 a {
   text-decoration: none; }
 
-.shadow-low, .gg-drawer, .gg-appbar, .gg-appbar-menu {
+/**
+ * .gg-shadow-low
+ * .gg-shadow-high
+ * @mixin .gg-transition
+ */
+.gg-shadow-low, .gg-appbar, .gg-appbar-menu, .gg-drawer {
   box-shadow: 0 0.15em 0.3em 0 rgba(0, 0, 0, 0.16), 0 0.15em 0.6em 0 rgba(0, 0, 0, 0.12); }
 
-.shadow-high {
+.gg-shadow-high {
   box-shadow: 0 0.3em 0.8em 0 rgba(0, 0, 0, 0.18), 0 0.25em 1em 0 rgba(0, 0, 0, 0.15); }
 
+/**
+ * .gg-layout
+ */
 .gg-layout {
   display: flex;
   flex-direction: column;
@@ -2467,6 +2475,9 @@ a {
   height: 200vh;
   -webkit-overflow-scrolling: touch; }
 
+/**
+ * .gg-obfuscator
+ */
 .gg-obfuscator {
   position: absolute;
   top: 0;
@@ -2478,47 +2489,19 @@ a {
   background-color: transparent;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-property: visibility, background-color;
-  /*@supports (pointer-events: auto) {
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition-property: opacity;
-    visibility: visible;
-    pointer-events: none;
-    &.is-visible {
-      pointer-events: auto;
-      opacity: 1;
-    }
-  }*/ }
+  transition-property: visibility, background-color; }
   .gg-obfuscator.is-visible {
     background-color: rgba(0, 0, 0, 0.5);
     visibility: visible; }
 
-.gg-drawer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  overflow: visible;
-  overflow-y: auto;
-  width: 240px;
-  height: 100vh;
-  max-height: 100vh;
-  padding: 16px;
-  border-right: 1px solid #ecf0f1;
-  background: #ffffff;
-  transform: translateX(-250px);
-  transform-style: preserve-3d;
-  will-change: transform;
-  transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-property: transform; }
-  .gg-drawer.is-visible {
-    transform: translateX(0); }
-
+/**
+ * .gg-header
+ * .gg-appbar
+ * .gg-appbar-menu
+ * .gg-searchbar
+ * .gg-searchbar-icon
+ * .gg-searchbar-cancel
+ */
 .gg-header {
   position: fixed;
   top: -70px;
@@ -2645,6 +2628,34 @@ a {
         line-height: 4.8rem; }
       .gg-appbar-menu ul a span:first-child {
         flex-grow: 1; }
+
+/**
+ * .gg-drawer
+ */
+.gg-drawer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  overflow: visible;
+  overflow-y: auto;
+  width: 240px;
+  height: 100vh;
+  max-height: 100vh;
+  padding: 16px;
+  border-right: 1px solid #ecf0f1;
+  background: #ffffff;
+  transform: translateX(-250px);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: transform; }
+  .gg-drawer.is-visible {
+    transform: translateX(0); }
 
 /*!
  * Waves v0.7.4

@@ -1,0 +1,27 @@
+/**
+ * .gg-obfuscator
+ */
+
+
+
+
+.gg-obfuscator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: z(raised) - 1;
+  visibility: hidden;
+
+  background-color: transparent;
+
+  @include gg-transition();
+  transition-property: visibility, background-color;
+
+  &.is-visible {
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: visible;
+  }
+
+}

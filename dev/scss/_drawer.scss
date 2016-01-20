@@ -1,0 +1,39 @@
+/**
+ * .gg-drawer
+ */
+
+
+
+
+ .gg-drawer {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: z(raised);
+   overflow: visible;
+   overflow-y: auto;
+
+   width: size(drawer-width);
+   height: 100vh;
+   max-height: 100vh;
+   padding: size(padding);
+
+   border-right: 1px solid color(gray-lighter);
+   background: $body-bg;
+   @extend .gg-shadow-low;
+
+   transform: translateX(- size(drawer-width) - 10px);
+   transform-style: preserve-3d;
+   will-change: transform;
+
+   @include gg-transition();
+   transition-property: transform;
+
+   &.is-visible {
+     transform: translateX(0);
+   }
+
+ }
