@@ -17,6 +17,8 @@
   height: 56px;
   margin: 0;
 
+  @extend %gg-font-title;
+
   @include gg-transition();
   transition-property: top;
 
@@ -44,7 +46,7 @@
 .gg-appbar {
   display: flex;
   background-color: color(gg-orange);
-  @extend .gg-shadow-low;
+  @extend %gg-shadow-low;
   color: $body-bg;
 
   h1 {
@@ -65,7 +67,8 @@
   opacity: 0;
   background-color: $body-bg;
   color: color(gray);
-
+  font-weight: 400;
+  
   @include gg-transition();
   transition-property: visibility, opacity;
   transition-delay: 0s;
@@ -145,7 +148,7 @@
   visibility: hidden;
   opacity: 0;
   background: $body-bg;
-  @extend .gg-shadow-low;
+  @extend %gg-shadow-low;
 
   @include gg-transition();
   transition-property: visibility, opacity;
@@ -155,33 +158,5 @@
     opacity: 1;
   }
 
-  ul {
-    width: 100%;
-    margin: 0;
-    padding: 8px 0;
-    list-style: none;
-    li {
-      display: block;
-      margin: 0;
-      padding: 0;
-    }
-    a {
-      display: flex;
-      width: 100%;
-      padding: 0 16px;
-      color: color(md-gray-800);
-      &:hover {
-        color: color(md-gray-800);
-      }
-      &:active, &:focus {
-        color: $body-color;
-      }
-      span {
-        line-height: 4.8rem;
-      }
-      span:first-child {
-        flex-grow: 1;
-      }
-    }
-  }
+  @include gg-menu-list();
 }

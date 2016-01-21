@@ -1,4 +1,38 @@
 @charset "UTF-8";
+/**
+ * @function gg-font-size
+ * @function gg-line-height
+ * @mixin gg-font
+ * %gg-font-display-4
+ * %gg-font-display-3
+ * %gg-font-display-2
+ * %gg-font-display-1
+ * %gg-font-headline
+ * %gg-font-title
+ * %gg-font-subheading-device
+ * %gg-font-subheading-desktop
+ * %gg-font-body-2-device
+ * %gg-font-body-1-device
+ * %gg-font-caption
+ * %gg-font-button
+ */
+.gg-header {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 600; }
+
+.gg-appbar-menu ul, .gg-drawer ul {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 2.4rem; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2rem; }
+
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -2446,24 +2480,19 @@ html {
 
 body {
   background-color: #ffffff;
-  color: #000000;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.5; }
+  color: #000000; }
 
 a {
   text-decoration: none; }
 
 /**
- * .gg-shadow-low
- * .gg-shadow-high
- * @mixin .gg-transition
+ * %gg-shadow-low
+ * %gg-shadow-high
+ * @mixin gg-transition
+ * @mixin gg-menu-list
  */
-.gg-shadow-low, .gg-appbar, .gg-appbar-menu, .gg-drawer {
+.gg-appbar, .gg-appbar-menu, .gg-drawer {
   box-shadow: 0 0.15em 0.3em 0 rgba(0, 0, 0, 0.16), 0 0.15em 0.6em 0 rgba(0, 0, 0, 0.12); }
-
-.gg-shadow-high {
-  box-shadow: 0 0.3em 0.8em 0 rgba(0, 0, 0, 0.18), 0 0.25em 1em 0 rgba(0, 0, 0, 0.15); }
 
 /*!
  * Waves v0.7.4
@@ -2776,6 +2805,7 @@ body.is-obfuscated {
   opacity: 0;
   background-color: #ffffff;
   color: #95a5a6;
+  font-weight: 400;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-property: visibility, opacity;
@@ -2848,6 +2878,8 @@ body.is-obfuscated {
     margin: 0;
     padding: 8px 0;
     list-style: none; }
+    .gg-appbar-menu ul:not(:last-child) {
+      border-bottom: 1px solid #eeeeee; }
     .gg-appbar-menu ul li {
       display: block;
       margin: 0;
@@ -2869,6 +2901,8 @@ body.is-obfuscated {
         -webkit-flex-grow: 1;
             -ms-flex-positive: 1;
                 flex-grow: 1; }
+      .gg-appbar-menu ul a span:last-child {
+        padding-left: 16px; }
 
 /**
  * .gg-drawer
@@ -2891,7 +2925,7 @@ body.is-obfuscated {
   overflow-y: auto;
   width: 240px;
   height: 100vh;
-  padding: 16px;
+  padding: 0;
   border-right: 1px solid #ecf0f1;
   background: #ffffff;
   -webkit-transform: translateX(-250px);
@@ -2906,4 +2940,34 @@ body.is-obfuscated {
   .gg-drawer.is-visible {
     -webkit-transform: translateX(0);
             transform: translateX(0); }
+  .gg-drawer ul {
+    width: 100%;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none; }
+    .gg-drawer ul:not(:last-child) {
+      border-bottom: 1px solid #eeeeee; }
+    .gg-drawer ul li {
+      display: block;
+      margin: 0;
+      padding: 0; }
+    .gg-drawer ul a {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+      padding: 0 16px;
+      color: #424242; }
+      .gg-drawer ul a:hover {
+        color: #424242; }
+      .gg-drawer ul a:active, .gg-drawer ul a:focus {
+        color: #000000; }
+      .gg-drawer ul a span {
+        line-height: 4.8rem; }
+      .gg-drawer ul a span:first-child {
+        width: 56px; }
+      .gg-drawer ul a span:last-child {
+        -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1; }
 /*# sourceMappingURL=gg11.prefixed.css.map */

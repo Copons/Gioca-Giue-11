@@ -5,34 +5,35 @@
 
 
 
- .gg-drawer {
-   display: flex;
-   flex-direction: column;
-   flex-wrap: nowrap;
-   position: fixed;
-   top: 0;
-   left: 0;
-   z-index: z(raised);
-   overflow: visible;
-   overflow-y: auto;
+.gg-drawer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: z(raised);
+  overflow: visible;
+  overflow-y: auto;
 
-   width: size(drawer-width);
-   height: 100vh;
-   padding: size(padding);
+  width: size(drawer-width);
+  height: 100vh;
+  padding: 0;
 
-   border-right: 1px solid color(gray-lighter);
-   background: $body-bg;
-   @extend .gg-shadow-low;
+  border-right: 1px solid color(gray-lighter);
+  background: $body-bg;
+  @extend %gg-shadow-low;
 
-   transform: translateX(- size(drawer-width) - 10px);
-   transform-style: preserve-3d;
-   will-change: transform;
+  transform: translateX(- size(drawer-width) - 10px);
+  transform-style: preserve-3d;
+  will-change: transform;
 
-   @include gg-transition();
-   transition-property: transform;
+  @include gg-transition();
+  transition-property: transform;
 
-   &.is-visible {
-     transform: translateX(0);
-   }
+  &.is-visible {
+    transform: translateX(0);
+  }
 
- }
+  @include gg-menu-list($icon-position : left);
+}

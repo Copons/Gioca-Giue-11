@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font-size: $font-size-root;
+  font-size: $gg-font-size-root;
 }
 
 *,
@@ -18,11 +18,8 @@ html {
 body {
   background-color: $body-bg;
   color: $body-color;
-  font: {
-    family: $font-family-base;
-    size: font-size(base);
-  }
-  line-height: $line-height;
+  @extend %gg-font-body-1-device;
+
 }
 
 a {

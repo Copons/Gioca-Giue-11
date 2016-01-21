@@ -58,6 +58,8 @@ $colors: (
   md-blue:                    #2196f3,
   md-green:                   #4caf50,
 
+  md-gray-200:                #eeeeee,
+  md-gray-600:                #757575,
   md-gray-800:                #424242
 );
 
@@ -75,46 +77,3 @@ $body-color:                  color(black);
 
 $link-color:                  color(primary);
 $link-hover-color:            darken($link-color, 15%);
-
-
-
-
-// Typography
-
-$font-family-sans-serif:      'Open Sans', sans-serif;
-$font-family-serif:           serif;
-$font-family-monospace:       monospace;
-
-
-$font-family-base:            $font-family-sans-serif;
-
-
-$font-size-root:              62.5%;
-
-$font-sizes: (
-  base:                       1.6rem,
-  xs:                         1.2rem,
-  sm:                         1.4rem,
-  lg:                         2.0rem,
-  xl:                         2.4rem,
-
-  h1:                         4.0rem,
-  h2:                         3.2rem,
-  h3:                         2.8rem,
-  h4:                         2.4rem,
-  h5:                         2.0rem,
-  h6:                         1.6rem
-);
-
-@function font-size($size) {
-  @return map-get($font-sizes, $size);
-}
-
-
-$line-height:                 1.5;
-
-$headings-margin-bottom:      0.5rem;
-$headings-font-weight:        700;
-$headings-line-height:        1.1;
-
-$text-muted:                  color(gray-light);
