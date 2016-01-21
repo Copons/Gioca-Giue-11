@@ -2825,9 +2825,9 @@ body.is-obfuscated {
     flex-grow: 1;
     height: 24px;
     margin: 16px;
-    font-size: 2.0rem;
-    font-weight: bold;
-    line-height: 2.4rem; }
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit; }
 
 .gg-searchbar {
   display: flex;
