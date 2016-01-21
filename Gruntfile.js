@@ -1,5 +1,6 @@
 var JSLIBS = [
-  'dev/js/libs/jquery-1.12.0.js',
+  //'dev/js/libs/jquery-1.12.0.js',
+  'dev/js/libs/jquery-3.0.0-beta1.js',
   'dev/js/libs/waves.js',
   'dev/js/libs/hammer.js',
   'dev/js/libs/perfect-scrollbar.js'

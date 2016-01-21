@@ -31,6 +31,7 @@
 
   // Swipe the drawer
 
+  delete Hammer.defaults.cssProps.userSelect;
   var drawerSwipe = new Hammer($ggLayout[0]);
 
   drawerSwipe.on('swipeleft', function () {

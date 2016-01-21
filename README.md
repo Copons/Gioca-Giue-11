@@ -6,7 +6,7 @@ You can check the development progress over in the [kitchen sink](http://giocagi
 
 ## Thanks and stuff
 
-- **jQuery v1.12.0** as per WordPress 4.4.1
+- **jQuery v3.0.0-beta1** because a beta is totally cool for production use!
 - **normalize.css v3.0.3** because how can we live without it
 - **Material Design Lite v1.0.6** for stolen code and inspiration
 - **Bootstrap v4** for stolen code
