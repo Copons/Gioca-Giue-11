@@ -1,3 +1,12 @@
+var JSLIBS = [
+  'dev/js/libs/jquery-1.12.0.js',
+  'dev/js/libs/waves.js',
+  'dev/js/libs/hammer.js',
+  'dev/js/libs/perfect-scrollbar.js'
+];
+
+
+
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
@@ -42,7 +51,12 @@ module.exports = function(grunt) {
       options : {
         sourceMap : true
       },
-      dist : {
+      libs : {
+        files : {
+          'dev/js/bundle/gg11-libs.min.js' : JSLIBS
+        }
+      },
+      scripts : {
         files : {
           'dev/js/bundle/gg11.min.js' : [
             'dev/js/plugins/*.js',
@@ -71,13 +85,18 @@ module.exports = function(grunt) {
         files : ['dev/scss/**/*.scss'],
         tasks : ['sass', 'autoprefixer', 'cssmin']
       },
-      scripts : {
+      libs : {
         files : [
           'dev/js/libs/**/*.js',
+        ],
+        tasks : ['uglify:libs']
+      },
+      scripts : {
+        files : [
           'dev/js/plugins/**/*.js',
           'dev/js/*.js'
         ],
-        tasks: ['uglify']
+        tasks : ['uglify:scripts']
       },
     }
 
