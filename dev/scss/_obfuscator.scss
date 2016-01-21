@@ -1,16 +1,17 @@
 /**
  * .gg-obfuscator
+ * body.is-obfuscated
  */
 
 
 
 
 .gg-obfuscator {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100%;
   z-index: z(raised) - 1;
   visibility: hidden;
 
@@ -24,4 +25,10 @@
     visibility: visible;
   }
 
+}
+
+
+
+body.is-obfuscated {
+  overflow: hidden;
 }

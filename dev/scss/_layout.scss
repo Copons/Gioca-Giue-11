@@ -10,6 +10,9 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 200vh;
+  min-height: 100vh;
   -webkit-overflow-scrolling: touch;
+
+  /* FOR TESTING PURPOSES ONLY */
+  height: 200vh;
 }

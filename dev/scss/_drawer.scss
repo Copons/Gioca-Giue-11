@@ -9,7 +9,7 @@
    display: flex;
    flex-direction: column;
    flex-wrap: nowrap;
-   position: absolute;
+   position: fixed;
    top: 0;
    left: 0;
    z-index: z(raised);
@@ -18,7 +18,6 @@
 
    width: size(drawer-width);
    height: 100vh;
-   max-height: 100vh;
    padding: size(padding);
 
    border-right: 1px solid color(gray-lighter);

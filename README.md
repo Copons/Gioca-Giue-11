@@ -1,5 +1,9 @@
 # GG11
 
+Gioca Giuè's eleventh restyle, this time in full Material Design, but rewritten from scratch just for fun!
+
+You can check the development progress over in the [kitchen sink](http://giocagiue.it/gg11/), that should be updated every day (when I commit something new of course).
+
 ## Thanks and stuff
 
 - **jQuery v1.12.0** as per WordPress 4.4.1
@@ -9,3 +13,5 @@
 - **Font Awesome v4.5.0** totally cool iconset
 - **Waves v0.7.4** awesome ripple effect
 - **[Marius Craciunoiu](https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c#.5nh4muiku)**'s headroom-like implementation
+- **Hammer.js v2.0.6** for touch gestures
+- **perfect-scrollbar v0.6.8** for perfect scrollbars

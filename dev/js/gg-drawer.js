@@ -5,6 +5,7 @@
   var $ggDrawer = $('.gg-drawer');
   var $ggDrawerToggle = $('.gg-drawer-toggle');
   var $ggObfuscator = $('.gg-obfuscator');
+  var $body = $('body');
 
 
 
@@ -15,12 +16,14 @@
     event.preventDefault();
     $ggDrawer.ggToggle();
     $ggObfuscator.ggToggle();
+    $body.toggleClass('is-obfuscated');
   });
 
   $ggObfuscator.on('click', function (event) {
     event.preventDefault();
     $ggDrawer.ggToggle('hide');
     $ggObfuscator.ggToggle('hide');
+    $body.removeClass('is-obfuscated');
   });
 
 
@@ -28,12 +31,13 @@
 
   // Swipe the drawer
 
-  var drawerSwipe = new Hammer($(document)[0]);
+  var drawerSwipe = new Hammer($ggLayout[0]);
 
   drawerSwipe.on('swipeleft', function () {
     if ($ggDrawer.hasClass('is-visible')) {
       $ggDrawer.ggToggle('hide');
       $ggObfuscator.ggToggle('hide');
+      $body.removeClass('is-obfuscated');
     }
   });
 
@@ -41,7 +45,14 @@
     if (!$ggDrawer.hasClass('is-visible')) {
       $ggDrawer.ggToggle('show');
       $ggObfuscator.ggToggle('show');
+      $body.addClass('is-obfuscated');
     }
   });
+
+
+
+  // Add the scrollbar to the drawer
+
+  Ps.initialize($ggDrawer[0]);
 
 }(jQuery));
