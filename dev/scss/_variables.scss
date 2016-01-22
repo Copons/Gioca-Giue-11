@@ -1,6 +1,6 @@
 // Metrics
 
-$sizes: (
+$gg-sizes: (
   margin:                     8px,
   padding:                    16px,
   border-radius:              2px,
@@ -13,7 +13,7 @@ $sizes: (
 );
 
 @function gg-size ($index) {
-  @return map-get($sizes, $index);
+  @return map-get($gg-sizes, $index);
 }
 @function gg-sub ($param1, $param2) {
   @return calc(#{$param1} - #{$param2});
@@ -24,14 +24,14 @@ $sizes: (
 
 // Z Index
 
-$z-indexes: (
+$gg-z-indexes: (
   raised:                     5,
   popup:                      100,
   modal:                      500
 );
 
 @function gg-z ($index) {
-  @return map-get($z-indexes, $index);
+  @return map-get($gg-z-indexes, $index);
 }
 
 
@@ -39,7 +39,7 @@ $z-indexes: (
 
 // Colors
 
-$grayscale: (
+$gg-colors-grayscale: (
   black:                      #000000,
   gray-dark:                  #7f8c8d,
   gray:                       #95a5a6,
@@ -48,13 +48,7 @@ $grayscale: (
   white:                      #ffffff
 );
 
-$colors: (
-  primary:                    #2980b9,
-  success:                    #2ecc71,
-  info:                       #3498db,
-  warning:                    #f39c12,
-  danger:                     #e74c3c,
-
+$gg-colors: (
   gg-sky:                     #7ebbe7,
   gg-aqua:                    #2f9b96,
   gg-orange:                  #ff5b09,
@@ -72,16 +66,23 @@ $colors: (
 );
 
 @function gg-color($color) {
-  @if map-has-key($colors, $color) {
-    @return map-get($colors, $color);
+  @if map-has-key($gg-colors, $color) {
+    @return map-get($gg-colors, $color);
   }
-  @else if map-has-key($grayscale, $color) {
-    @return map-get($grayscale, $color);
+  @else if map-has-key($gg-colors-grayscale, $color) {
+    @return map-get($gg-colors-grayscale, $color);
   }
 }
+
+$gg-color-primary:            gg-color(md-deep-orange);
+$gg-color-muted:              gg-color(md-gray-600);
+$gg-color-body-background:    gg-color(white);
+$gg-color-text:               gg-color(md-gray-800);
+$gg-color-link:               gg-color(md-deep-orange);
+$gg-color-link-hover:         gg-color(md-orange);
 
 $body-bg:                     gg-color(white);
 $body-color:                  gg-color(black);
 
-$link-color:                  gg-color(primary);
+$link-color:                  gg-color(md-deep-orange);
 $link-hover-color:            darken($link-color, 15%);

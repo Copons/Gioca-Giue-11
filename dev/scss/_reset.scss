@@ -16,8 +16,8 @@ html {
 }
 
 body {
-  background-color: $body-bg;
-  color: $body-color;
+  background-color: $gg-color-body-background;
+  color: $gg-color-text;
   @extend %gg-font-body-1-device;
 
 }

@@ -46,9 +46,9 @@
 
 .gg-appbar {
   display: flex;
-  background-color: gg-color(gg-orange);
+  background-color: $gg-color-primary;
   @extend %gg-shadow-low;
-  color: $body-bg;
+  color: $gg-color-body-background;
 
   h1 {
     flex-grow: 1;
@@ -66,8 +66,8 @@
   display: flex;
   visibility: hidden;
   opacity: 0;
-  background-color: $body-bg;
-  color: gg-color(gray);
+  background-color: $gg-color-body-background;
+  color: $gg-color-muted;
   font-weight: 400;
 
   @include gg-transition();
@@ -90,7 +90,7 @@
       padding: 0;
       border: none;
       outline: 0;
-      color: $body-color;
+      color: $gg-color-text;
       font-size: 2.0rem;
       line-height: 2.4rem;
     }
@@ -122,17 +122,17 @@
 
 
 .gg-appbar-icon {
-  color: $body-bg;
+  color: $gg-color-body-background;
   &:hover, &:active, &:visited {
-    color: $body-bg;
+    color: $gg-color-body-background;
   }
 }
 
 
 .gg-searchbar-icon {
-  color: gg-color(gray);
+  color: $gg-color-muted;
   &:hover, &:active, &:visited {
-    color: gg-color(gray);
+    color: $gg-color-muted;
   }
 }
 
@@ -148,7 +148,7 @@
   z-index: gg-z(raised);
   visibility: hidden;
   opacity: 0;
-  background: $body-bg;
+  background: $gg-color-body-background;
   @extend %gg-shadow-low;
 
   @include gg-transition();

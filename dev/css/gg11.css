@@ -2479,7 +2479,7 @@ html {
 
 body {
   background-color: #ffffff;
-  color: #000000; }
+  color: #424242; }
 
 a {
   text-decoration: none; }
@@ -2822,7 +2822,7 @@ body.is-obfuscated {
 
 .gg-appbar {
   display: flex;
-  background-color: #ff5b09;
+  background-color: #ff5722;
   color: #ffffff; }
   .gg-appbar h1 {
     flex-grow: 1;
@@ -2837,7 +2837,7 @@ body.is-obfuscated {
   visibility: hidden;
   opacity: 0;
   background-color: #ffffff;
-  color: #95a5a6;
+  color: #757575;
   font-weight: 400;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -2856,7 +2856,7 @@ body.is-obfuscated {
       padding: 0;
       border: none;
       outline: 0;
-      color: #000000;
+      color: #424242;
       font-size: 2.0rem;
       line-height: 2.4rem; }
   .gg-searchbar .gg-searchbar-cancel {
@@ -2882,9 +2882,9 @@ body.is-obfuscated {
     color: #ffffff; }
 
 .gg-searchbar-icon {
-  color: #95a5a6; }
+  color: #757575; }
   .gg-searchbar-icon:hover, .gg-searchbar-icon:active, .gg-searchbar-icon:visited {
-    color: #95a5a6; }
+    color: #757575; }
 
 .gg-appbar-menu {
   display: flex;
@@ -2988,13 +2988,17 @@ body.is-obfuscated {
  * .gg-cards
  */
 .gg-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: calc(50% - 16px);
   margin: 8px;
   border-radius: 2px;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-property: box-shadow; }
+  .gg-card .gg-card-media {
+    width: 100%;
+    padding-bottom: 56.25%; }
 
 .gg-cards {
   display: flex;
