@@ -41,6 +41,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  line-height: 2.4rem;
 }
 
 
@@ -108,15 +109,7 @@
 
 .gg-appbar-icon,
 .gg-searchbar-icon {
-  position: relative;
-  width: gg-size(icon);
-  height: gg-size(icon);
-  margin: gg-size(padding) / 4;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-  line-height: gg-size(icon);
-  text-align: center;
+  @extend %gg-icon;
 }
 
 

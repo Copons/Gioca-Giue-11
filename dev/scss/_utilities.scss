@@ -39,7 +39,7 @@
 
     @extend %gg-font-body-2-device;
 
-    &:not(:last-child) {
+    &:not(:last-of-type) {
       border-bottom: 1px solid gg-color(md-gray-200);
     }
 

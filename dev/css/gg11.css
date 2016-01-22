@@ -2706,7 +2706,9 @@ body.is-obfuscated {
 
 /**
  * %gg-button
+ * %gg-icon
  * .gg-button-flat
+ * .gg-icon-flat
  */
 .gg-button-flat {
   display: inline-block;
@@ -2716,6 +2718,24 @@ body.is-obfuscated {
   padding: 0 8px;
   border-radius: 2px;
   line-height: 36px;
+  text-align: center;
+  transition-property: background-color;
+  will-change: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  cursor: pointer; }
+
+.gg-icon-flat, .gg-appbar-icon,
+.gg-searchbar-icon {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 4px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  line-height: 48px;
+  text-align: center;
   transition-property: background-color;
   will-change: background-color;
   transition-duration: 0.2s;
@@ -2723,6 +2743,9 @@ body.is-obfuscated {
   cursor: pointer; }
 
 .gg-button-flat:hover {
+  background-color: rgba(158, 158, 158, 0.2); }
+
+.gg-icon-flat:hover {
   background-color: rgba(158, 158, 158, 0.2); }
 
 /**
@@ -2757,7 +2780,8 @@ body.is-obfuscated {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; }
+  width: 100%;
+  line-height: 2.4rem; }
 
 .gg-appbar {
   display: flex;
@@ -2804,18 +2828,6 @@ body.is-obfuscated {
     .gg-searchbar .gg-searchbar-cancel.is-visible {
       visibility: visible; }
 
-.gg-appbar-icon,
-.gg-searchbar-icon {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  margin: 4px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-  line-height: 48px;
-  text-align: center; }
-
 .gg-appbar-icon {
   color: #ffffff; }
   .gg-appbar-icon:hover, .gg-appbar-icon:active, .gg-appbar-icon:visited {
@@ -2848,7 +2860,7 @@ body.is-obfuscated {
     margin: 0;
     padding: 8px 0;
     list-style: none; }
-    .gg-appbar-menu ul:not(:last-child) {
+    .gg-appbar-menu ul:not(:last-of-type) {
       border-bottom: 1px solid #eeeeee; }
     .gg-appbar-menu ul li {
       display: block;
@@ -2902,7 +2914,7 @@ body.is-obfuscated {
     margin: 0;
     padding: 8px 0;
     list-style: none; }
-    .gg-drawer ul:not(:last-child) {
+    .gg-drawer ul:not(:last-of-type) {
       border-bottom: 1px solid #eeeeee; }
     .gg-drawer ul li {
       display: block;
@@ -2961,15 +2973,36 @@ body.is-obfuscated {
       font-weight: 400;
       line-height: 2rem; }
   .gg-card .gg-card-text {
-    padding: 16px; }
+    padding: 16px;
+    padding-top: 0; }
+    .gg-card .gg-card-text:last-child {
+      padding-top: 16px;
+      padding-bottom: 24px; }
   .gg-card .gg-card-actions {
-    padding: 0 8px 16px 8px; }
-    .gg-card .gg-card-actions .gg-button-flat {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    border-top: 1px solid #eeeeee; }
+    .gg-card .gg-card-actions .gg-card-action-buttons {
+      flex-grow: 1; }
+    .gg-card .gg-card-actions .gg-card-action-icons {
+      font-size: 2rem; }
+    .gg-card .gg-card-actions .gg-button-flat,
+    .gg-card .gg-card-actions .gg-icon-flat {
       color: #ff5722; }
-      .gg-card .gg-card-actions .gg-button-flat:hover {
+      .gg-card .gg-card-actions .gg-button-flat:hover,
+      .gg-card .gg-card-actions .gg-icon-flat:hover {
         color: #ff5722; }
-      .gg-card .gg-card-actions .gg-button-flat:active, .gg-card .gg-card-actions .gg-button-flat:focus {
+      .gg-card .gg-card-actions .gg-button-flat:active, .gg-card .gg-card-actions .gg-button-flat:focus,
+      .gg-card .gg-card-actions .gg-icon-flat:active,
+      .gg-card .gg-card-actions .gg-icon-flat:focus {
         color: #ff9800; }
+    .gg-card .gg-card-actions .gg-icon-flat {
+      width: 36px;
+      height: 36px;
+      margin: 8px;
+      line-height: 36px; }
 
 .gg-cards {
   display: flex;
@@ -2980,7 +3013,9 @@ body.is-obfuscated {
 
 /**
  * %gg-button
+ * %gg-icon
  * .gg-button-flat
+ * .gg-icon-flat
  */
 .gg-button-flat {
   display: inline-block;
@@ -2990,6 +3025,24 @@ body.is-obfuscated {
   padding: 0 8px;
   border-radius: 2px;
   line-height: 36px;
+  text-align: center;
+  transition-property: background-color;
+  will-change: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  cursor: pointer; }
+
+.gg-icon-flat, .gg-appbar-icon,
+.gg-searchbar-icon {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 4px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  line-height: 48px;
+  text-align: center;
   transition-property: background-color;
   will-change: background-color;
   transition-duration: 0.2s;
@@ -2997,6 +3050,9 @@ body.is-obfuscated {
   cursor: pointer; }
 
 .gg-button-flat:hover {
+  background-color: rgba(158, 158, 158, 0.2); }
+
+.gg-icon-flat:hover {
   background-color: rgba(158, 158, 158, 0.2); }
 
 /*# sourceMappingURL=gg11.css.map */

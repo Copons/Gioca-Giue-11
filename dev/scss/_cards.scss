@@ -45,12 +45,30 @@
 
   .gg-card-text {
     padding: gg-size(padding);
+    padding-top: 0;
     @extend %gg-font-body-1-device;
+    &:last-child {
+      padding-top: gg-size(padding);
+      padding-bottom: gg-size(padding) + gg-size(margin);
+    }
   }
 
   .gg-card-actions {
-    padding: 0 gg-size(margin) gg-size(padding) gg-size(margin);
-    .gg-button-flat {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    border-top: 1px solid gg-color(md-gray-200);
+
+    .gg-card-action-buttons {
+      flex-grow: 1;
+    }
+    .gg-card-action-icons {
+      font-size: gg-font-size(title);
+    }
+
+    .gg-button-flat,
+    .gg-icon-flat {
       color: $gg-color-link;
       &:hover {
         color: $gg-color-link;
@@ -58,6 +76,12 @@
       &:active, &:focus {
         color: $gg-color-link-hover;
       }
+    }
+    .gg-icon-flat {
+      width: gg-size(button-height);
+      height: gg-size(button-height);
+      margin: gg-size(margin);
+      line-height: gg-size(button-height);
     }
   }
 
