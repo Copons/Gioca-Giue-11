@@ -2490,8 +2490,11 @@ a {
  * @mixin gg-transition
  * @mixin gg-menu-list
  */
-.gg-appbar, .gg-appbar-menu, .gg-drawer {
+.gg-appbar, .gg-appbar-menu, .gg-drawer, .gg-card {
   box-shadow: 0 0.15em 0.3em 0 rgba(0, 0, 0, 0.16), 0 0.15em 0.6em 0 rgba(0, 0, 0, 0.12); }
+
+.gg-card:hover {
+  box-shadow: 0 0.3em 0.8em 0 rgba(0, 0, 0, 0.18), 0 0.25em 1em 0 rgba(0, 0, 0, 0.15); }
 
 /*!
  * Waves v0.7.4
@@ -2759,9 +2762,8 @@ a.waves-effect .waves-ripple {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  -webkit-overflow-scrolling: touch;
-  /* FOR TESTING PURPOSES ONLY */
-  height: 200vh; }
+  padding-top: 112px;
+  -webkit-overflow-scrolling: touch; }
 
 /**
  * .gg-obfuscator
@@ -2797,6 +2799,7 @@ body.is-obfuscated {
 .gg-header {
   position: fixed;
   top: -70px;
+  left: 0;
   width: 100%;
   height: 56px;
   margin: 0;
@@ -2851,15 +2854,15 @@ body.is-obfuscated {
       display: block;
       width: 100%;
       padding: 0;
-      border: 0;
+      border: none;
       outline: 0;
       color: #000000;
       font-size: 2.0rem;
       line-height: 2.4rem; }
   .gg-searchbar .gg-searchbar-cancel {
-    display: none; }
+    visibility: hidden; }
     .gg-searchbar .gg-searchbar-cancel.is-visible {
-      display: block; }
+      visibility: visible; }
 
 .gg-appbar-icon,
 .gg-searchbar-icon {
@@ -2940,7 +2943,8 @@ body.is-obfuscated {
   overflow: visible;
   overflow-y: auto;
   width: 240px;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   padding: 0;
   border-right: 1px solid #ecf0f1;
   background: #ffffff;
@@ -2978,5 +2982,25 @@ body.is-obfuscated {
         width: 56px; }
       .gg-drawer ul a span:last-child {
         flex-grow: 1; }
+
+/**
+ * .gg-card
+ * .gg-cards
+ */
+.gg-card {
+  display: block;
+  width: calc(50% - 16px);
+  margin: 8px;
+  border-radius: 2px;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: box-shadow; }
+
+.gg-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 700px;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=gg11.css.map */

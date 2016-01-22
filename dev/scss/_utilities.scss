@@ -9,12 +9,12 @@
 
 
 %gg-shadow-low {
-  box-shadow: 0 0.15em 0.3em 0 rgba(color(black), 0.16),
-              0 0.15em 0.6em 0 rgba(color(black), 0.12);
+  box-shadow: 0 0.15em 0.3em 0 rgba(gg-color(black), 0.16),
+              0 0.15em 0.6em 0 rgba(gg-color(black), 0.12);
 }
 %gg-shadow-high {
-  box-shadow: 0 0.3em 0.8em 0 rgba(color(black), 0.18),
-              0 0.25em 1em 0 rgba(color(black), 0.15);
+  box-shadow: 0 0.3em 0.8em 0 rgba(gg-color(black), 0.18),
+              0 0.25em 1em 0 rgba(gg-color(black), 0.15);
 }
 
 
@@ -38,7 +38,7 @@
     @extend %gg-font-body-2-device;
 
     &:not(:last-child) {
-      border-bottom: 1px solid color(md-gray-200);
+      border-bottom: 1px solid gg-color(md-gray-200);
     }
 
     li {
@@ -50,9 +50,9 @@
       display: flex;
       width: 100%;
       padding: 0 16px;
-      color: color(md-gray-800);
+      color: gg-color(md-gray-800);
       &:hover {
-        color: color(md-gray-800);
+        color: gg-color(md-gray-800);
       }
       &:active, &:focus {
         color: $body-color;

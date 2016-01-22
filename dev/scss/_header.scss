@@ -13,8 +13,9 @@
 .gg-header {
   position: fixed;
   top: -70px;
+  left: 0;
   width: 100%;
-  height: 56px;
+  height: gg-size(header-height-portrait);
   margin: 0;
 
   @extend %gg-font-title;
@@ -45,14 +46,14 @@
 
 .gg-appbar {
   display: flex;
-  background-color: color(gg-orange);
+  background-color: gg-color(gg-orange);
   @extend %gg-shadow-low;
   color: $body-bg;
 
   h1 {
     flex-grow: 1;
     height: 24px;
-    margin: size(padding);
+    margin: gg-size(padding);
 
     font-size: inherit;
     font-weight: inherit;
@@ -66,7 +67,7 @@
   visibility: hidden;
   opacity: 0;
   background-color: $body-bg;
-  color: color(gray);
+  color: gg-color(gray);
   font-weight: 400;
 
   @include gg-transition();
@@ -81,13 +82,13 @@
   form {
     flex-grow: 1;
     height: 24px;
-    margin: size(padding);
+    margin: gg-size(padding);
 
     input {
       display: block;
       width: 100%;
       padding: 0;
-      border: 0;
+      border: none;
       outline: 0;
       color: $body-color;
       font-size: 2.0rem;
@@ -96,9 +97,9 @@
   }
 
   .gg-searchbar-cancel {
-    display: none;
+    visibility: hidden;
     &.is-visible {
-      display: block;
+      visibility: visible;
     }
   }
 }
@@ -109,13 +110,13 @@
 .gg-appbar-icon,
 .gg-searchbar-icon {
   position: relative;
-  width: size(icon);
-  height: size(icon);
-  margin: size(padding) / 4;
+  width: gg-size(icon);
+  height: gg-size(icon);
+  margin: gg-size(padding) / 4;
   padding: 0;
   overflow: hidden;
   border-radius: 50%;
-  line-height: size(icon);
+  line-height: gg-size(icon);
   text-align: center;
 }
 
@@ -129,9 +130,9 @@
 
 
 .gg-searchbar-icon {
-  color: color(gray);
+  color: gg-color(gray);
   &:hover, &:active, &:visited {
-    color: color(gray);
+    color: gg-color(gray);
   }
 }
 
@@ -141,10 +142,10 @@
 .gg-appbar-menu {
   display: flex;
   position: absolute;
-  top: size(padding) / 4;
-  right: size(padding) / 4;
+  top: gg-size(padding) / 4;
+  right: gg-size(padding) / 4;
   width: 200px;
-  z-index: z(raised);
+  z-index: gg-z(raised);
   visibility: hidden;
   opacity: 0;
   background: $body-bg;

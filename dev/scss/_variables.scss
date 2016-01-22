@@ -1,14 +1,22 @@
 // Metrics
 
 $sizes: (
+  margin:                     8px,
   padding:                    16px,
+  border-radius:              2px,
   title-left-padding:         72px,
   drawer-width:               240px,
-  icon:                       48px
+  icon:                       48px,
+  header-height-landscape:    48px,
+  header-height-portrait:     56px,
+  header-height-desktop:      64px
 );
 
-@function size($index) {
+@function gg-size ($index) {
   @return map-get($sizes, $index);
+}
+@function gg-sub ($param1, $param2) {
+  @return calc(#{$param1} - #{$param2});
 }
 
 
@@ -22,7 +30,7 @@ $z-indexes: (
   modal:                      500
 );
 
-@function z($index) {
+@function gg-z ($index) {
   @return map-get($z-indexes, $index);
 }
 
@@ -63,7 +71,7 @@ $colors: (
   md-gray-800:                #424242
 );
 
-@function color($color) {
+@function gg-color($color) {
   @if map-has-key($colors, $color) {
     @return map-get($colors, $color);
   }
@@ -72,8 +80,8 @@ $colors: (
   }
 }
 
-$body-bg:                     color(white);
-$body-color:                  color(black);
+$body-bg:                     gg-color(white);
+$body-color:                  gg-color(black);
 
-$link-color:                  color(primary);
+$link-color:                  gg-color(primary);
 $link-hover-color:            darken($link-color, 15%);

@@ -11,8 +11,6 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
+  padding-top: gg-size(header-height-portrait) * 2;
   -webkit-overflow-scrolling: touch;
-
-  /* FOR TESTING PURPOSES ONLY */
-  height: 200vh;
 }

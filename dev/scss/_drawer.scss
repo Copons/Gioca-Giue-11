@@ -12,19 +12,20 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: z(raised);
+  z-index: gg-z(raised);
   overflow: visible;
   overflow-y: auto;
 
-  width: size(drawer-width);
-  height: 100vh;
+  width: gg-size(drawer-width);
+  height: 100%;
+  min-height: 100vh;
   padding: 0;
 
-  border-right: 1px solid color(gray-lighter);
+  border-right: 1px solid gg-color(gray-lighter);
   background: $body-bg;
   @extend %gg-shadow-low;
 
-  transform: translateX(- size(drawer-width) - 10px);
+  transform: translateX(- gg-size(drawer-width) - 10px);
   transform-style: preserve-3d;
   will-change: transform;
 
@@ -36,4 +37,5 @@
   }
 
   @include gg-menu-list($icon-position : left);
+
 }
