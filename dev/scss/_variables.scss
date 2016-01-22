@@ -9,7 +9,9 @@ $gg-sizes: (
   icon:                       48px,
   header-height-landscape:    48px,
   header-height-portrait:     56px,
-  header-height-desktop:      64px
+  header-height-desktop:      64px,
+  button-width:               64px,
+  button-height:              36px
 );
 
 @function gg-size ($index) {

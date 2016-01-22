@@ -1,0 +1,76 @@
+/**
+ * .gg-card
+ * .gg-cards
+ */
+
+
+
+
+.gg-card {
+  display: flex;
+  flex-direction: column;
+  width: gg-sub(50%, gg-size(margin) * 2);
+  margin: gg-size(margin);
+  border-radius: gg-size(border-radius);
+  @extend %gg-shadow-low;
+
+  @include gg-transition();
+  transition-property: box-shadow;
+
+  &:hover {
+    @extend %gg-shadow-high;
+  }
+
+  .gg-card-media {
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9
+    background-color: $gg-color-muted; // DEV
+  }
+
+  .gg-card-headline {
+    margin: 0;
+    padding: gg-size(padding);
+
+    .gg-card-title {
+      margin: 0;
+      padding-top: gg-size(margin);
+      @include gg-font($gg-font-family, headline, 400, 1);
+    }
+    .gg-card-subtitle {
+      margin: 0;
+      padding-top: gg-font-size(headline) / 2;
+      color: $gg-color-muted;
+      @include gg-font($gg-font-family, body-device, 400, 1);
+    }
+  }
+
+  .gg-card-text {
+    padding: gg-size(padding);
+    @extend %gg-font-body-1-device;
+  }
+
+  .gg-card-actions {
+    padding: 0 gg-size(margin) gg-size(padding) gg-size(margin);
+    .gg-button-flat {
+      color: $gg-color-link;
+      &:hover {
+        color: $gg-color-link;
+      }
+      &:active, &:focus {
+        color: $gg-color-link-hover;
+      }
+    }
+  }
+
+}
+
+
+
+
+.gg-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 700px; // DEV
+  margin: 0 auto;
+}

@@ -1,0 +1,29 @@
+/**
+ * %gg-button
+ * .gg-button-flat
+ */
+
+
+
+
+%gg-button {
+  display: inline-block;
+  min-width: gg-size(button-width);
+  height: gg-size(button-height);
+  margin: gg-size(margin);
+  padding: 0 gg-size(margin);
+  border-radius: gg-size(border-radius);
+  @extend %gg-font-button;
+  line-height: gg-size(button-height);
+  cursor: pointer;
+  &:hover {
+    line-height: gg-size(button-height); // fixes waves-button applying line-height: 1em; on :hover
+  }
+}
+
+
+
+
+.gg-button-flat {
+  @extend %gg-button;
+}

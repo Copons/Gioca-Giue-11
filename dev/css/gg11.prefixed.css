@@ -27,11 +27,17 @@
   font-weight: 600;
   line-height: 2.4rem; }
 
-body {
+body, .gg-card .gg-card-text {
   font-family: "Open Sans", sans-serif;
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 2rem; }
+
+.gg-button-flat {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase; }
 
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -2745,6 +2751,22 @@ body.is-obfuscated {
   overflow: hidden; }
 
 /**
+ * %gg-button
+ * .gg-button-flat
+ */
+.gg-button-flat {
+  display: inline-block;
+  min-width: 64px;
+  height: 36px;
+  margin: 8px;
+  padding: 0 8px;
+  border-radius: 2px;
+  line-height: 36px;
+  cursor: pointer; }
+  .gg-button-flat:hover {
+    line-height: 36px; }
+
+/**
  * .gg-header
  * .gg-appbar
  * .gg-appbar-menu
@@ -2994,7 +3016,34 @@ body.is-obfuscated {
   transition-property: box-shadow; }
   .gg-card .gg-card-media {
     width: 100%;
-    padding-bottom: 56.25%; }
+    padding-bottom: 56.25%;
+    background-color: #757575; }
+  .gg-card .gg-card-headline {
+    margin: 0;
+    padding: 16px; }
+    .gg-card .gg-card-headline .gg-card-title {
+      margin: 0;
+      padding-top: 8px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 2.4rem;
+      font-weight: 400; }
+    .gg-card .gg-card-headline .gg-card-subtitle {
+      margin: 0;
+      padding-top: 1.2rem;
+      color: #757575;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 400; }
+  .gg-card .gg-card-text {
+    padding: 16px; }
+  .gg-card .gg-card-actions {
+    padding: 0 8px 16px 8px; }
+    .gg-card .gg-card-actions .gg-button-flat {
+      color: #ff5722; }
+      .gg-card .gg-card-actions .gg-button-flat:hover {
+        color: #ff5722; }
+      .gg-card .gg-card-actions .gg-button-flat:active, .gg-card .gg-card-actions .gg-button-flat:focus {
+        color: #ff9800; }
 
 .gg-cards {
   display: -webkit-flex;
@@ -3008,4 +3057,20 @@ body.is-obfuscated {
           flex-wrap: wrap;
   width: 700px;
   margin: 0 auto; }
+
+/**
+ * %gg-button
+ * .gg-button-flat
+ */
+.gg-button-flat {
+  display: inline-block;
+  min-width: 64px;
+  height: 36px;
+  margin: 8px;
+  padding: 0 8px;
+  border-radius: 2px;
+  line-height: 36px;
+  cursor: pointer; }
+  .gg-button-flat:hover {
+    line-height: 36px; }
 /*# sourceMappingURL=gg11.prefixed.css.map */
