@@ -27,10 +27,8 @@
 
   transform: translateX(- gg-size(drawer-width) - 10px);
   transform-style: preserve-3d;
-  will-change: transform;
 
-  @include gg-transition();
-  transition-property: transform;
+  @include gg-transition('transform');
 
   &.is-visible {
     transform: translateX(0);

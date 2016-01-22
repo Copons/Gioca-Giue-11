@@ -63,6 +63,7 @@ $gg-colors: (
   md-green:                   #4caf50,
 
   md-gray-200:                #eeeeee,
+  md-gray-500:                #9e9e9e,
   md-gray-600:                #757575,
   md-gray-800:                #424242
 );
@@ -77,7 +78,7 @@ $gg-colors: (
 }
 
 $gg-color-primary:            gg-color(md-deep-orange);
-$gg-color-muted:              gg-color(md-gray-600);
+$gg-color-muted:              gg-color(md-gray-500);
 $gg-color-body-background:    gg-color(white);
 $gg-color-text:               gg-color(md-gray-800);
 $gg-color-link:               gg-color(md-deep-orange);

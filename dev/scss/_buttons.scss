@@ -15,10 +15,8 @@
   border-radius: gg-size(border-radius);
   @extend %gg-font-button;
   line-height: gg-size(button-height);
+  @include gg-transition('background-color');
   cursor: pointer;
-  &:hover {
-    line-height: gg-size(button-height); // fixes waves-button applying line-height: 1em; on :hover
-  }
 }
 
 
@@ -26,4 +24,7 @@
 
 .gg-button-flat {
   @extend %gg-button;
+  &:hover {
+    background-color: rgba(gg-color(md-gray-500), 0.2);
+  }
 }

@@ -27,7 +27,7 @@
   font-weight: 600;
   line-height: 2.4rem; }
 
-body, .gg-card .gg-card-text {
+.gg-card .gg-card-text {
   font-family: "Open Sans", sans-serif;
   font-size: 1.4rem;
   font-weight: 400;
@@ -2517,9 +2517,9 @@ a {
   display: inline-block;
   overflow: hidden;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -webkit-tap-highlight-color: transparent; }
   .waves-effect .waves-ripple {
     position: absolute;
@@ -2529,84 +2529,24 @@ a {
     margin-top: -50px;
     margin-left: -50px;
     opacity: 0;
-    background: rgba(0, 0, 0, 0.2);
     background: radial-gradient(rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.5) 60%, rgba(255, 255, 255, 0) 70%);
     transition: all 0.5s ease-out;
     transition-property: -webkit-transform, opacity;
     transition-property: transform, opacity;
     -webkit-transform: scale(0) translate(0, 0);
-    transform: scale(0) translate(0, 0);
+            transform: scale(0) translate(0, 0);
     pointer-events: none; }
   .waves-effect.waves-light .waves-ripple {
-    background: rgba(255, 255, 255, 0.4);
     background: radial-gradient(rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 70%); }
-  .waves-effect.waves-classic .waves-ripple {
-    background: rgba(0, 0, 0, 0.2); }
-  .waves-effect.waves-classic.waves-light .waves-ripple {
-    background: rgba(255, 255, 255, 0.4); }
-
-.waves-notransition {
-  transition: none !important; }
 
 .waves-button,
 .waves-circle {
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%); }
-
-.waves-button,
-.waves-button:hover,
-.waves-button:visited,
-.waves-button-input {
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  color: inherit;
-  background-color: transparent;
-  font-size: 1em;
-  line-height: 1em;
-  text-align: center;
-  text-decoration: none;
-  z-index: 1; }
-
-.waves-button {
-  padding: 0.85em 1.1em;
-  border-radius: 0.2em; }
-
-.waves-button-input {
-  margin: 0;
-  padding: 0.85em 1.1em; }
-
-.waves-input-wrapper {
-  border-radius: 0.2em;
-  vertical-align: bottom; }
-  .waves-input-wrapper.waves-button {
-    padding: 0; }
-  .waves-input-wrapper .waves-button-input {
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 1; }
+          transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, #ffffff 100%, #000000 100%); }
 
 .waves-circle {
-  text-align: center;
   border-radius: 50%; }
-
-.waves-float {
-  -webkit-mask-image: none;
-  box-shadow: 0px 1px 1.5px 1px rgba(0, 0, 0, 0.12);
-  transition: all 300ms; }
-  .waves-float:active {
-    box-shadow: 0px 8px 20px 1px rgba(0, 0, 0, 0.3); }
-
-.waves-block {
-  display: block; }
-
-/* Firefox Bug: link not triggered */
-a.waves-effect .waves-ripple {
-  z-index: -1; }
 
 /* perfect-scrollbar v0.6.8 */
 .ps-container {
@@ -2740,9 +2680,10 @@ a.waves-effect .waves-ripple {
   z-index: 4;
   visibility: hidden;
   background-color: transparent;
+  transition-property: visibility, background-color;
+  will-change: visibility, background-color;
   transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-property: visibility, background-color; }
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
   .gg-obfuscator.is-visible {
     background-color: rgba(0, 0, 0, 0.5);
     visibility: visible; }
@@ -2762,9 +2703,14 @@ body.is-obfuscated {
   padding: 0 8px;
   border-radius: 2px;
   line-height: 36px;
+  transition-property: background-color;
+  will-change: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   cursor: pointer; }
-  .gg-button-flat:hover {
-    line-height: 36px; }
+
+.gg-button-flat:hover {
+  background-color: rgba(158, 158, 158, 0.2); }
 
 /**
  * .gg-header
@@ -2780,10 +2726,12 @@ body.is-obfuscated {
   left: 0;
   width: 100%;
   height: 56px;
+  z-index: 5;
   margin: 0;
+  transition-property: top;
+  will-change: top;
   transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-property: top; }
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
   .gg-header.is-visible {
     top: 0; }
 
@@ -2829,11 +2777,12 @@ body.is-obfuscated {
   visibility: hidden;
   opacity: 0;
   background-color: #ffffff;
-  color: #757575;
+  color: #9e9e9e;
   font-weight: 400;
+  transition-property: visibility, opacity;
+  will-change: visibility, opacity;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-property: visibility, opacity;
   transition-delay: 0s; }
   .gg-searchbar.is-visible {
     visibility: visible;
@@ -2876,9 +2825,9 @@ body.is-obfuscated {
     color: #ffffff; }
 
 .gg-searchbar-icon {
-  color: #757575; }
+  color: #9e9e9e; }
   .gg-searchbar-icon:hover, .gg-searchbar-icon:active, .gg-searchbar-icon:visited {
-    color: #757575; }
+    color: #9e9e9e; }
 
 .gg-appbar-menu {
   display: -webkit-flex;
@@ -2892,9 +2841,10 @@ body.is-obfuscated {
   visibility: hidden;
   opacity: 0;
   background: #ffffff;
+  transition-property: visibility, opacity;
+  will-change: visibility, opacity;
   transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-property: visibility, opacity; }
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
   .gg-appbar-menu.is-visible {
     visibility: visible;
     opacity: 1; }
@@ -2958,11 +2908,11 @@ body.is-obfuscated {
           transform: translateX(-250px);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+  transition-property: -webkit-transform;
+  transition-property: transform;
   will-change: transform;
   transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-property: -webkit-transform;
-  transition-property: transform; }
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
   .gg-drawer.is-visible {
     -webkit-transform: translateX(0);
             transform: translateX(0); }
@@ -3011,13 +2961,14 @@ body.is-obfuscated {
   width: calc(50% - 16px);
   margin: 8px;
   border-radius: 2px;
+  transition-property: box-shadow;
+  will-change: box-shadow;
   transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-property: box-shadow; }
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
   .gg-card .gg-card-media {
     width: 100%;
     padding-bottom: 56.25%;
-    background-color: #757575; }
+    background-color: #9e9e9e; }
   .gg-card .gg-card-headline {
     margin: 0;
     padding: 16px; }
@@ -3026,14 +2977,16 @@ body.is-obfuscated {
       padding-top: 8px;
       font-family: "Open Sans", sans-serif;
       font-size: 2.4rem;
-      font-weight: 400; }
+      font-weight: 400;
+      line-height: 2.4rem; }
     .gg-card .gg-card-headline .gg-card-subtitle {
       margin: 0;
-      padding-top: 1.2rem;
-      color: #757575;
+      padding-top: 0.8rem;
+      color: #9e9e9e;
       font-family: "Open Sans", sans-serif;
       font-size: 1.4rem;
-      font-weight: 400; }
+      font-weight: 400;
+      line-height: 2rem; }
   .gg-card .gg-card-text {
     padding: 16px; }
   .gg-card .gg-card-actions {
@@ -3070,7 +3023,12 @@ body.is-obfuscated {
   padding: 0 8px;
   border-radius: 2px;
   line-height: 36px;
+  transition-property: background-color;
+  will-change: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   cursor: pointer; }
-  .gg-button-flat:hover {
-    line-height: 36px; }
+
+.gg-button-flat:hover {
+  background-color: rgba(158, 158, 158, 0.2); }
 /*# sourceMappingURL=gg11.prefixed.css.map */

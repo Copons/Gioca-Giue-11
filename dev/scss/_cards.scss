@@ -14,8 +14,7 @@
   border-radius: gg-size(border-radius);
   @extend %gg-shadow-low;
 
-  @include gg-transition();
-  transition-property: box-shadow;
+  @include gg-transition('box-shadow');
 
   &:hover {
     @extend %gg-shadow-high;
@@ -34,13 +33,13 @@
     .gg-card-title {
       margin: 0;
       padding-top: gg-size(margin);
-      @include gg-font($gg-font-family, headline, 400, 1);
+      @include gg-font($gg-font-family, headline, 400, body-2);
     }
     .gg-card-subtitle {
       margin: 0;
-      padding-top: gg-font-size(headline) / 2;
+      padding-top: gg-font-size(headline) / 3;
       color: $gg-color-muted;
-      @include gg-font($gg-font-family, body-device, 400, 1);
+      @include gg-font($gg-font-family, body-device, 400, body-1);
     }
   }
 

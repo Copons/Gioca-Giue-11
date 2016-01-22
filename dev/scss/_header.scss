@@ -16,12 +16,12 @@
   left: 0;
   width: 100%;
   height: gg-size(header-height-portrait);
+  z-index: gg-z(raised);
   margin: 0;
 
   @extend %gg-font-title;
 
-  @include gg-transition();
-  transition-property: top;
+  @include gg-transition('top');
 
   &.is-visible {
     top: 0;
@@ -70,8 +70,7 @@
   color: $gg-color-muted;
   font-weight: 400;
 
-  @include gg-transition();
-  transition-property: visibility, opacity;
+  @include gg-transition('visibility, opacity');
   transition-delay: 0s;
 
   &.is-visible {
@@ -151,8 +150,7 @@
   background: $gg-color-body-background;
   @extend %gg-shadow-low;
 
-  @include gg-transition();
-  transition-property: visibility, opacity;
+  @include gg-transition('visibility, opacity');
 
   &.is-visible {
     visibility: visible;
