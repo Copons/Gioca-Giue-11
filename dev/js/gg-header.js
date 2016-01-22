@@ -39,4 +39,13 @@
     prevScrollTop = currScrollTop;
   }
 
+  // Fix header disappearing forever if the header is tucked back
+  // and the window is resized tall enough to prevent vertical scrolling
+
+  $(window).on('resize', function () {
+    if (!$ggHeader.hasClass('is-visible')) {
+      $ggHeader.ggToggle('show');
+    }
+  });
+
 }(jQuery));
