@@ -95,5 +95,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 700px; // DEV
+  max-width: 100%; // DEV
   margin: 0 auto;
 }

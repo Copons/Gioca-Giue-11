@@ -3050,6 +3050,7 @@ body.is-obfuscated {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   width: 700px;
+  max-width: 100%;
   margin: 0 auto; }
 
 /**
