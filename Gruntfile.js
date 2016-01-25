@@ -64,6 +64,46 @@ module.exports = function(grunt) {
             'dev/js/*.js'
           ]
         }
+      },
+      bfy : {
+        files : {
+          'dev/build/gg11.min.js' : [
+            'dev/build/gg11.js'
+          ]
+        }
+      }
+    },
+
+    browserify : {
+      options : {
+        transform : [
+          ['babelify', {presets : ['es2015']}]
+        ],
+        extensions : ['.js']
+      },
+      dev : {
+        options : {
+          browserifyOptions : {
+            debug : true
+          },
+          watch : true,
+          keepAlive : true,
+          verbose : true
+        },
+        plugins : [
+          ['minifyify', {
+            minify : true,
+            uglify : true,
+            output : 'dev/build/'
+          }]
+        ],
+        src : ['dev/js/main.js'],
+        dest : 'dev/build/gg11.js'
+      },
+      dist : {
+        options : { debug : false },
+        src : '<%= browserify.dev.src %>',
+        dest : 'dist/js/gg11.js'
       }
     },
 
@@ -90,14 +130,16 @@ module.exports = function(grunt) {
         files : [
           'dev/js/libs/**/*.js',
         ],
-        tasks : ['uglify:libs']
+        //tasks : ['uglify:libs']
+        tasks : ['browserify:dev']
       },
       scripts : {
         files : [
           'dev/js/plugins/**/*.js',
           'dev/js/*.js'
         ],
-        tasks : ['uglify:scripts']
+        //tasks : ['uglify:scripts']
+        tasks : ['browserify:dev']
       },
     }
 
