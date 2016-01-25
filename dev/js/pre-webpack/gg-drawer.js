@@ -1,25 +1,25 @@
-import $ from 'jquery';
-import Hammer from 'hammerjs';
-import Ps from 'perfect-scrollbar';
+(function ($) {
+  'use strict';
 
-const $body = $('body');
-const $ggLayout = $('.gg-layout');
-const $ggDrawer = $('.gg-drawer');
-const $ggDrawerToggle = $('.gg-drawer-toggle');
-const $ggObfuscator = $('.gg-obfuscator');
+  var $ggLayout = $('.gg-layout');
+  var $ggDrawer = $('.gg-drawer');
+  var $ggDrawerToggle = $('.gg-drawer-toggle');
+  var $ggObfuscator = $('.gg-obfuscator');
+  var $body = $('body');
 
-export default function () {
+
+
 
   // Toggle the drawer
 
-  $ggDrawerToggle.on('click', (event) => {
+  $ggDrawerToggle.on('click', function (event) {
     event.preventDefault();
     $ggDrawer.ggToggle();
     $ggObfuscator.ggToggle();
     $body.toggleClass('is-obfuscated');
   });
 
-  $ggObfuscator.on('click', (event) => {
+  $ggObfuscator.on('click', function (event) {
     event.preventDefault();
     $ggDrawer.ggToggle('hide');
     $ggObfuscator.ggToggle('hide');
@@ -27,12 +27,14 @@ export default function () {
   });
 
 
+
+
   // Swipe the drawer
 
   delete Hammer.defaults.cssProps.userSelect;
-  let drawerSwipe = new Hammer($ggLayout[0]);
+  var drawerSwipe = new Hammer($ggLayout[0]);
 
-  drawerSwipe.on('swipeleft', () => {
+  drawerSwipe.on('swipeleft', function () {
     if ($ggDrawer.hasClass('is-visible')) {
       $ggDrawer.ggToggle('hide');
       $ggObfuscator.ggToggle('hide');
@@ -40,7 +42,7 @@ export default function () {
     }
   });
 
-  drawerSwipe.on('swiperight', () => {
+  drawerSwipe.on('swiperight', function () {
     if (!$ggDrawer.hasClass('is-visible')) {
       $ggDrawer.ggToggle('show');
       $ggObfuscator.ggToggle('show');
@@ -49,8 +51,9 @@ export default function () {
   });
 
 
+
   // Add the scrollbar to the drawer
 
   Ps.initialize($ggDrawer[0]);
 
-}
+}(jQuery));

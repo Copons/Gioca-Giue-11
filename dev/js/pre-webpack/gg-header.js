@@ -1,21 +1,23 @@
-import $ from 'jquery';
+(function ($) {
+  'use strict';
 
-const $ggHeader = $('.gg-header');
-const $ggSearchBar = $('.gg-searchbar');
+  var $ggHeader = $('.gg-header');
+  var $ggSearchBar = $('.gg-searchbar');
 
-let windowDidScroll;
-let ggHeaderHeight = $ggHeader.outerHeight();
-let prevScrollTop = $(window).scrollTop();
-let scrollDelta = 25;
+  var windowDidScroll;
+  var ggHeaderHeight = $ggHeader.outerHeight();
+  var prevScrollTop = $(window).scrollTop();
+  var scrollDelta = 25;
 
-export default function () {
+
+
 
   // Slide toggle the header on scroll
 
-  $(window).on('scroll', () => {
+  $(window).on('scroll', function () {
     windowDidScroll = true;
   });
-  setInterval(() => {
+  setInterval(function () {
     if (windowDidScroll) {
       ggHeaderSlideToggle();
       windowDidScroll = false;
@@ -23,7 +25,7 @@ export default function () {
   }, 250);
 
   function ggHeaderSlideToggle () {
-    let currScrollTop = $(window).scrollTop();
+    var currScrollTop = $(window).scrollTop();
     if (Math.abs(prevScrollTop - currScrollTop) <= scrollDelta) {
       return;
     }
@@ -40,10 +42,10 @@ export default function () {
   // Fix header disappearing forever if the header is tucked back
   // and the window is resized tall enough to prevent vertical scrolling
 
-  $(window).on('resize', () => {
+  $(window).on('resize', function () {
     if (!$ggHeader.hasClass('is-visible')) {
       $ggHeader.ggToggle('show');
     }
   });
 
-}
+}(jQuery));

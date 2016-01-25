@@ -1,15 +1,17 @@
-import $ from 'jquery';
+(function ($) {
+  'use strict';
 
-const $ggSearchBar = $('.gg-searchbar');
-const $ggSearchBarToggle = $('.gg-searchbar-toggle');
-const $ggSearchBarSearch = $('.gg-searchbar input');
-const $ggSearchBarCancel = $('.gg-searchbar-cancel');
+  var $ggSearchBar = $('.gg-searchbar');
+  var $ggSearchBarToggle = $('.gg-searchbar-toggle');
+  var $ggSearchBarSearch = $('.gg-searchbar input');
+  var $ggSearchBarCancel = $('.gg-searchbar-cancel');
 
-export default function () {
+
+
 
   // Toggle between appbar and searchbar
 
-  $ggSearchBarToggle.on('click', (event) => {
+  $ggSearchBarToggle.on('click', function (event) {
     event.preventDefault();
     $ggSearchBar.ggToggle();
     setTimeout(function () {
@@ -22,8 +24,8 @@ export default function () {
 
   // Toggle the searchbar cancel button
 
-  $ggSearchBarSearch.on('keyup', () => {
-    if ($ggSearchBarSearch.val()) {
+  $ggSearchBarSearch.on('keyup', function () {
+    if ($(this).val()) {
       $ggSearchBarCancel.ggToggle('show');
     }
     else {
@@ -31,11 +33,11 @@ export default function () {
     }
   });
 
-  $ggSearchBarCancel.on('click', (event) => {
+  $ggSearchBarCancel.on('click', function (event) {
     event.preventDefault();
     $ggSearchBarSearch.val('');
     $ggSearchBarCancel.ggToggle('hide');
     $ggSearchBarSearch.focus();
   });
 
-}
+}(jQuery));

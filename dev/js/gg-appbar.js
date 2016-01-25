@@ -1,26 +1,19 @@
-(function ($) {
-  'use strict';
+import $ from 'jquery';
 
-  var $ggAppBarMenu = $('.gg-appbar-menu');
-  var $ggAppBarMenuToggle = $('.gg-appbar-menu-toggle');
+const $ggAppBarMenu = $('.gg-appbar-menu');
+const $ggAppBarMenuToggle = $('.gg-appbar-menu-toggle');
 
-
-
+export default function () {
 
   // Toggle the appbar menu
-
-  $ggAppBarMenuToggle.on('click', function (event) {
+  $ggAppBarMenuToggle.on('click', (event) => {
     event.preventDefault();
     $ggAppBarMenu.ggToggle('show');
   });
 
-
-
-
   // Close the appbar menu on click-outside
-
-  $(document).on('click', function (event) {
+  $(document).on('click', (event) => {
     $ggAppBarMenu.ggCloseOutside([$ggAppBarMenuToggle], event);
   });
 
-}(jQuery));
+}
