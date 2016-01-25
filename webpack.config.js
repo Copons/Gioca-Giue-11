@@ -1,30 +1,30 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const TARGET = process.env.npm_lifecycle_event;
 
 const PATHS = {
-  app : path.join(__dirname, 'dev', 'webpack-test', 'app'),
-  build : path.join(__dirname, 'dev', 'webpack-test', 'build')
+  js : path.join(__dirname, 'dev', 'js'),
+  scss : path.join(__dirname, 'dev', 'scss'),
+  build : path.join(__dirname, 'dev', 'build')
 };
 
+
+
+
 const common = {
-  entry : PATHS.app,
+  entry : PATHS.js,
   resolve : {
     extensions : ['', '.js', '.jsx']
   },
   output : {
     path : PATHS.build,
-    filename : 'bundle.js'
+    filename : 'gg11.js'
   },
   module : {
     loaders : [
-      {
-        test : /\.scss$/,
-        loaders : ['style', 'css?sourceMap', 'sass?sourceMap'],
-        include : PATHS.app
-      },
       {
         test : /\.js$/,
         loader : 'babel',
@@ -32,31 +32,59 @@ const common = {
           cacheDirectory : true,
           presets : ['es2015']
         },
-        include : PATHS.app
+        include : PATHS.js
       }
     ]
   }
 };
 
-if (TARGET === 'start' || !TARGET) {
-  module.exports = merge(common, {
-    devtool : 'eval-source-map',
-    devServer : {
-      contentBase : PATHS.build,
-      historyApiFallback : true,
-      hot : true,
-      inline : true,
-      progress : true,
-      stats : 'errors-only',
-      host : process.env.HOST,
-      port : process.env.PORT
-    },
-    plugins : [
-      new webpack.HotModuleReplacementPlugin()
+const dev = merge(common, {
+  devtool : 'eval-source-map',
+  devServer : {
+    contentBase : PATHS.build,
+    historyApiFallback : true,
+    hot : true,
+    inline : true,
+    progress : true,
+    stats : 'errors-only',
+    host : process.env.HOST,
+    port : process.env.PORT
+  },
+  module : {
+    loaders : [
+      {
+        test : /\.scss$/,
+        loaders : ['style', 'css?sourceMap', 'autoprefixer', 'sass?sourceMap'],
+        include : PATHS.scss
+      }
     ]
-  });
-}
+  },
+  plugins : [
+    new webpack.HotModuleReplacementPlugin()
+  ]
+});
 
+const build = merge(common, {
+  module : {
+    loaders : [
+      {
+        test : /\.scss$/,
+        loader : ExtractTextPlugin.extract('style', 'css!autoprefixer!sass'),
+        include : PATHS.scss
+      }
+    ]
+  },
+  plugins : [
+    new ExtractTextPlugin('gg11.css', {
+      allChunks : true
+    })
+  ]
+});
+
+
+if (TARGET === 'start' || !TARGET) {
+  module.exports = dev;
+}
 if (TARGET === 'build') {
-  module.exports = merge(common, {});
+  module.exports = build;
 }
