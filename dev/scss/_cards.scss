@@ -9,7 +9,7 @@
 .gg-card {
   display: flex;
   flex-direction: column;
-  width: gg-sub(50%, gg-size(margin) * 2);
+  width: gg-sub(100%, gg-size(margin) * 2);
   margin: gg-size(margin);
   border-radius: gg-size(border-radius);
   @extend %gg-shadow-low;
