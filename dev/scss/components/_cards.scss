@@ -11,7 +11,7 @@
 %gg-card {
   display: flex;
   align-content: flex-start;
-  width: calc(100% - ( #{gg-size(margin)} * 2));
+  width: calc(100% - #{gg-size(padding)});
   // width: calc(50% - ( #{gg-size(margin)} * 2)); // DEV
   margin: gg-size(margin);
   border-radius: gg-size(border-radius);
