@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import Hammer from 'hammerjs';
 import Ps from 'perfect-scrollbar';
+import { ggObfuscatorToggle } from '../plugins/gg-obfuscator';
 
-const $body = $('body');
 const $ggLayout = $('.gg-layout');
 const $ggDrawer = $('.gg-drawer');
 const $ggDrawerToggle = $('.gg-drawer-toggle');
@@ -15,15 +15,13 @@ export default function () {
   $ggDrawerToggle.on('click', (event) => {
     event.preventDefault();
     $ggDrawer.ggToggle();
-    $ggObfuscator.ggToggle();
-    $body.toggleClass('is-obfuscated');
+    ggObfuscatorToggle();
   });
 
   $ggObfuscator.on('click', (event) => {
     event.preventDefault();
     $ggDrawer.ggToggle('hide');
-    $ggObfuscator.ggToggle('hide');
-    $body.removeClass('is-obfuscated');
+    ggObfuscatorToggle('hide');
   });
 
 
@@ -35,16 +33,14 @@ export default function () {
   drawerSwipe.on('swipeleft', () => {
     if ($ggDrawer.hasClass('is-visible')) {
       $ggDrawer.ggToggle('hide');
-      $ggObfuscator.ggToggle('hide');
-      $body.removeClass('is-obfuscated');
+      ggObfuscatorToggle('hide');
     }
   });
 
   drawerSwipe.on('swiperight', () => {
     if (!$ggDrawer.hasClass('is-visible')) {
       $ggDrawer.ggToggle('show');
-      $ggObfuscator.ggToggle('show');
-      $body.addClass('is-obfuscated');
+      ggObfuscatorToggle('show');
     }
   });
 
