@@ -17,9 +17,6 @@ $gg-sizes: (
 @function gg-size ($index) {
   @return map-get($gg-sizes, $index);
 }
-@function gg-sub ($param1, $param2) {
-  @return calc(#{$param1} - #{$param2});
-}
 
 
 

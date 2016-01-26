@@ -1,15 +1,18 @@
 /**
- * .gg-card
+ * %gg-card
+ .gg-card-big
+ .gg-card-small
  * .gg-cards
  */
 
 
 
 
-.gg-card {
+%gg-card {
   display: flex;
-  flex-direction: column;
-  width: gg-sub(100%, gg-size(margin) * 2);
+  align-content: flex-start;
+  width: calc(100% - ( #{gg-size(margin)} * 2));
+  // width: calc(50% - ( #{gg-size(margin)} * 2)); // DEV
   margin: gg-size(margin);
   border-radius: gg-size(border-radius);
   @extend %gg-shadow-low;
@@ -21,8 +24,6 @@
   }
 
   .gg-card-media {
-    width: 100%;
-    padding-bottom: 56.25%; // 16:9
     background-color: $gg-color-muted; // DEV
   }
 
@@ -44,13 +45,13 @@
   }
 
   .gg-card-text {
-    padding: gg-size(padding);
-    padding-top: 0;
+    padding-right: gg-size(padding);
+    padding-left: gg-size(padding);
     @extend %gg-font-body-1-device;
-    &:last-child {
+    /*&:last-child {
       padding-top: gg-size(padding);
       padding-bottom: gg-size(padding) + gg-size(margin);
-    }
+    }*/
   }
 
   .gg-card-actions {
@@ -58,7 +59,6 @@
     flex-direction: row;
     justify-content: flex-start;
     padding: 0;
-    border-top: 1px solid gg-color(md-gray-200);
 
     .gg-card-action-buttons {
       flex-grow: 1;
@@ -87,6 +87,66 @@
 
 }
 
+.gg-card-big {
+  @extend %gg-card;
+  flex-direction: column;
+
+  .gg-card-media {
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9
+  }
+
+  .gg-card-text {
+    padding-bottom: gg-size(padding);
+  }
+
+  .gg-card-actions {
+    border-top: 1px solid gg-color(md-gray-200);
+  }
+
+}
+
+.gg-card-small {
+  @extend %gg-card;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  .gg-card-media {
+    order: 2;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: calc((100% - #{gg-size(padding)}) / 3);
+    margin-top: gg-size(padding);
+    margin-right: gg-size(padding);
+    padding-bottom: calc((100% - #{gg-size(padding)}) / 3); // 1:1
+  }
+
+  .gg-card-content {
+    order: 1;
+    flex-grow: 1;
+    flex-shrink: 0;
+    max-width: calc(((100% - #{gg-size(padding)}) / 3) * 2);
+  }
+
+  .gg-card-headline {
+    max-width: 100%;
+  }
+
+  .gg-card-text {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .gg-card-actions {
+    width: 100%;
+    order: 3;
+  }
+
+}
+
 
 
 
@@ -94,6 +154,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: flex-start;
   width: 700px; // DEV
   max-width: 100%; // DEV
   margin: 0 auto;
