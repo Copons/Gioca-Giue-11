@@ -38,4 +38,10 @@ export default function () {
     $ggSearchBarSearch.focus();
   });
 
+
+  // Close the appbar menu on click-outside
+  $(document).on('click', (event) => {
+    $ggSearchBar.ggCloseOutside([$ggSearchBarToggle], event);
+  });
+
 }

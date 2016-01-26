@@ -24,6 +24,29 @@ $gg-sizes: (
 
 
 
+$gg-breakpoints: (
+  xsmall:                     600px,
+  small:                      960px,
+  medium:                     1280px,
+  large:                      1600px
+);
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == xsmall {
+    @media (max-width: #{map-get($gg-breakpoints, xsmall)}) {
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: #{map-get($gg-breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+}
+
+
+
+
 // Z Index
 
 $gg-z-indexes: (

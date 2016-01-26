@@ -7,14 +7,14 @@ import ggRipple from './plugins/gg-ripple';
 ggRipple();
 
 
-import ggAppbar from './gg-appbar';
+import ggAppbar from './components/gg-appbar';
 ggAppbar();
 
-import ggDrawer from './gg-drawer';
+import ggDrawer from './components/gg-drawer';
 ggDrawer();
 
-import ggHeader from './gg-header';
+import ggHeader from './components/gg-header';
 ggHeader();
 
-import ggSearchbar from './gg-searchbar';
+import ggSearchbar from './components/gg-searchbar';
 ggSearchbar();

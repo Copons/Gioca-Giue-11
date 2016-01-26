@@ -1,17 +1,17 @@
-@import "variables";
-@import "typography";
+@import "utilities/variables";
+@import "utilities/typography";
 @import "font-awesome/font-awesome";
-@import "normalize";
-@import "reset";
-@import "utilities";
+@import "utilities/normalize";
+@import "utilities/reset";
+@import "utilities/utilities";
 
-@import "waves";
-@import "perfect-scrollbar";
+@import "plugins/waves";
+@import "plugins/perfect-scrollbar";
 
-@import "layout";
-@import "obfuscator";
-@import "buttons";
-@import "header";
-@import "drawer";
-@import "cards";
-@import "buttons";
+@import "components/layout";
+@import "components/obfuscator";
+@import "components/buttons";
+@import "components/header";
+@import "components/drawer";
+@import "components/cards";
+@import "components/buttons";
