@@ -1,0 +1,24 @@
+/**
+ * .gg-badge
+ */
+
+
+
+.gg-badge {
+  position: absolute;
+  top: gg-size(margin) / 3;
+  right: gg-size(margin) / 3;
+  top: 0;
+  right: 0;
+  display: block;
+  width: gg-size(badge);
+  height: gg-size(badge);
+  z-index: 10;
+  border: 2px solid $body-bg;
+  border-radius: 50%;
+  background-color: $gg-color-link;
+  color: $body-bg;
+  font-size: 1.0rem;
+  line-height: gg-size(badge) - 4px;
+  text-align: center;
+}

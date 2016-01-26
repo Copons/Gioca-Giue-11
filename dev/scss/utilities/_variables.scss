@@ -11,7 +11,8 @@ $gg-sizes: (
   header-height-portrait:     56px,
   header-height-desktop:      64px,
   button-width:               64px,
-  button-height:              36px
+  button-height:              36px,
+  badge:                      20px
 );
 
 @function gg-size ($index) {

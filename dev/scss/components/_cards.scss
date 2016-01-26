@@ -35,6 +35,13 @@
       margin: 0;
       padding-top: gg-size(margin);
       @include gg-font($gg-font-family, headline, 400, body-2);
+
+      .gg-payoff {
+        display: block;
+        color: $gg-color-muted;
+        font-size: gg-font-size(subheading-device);
+        font-style: italic;
+      }
     }
     .gg-card-subtitle {
       margin: 0;
@@ -62,6 +69,10 @@
 
     .gg-card-action-buttons {
       flex-grow: 1;
+      .fa {
+        margin-right: gg-size(margin) / 2;
+        font-size: gg-font-size(subheading-device);
+      }
     }
     .gg-card-action-icons {
       font-size: gg-font-size(title);
