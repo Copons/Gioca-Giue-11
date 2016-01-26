@@ -32,8 +32,9 @@
     "webpack-merge": "^0.7.3"
   },
   "scripts": {
-    "build": "webpack -p",
-    "start": "webpack-dev-server --progress --colors"
+    "start": "webpack-dev-server --progress --colors",
+    "devbuild": "webpack",
+    "build": "webpack -p"
   },
   "dependencies": {
     "hammerjs": "^2.0.6",

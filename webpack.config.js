@@ -68,6 +68,19 @@ const dev = merge(common, {
   ]
 });
 
+const devBuild = merge(common, {
+  devtool : 'eval-source-map',
+  module : {
+    loaders : [
+      {
+        test : /\.scss$/,
+        loaders : ['style', 'css?sourceMap', 'autoprefixer', 'sass?sourceMap'],
+        include : PATHS.scss
+      }
+    ]
+  }
+});
+
 const build = merge(common, {
   module : {
     loaders : [
@@ -88,6 +101,9 @@ const build = merge(common, {
 
 if (TARGET === 'start' || !TARGET) {
   module.exports = dev;
+}
+if (TARGET === 'devbuild') {
+  module.exports = devBuild;
 }
 if (TARGET === 'build') {
   module.exports = build;
