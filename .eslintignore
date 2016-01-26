@@ -1,5 +1,4 @@
 node_modules/
-dev/js/bundle/
-dev/js/libs/
+dev/build/
 dist/
 Gruntfile.js
