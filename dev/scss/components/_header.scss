@@ -94,6 +94,9 @@
       color: $gg-color-text;
       font-size: 1.8rem; // To avoid long glyphs being cropped
       line-height: 2.4rem;
+      &::placeholder {
+        color: $gg-color-muted;
+      }
     }
   }
 

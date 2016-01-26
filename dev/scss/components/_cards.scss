@@ -39,7 +39,7 @@
     .gg-card-subtitle {
       margin: 0;
       padding-top: gg-font-size(headline) / 3;
-      color: $gg-color-muted;
+      color: $gg-color-secondary-text;
       @include gg-font($gg-font-family, body-device, 400, body-1);
     }
   }
