@@ -49,7 +49,7 @@
   display: flex;
   background-color: $gg-color-primary;
   @extend %gg-shadow-low;
-  color: $gg-color-body-background;
+  color: $gg-color-text-light;
 
   h1 {
     flex-grow: 1;
@@ -119,9 +119,9 @@
 
 
 .gg-appbar-icon {
-  color: $gg-color-body-background;
+  color: $gg-color-text-light;
   &:hover, &:active, &:visited {
-    color: $gg-color-body-background;
+    color: $gg-color-text-light;
   }
 }
 
