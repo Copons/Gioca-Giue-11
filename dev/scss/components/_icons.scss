@@ -1,6 +1,7 @@
 /**
  * %gg-icon
  * .gg-icon-flat
+ * .gg-icon-flat-light
  */
 
 
@@ -24,7 +25,8 @@
 
 
 
-.gg-icon-flat {
+.gg-icon-flat,
+.gg-icon-flat-light {
   @extend %gg-icon;
   &:hover {
     background-color: rgba(gg-color(md-gray-500), 0.2);
@@ -58,7 +60,7 @@
 
 .gg-icon-comments {
   @extend .fa;
-  @extend .fa-comments;
+  @extend .fa-gavel;
 }
 
 .gg-icon-tags {

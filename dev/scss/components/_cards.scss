@@ -1,24 +1,26 @@
-/**
- * %gg-card
- .gg-card-big
- .gg-card-small
- * .gg-cards
- */
+.gg-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 700px; // DEV
+  max-width: 100%; // DEV
+  margin: 0 auto;
+}
 
 
 
+$gg-card-width: 100%; // DEV, should be 100%!
 
 %gg-card {
+
   display: flex;
   align-content: flex-start;
-  width: calc(100% - #{gg-size(padding)});
-  // width: calc(50% - ( #{gg-size(margin)} * 2)); // DEV
+  width: calc(#{$gg-card-width} - #{gg-size(padding)});
   margin: gg-size(margin);
   border-radius: gg-size(border-radius);
   @extend %gg-shadow-low;
-
   @include gg-transition('box-shadow');
-
   &:hover {
     @extend %gg-shadow-high;
   }
@@ -29,7 +31,6 @@
 
   .gg-card-headline {
     margin: 0;
-    padding: gg-size(padding);
 
     .gg-card-title {
       margin: 0;
@@ -38,7 +39,6 @@
 
       .gg-payoff {
         display: block;
-        color: $gg-color-muted;
         font-size: gg-font-size(subheading-device);
         font-style: italic;
       }
@@ -46,15 +46,13 @@
     .gg-card-subtitle {
       margin: 0;
       padding-top: gg-font-size(headline) / 3;
-      color: $gg-color-secondary-text;
       @include gg-font($gg-font-family, body-device, 400, body-1);
     }
   }
 
   .gg-card-text {
-    padding-right: gg-size(padding);
-    padding-left: gg-size(padding);
     @extend %gg-font-body-1-device;
+    padding-bottom: gg-size(padding) / 2;
     /*&:last-child {
       padding-top: gg-size(padding);
       padding-bottom: gg-size(padding) + gg-size(margin);
@@ -66,9 +64,15 @@
     flex-direction: row;
     justify-content: flex-start;
     padding: 0;
+    & > *:first-child {
+      flex-grow: 1;
+      text-align: left;
+    }
+    & > *:last-child {
+      text-align: right;
+    }
 
     .gg-card-action-buttons {
-      flex-grow: 1;
       .fa {
         margin-right: gg-size(margin) / 2;
         font-size: gg-font-size(subheading-device);
@@ -77,7 +81,29 @@
     .gg-card-action-icons {
       font-size: gg-font-size(title);
     }
+  }
 
+}
+
+%gg-card-light {
+  @extend %gg-card;
+
+  .gg-card-content {
+    padding: gg-size(padding);
+  }
+
+  .gg-card-headline {
+    padding-bottom: gg-size(padding);
+    .gg-payoff {
+      color: $gg-color-muted;
+    }
+    .gg-card-subtitle {
+      color: $gg-color-secondary-text;
+    }
+  }
+
+  .gg-card-actions {
+    border-top: 1px solid gg-color(md-gray-200);
     .gg-button-flat,
     .gg-icon-flat {
       color: $gg-color-link;
@@ -95,30 +121,26 @@
       line-height: gg-size(button-height);
     }
   }
-
 }
 
+
+
+
 .gg-card-big {
-  @extend %gg-card;
+  @extend %gg-card-light;
   flex-direction: column;
 
   .gg-card-media {
     width: 100%;
     padding-bottom: 56.25%; // 16:9
   }
-
-  .gg-card-text {
-    padding-bottom: gg-size(padding);
-  }
-
-  .gg-card-actions {
-    border-top: 1px solid gg-color(md-gray-200);
-  }
-
 }
 
+
+
+
 .gg-card-small {
-  @extend %gg-card;
+  @extend %gg-card-light;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -130,6 +152,7 @@
     width: calc((100% - #{gg-size(padding)}) / 3);
     margin-top: gg-size(padding);
     margin-right: gg-size(padding);
+    margin-bottom: gg-size(padding);
     padding-bottom: calc((100% - #{gg-size(padding)}) / 3); // 1:1
   }
 
@@ -144,29 +167,74 @@
     max-width: 100%;
   }
 
-  .gg-card-text {
+  /*.gg-card-text {
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
+  }*/
 
   .gg-card-actions {
     width: 100%;
     order: 3;
   }
-
 }
 
 
 
+.gg-card-image {
+  @extend %gg-card;
+  position: relative;
+  padding-bottom: calc(#{$gg-card-width} - #{gg-size(padding)});
 
-.gg-cards {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  width: 700px; // DEV
-  max-width: 100%; // DEV
-  margin: 0 auto;
+  .gg-card-media {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .gg-card-content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: gg-size(padding);
+    background-color: rgba(gg-color(black), 0.3);
+  }
+
+  .gg-card-headline {
+    padding-right: gg-size(padding);
+    padding-left: gg-size(padding);
+    padding-bottom: gg-size(margin);
+    .gg-card-title {
+      color: $gg-color-text-light;
+      .gg-payoff {
+        color: $gg-color-muted-light;
+      }
+    }
+    .gg-card-subtitle {
+      color: $gg-color-secondary-text-light;
+    }
+  }
+
+  .gg-card-actions {
+    .gg-button-flat-light,
+    .gg-icon-flat-light {
+      color: $gg-color-text-light;
+      &:hover {
+        color: $gg-color-text-light;
+      }
+      &:active, &:focus {
+        color: $gg-color-text-light;
+      }
+    }
+    .gg-icon-flat-light {
+      width: gg-size(button-height);
+      height: gg-size(button-height);
+      margin: gg-size(margin);
+      line-height: gg-size(button-height);
+    }
+  }
 }

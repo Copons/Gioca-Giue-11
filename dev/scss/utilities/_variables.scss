@@ -103,8 +103,11 @@ $gg-colors: (
 $gg-color-primary:            gg-color(md-deep-orange);
 $gg-color-body-background:    gg-color(white);
 $gg-color-text:               rgba(gg-color(black), 0.87); //gg-color(md-gray-800);
+$gg-color-text-light:         gg-color(white);
 $gg-color-secondary-text:     rgba(gg-color(black), 0.54);
+$gg-color-secondary-text-light: rgba(gg-color(white), 0.7);
 $gg-color-muted:              rgba(gg-color(black), 0.38); //gg-color(md-gray-500);
+$gg-color-muted-light:        rgba(gg-color(white), 0.3);
 $gg-color-link:               gg-color(md-deep-orange);
 $gg-color-link-hover:         gg-color(md-orange);
 

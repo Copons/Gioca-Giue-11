@@ -1,8 +1,7 @@
 /**
  * %gg-button
- * %gg-icon
  * .gg-button-flat
- * .gg-icon-flat
+ * .gg-button-flat-light
  */
 
 
@@ -25,7 +24,8 @@
 
 
 
-.gg-button-flat {
+.gg-button-flat,
+.gg-button-flat-light {
   @extend %gg-button;
   &:hover {
     background-color: rgba(gg-color(md-gray-500), 0.2);
