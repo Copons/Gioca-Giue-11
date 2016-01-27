@@ -32,7 +32,7 @@
     "webpack-merge": "^0.7.3"
   },
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
+    "start": "webpack-dev-server",
     "devbuild": "webpack",
     "build": "webpack -p"
   },

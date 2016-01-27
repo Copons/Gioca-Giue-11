@@ -25,35 +25,8 @@
 
 
 
-%gg-icon {
-  display: inline-block;
-  width: gg-size(icon);
-  height: gg-size(icon);
-  margin: gg-size(padding) / 4;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-  line-height: gg-size(icon);
-  text-align: center;
-  @include gg-transition('background-color');
-  cursor: pointer;
-}
-
-
-
-
 .gg-button-flat {
   @extend %gg-button;
-  &:hover {
-    background-color: rgba(gg-color(md-gray-500), 0.2);
-  }
-}
-
-
-
-
-.gg-icon-flat {
-  @extend %gg-icon;
   &:hover {
     background-color: rgba(gg-color(md-gray-500), 0.2);
   }

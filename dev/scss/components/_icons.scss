@@ -1,0 +1,81 @@
+/**
+ * %gg-icon
+ * .gg-icon-flat
+ */
+
+
+
+
+%gg-icon {
+  @extend .fa;
+  display: inline-block;
+  width: gg-size(icon);
+  height: gg-size(icon);
+  margin: gg-size(padding) / 4;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  line-height: gg-size(icon);
+  text-align: center;
+  @include gg-transition('background-color');
+  cursor: pointer;
+}
+
+
+
+
+.gg-icon-flat {
+  @extend %gg-icon;
+  &:hover {
+    background-color: rgba(gg-color(md-gray-500), 0.2);
+  }
+}
+
+
+
+
+// ICONS
+
+.gg-drawer-toggle {
+  @extend .fa-bars;
+}
+
+.gg-appbar .gg-searchbar-toggle {
+  @extend .fa-search;
+}
+.gg-searchbar .gg-searchbar-toggle {
+  @extend .fa-arrow-left;
+}
+.gg-searchbar-cancel {
+  @extend .fa-times;
+}
+
+.gg-appbar-menu-toggle {
+  @extend .fa-share;
+}
+
+
+
+.gg-icon-comments {
+  @extend .fa;
+  @extend .fa-comments;
+}
+
+.gg-icon-tags {
+  @extend .fa-tags;
+}
+
+
+
+
+.gg-icon-facebook {
+  @extend .fa;
+  @extend .fa-facebook-official;
+  @extend .fa-lg;
+}
+
+.gg-icon-twitter {
+  @extend .fa;
+  @extend .fa-twitter;
+  @extend .fa-lg;
+}
