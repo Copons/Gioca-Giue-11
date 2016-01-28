@@ -1,3 +1,25 @@
+/**
+ * .gg-cards
+ * %gg-card
+ * %gg-card-light
+ * .gg-card-big
+ * .gg-card-small
+ * .gg-card-image
+ *
+ * .gg-card-media
+ * .gg-card-content
+ * .gg-card-headline
+ * .gg-card-title
+ * .gg-card-subtitle
+ * .gg-card-payoff
+ * .gg-card-actions
+ * .gg-card-action-icons
+ * .gg-card-action-buttons
+ */
+
+
+
+
 .gg-cards {
   display: flex;
   flex-direction: row;
@@ -11,7 +33,6 @@
 
 
 
-$gg-card-width: 100%; // DEV, should be 100% in PROD!
 
 %gg-card {
   display: flex;
@@ -46,7 +67,7 @@ $gg-card-width: 100%; // DEV, should be 100% in PROD!
       padding-top: gg-size(margin);
       @include gg-font($gg-font-family, headline, 400, body-2);
 
-      .gg-payoff {
+      .gg-card-payoff {
         display: block;
         font-size: gg-font-size(subheading-device);
         font-style: italic;
@@ -103,7 +124,7 @@ $gg-card-width: 100%; // DEV, should be 100% in PROD!
 
   .gg-card-headline {
     padding-bottom: gg-size(padding);
-    .gg-payoff {
+    .gg-card-payoff {
       color: $gg-color-muted;
     }
     .gg-card-subtitle {
@@ -228,7 +249,7 @@ $gg-card-width: 100%; // DEV, should be 100% in PROD!
     padding-bottom: gg-size(margin);
     .gg-card-title {
       color: $gg-color-text-light;
-      .gg-payoff {
+      .gg-card-payoff {
         color: $gg-color-muted-light;
       }
     }
