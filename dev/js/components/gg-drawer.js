@@ -7,6 +7,7 @@ const $ggLayout = $('.gg-layout');
 const $ggDrawer = $('.gg-drawer');
 const $ggDrawerToggle = $('.gg-drawer-toggle');
 const $ggObfuscator = $('.gg-obfuscator');
+const ggMediumWidth = '1280';
 
 export default function () {
 
@@ -14,14 +15,18 @@ export default function () {
 
   $ggDrawerToggle.on('click', (event) => {
     event.preventDefault();
-    $ggDrawer.ggToggle();
-    ggObfuscatorToggle();
+    if ($ggLayout.width() < ggMediumWidth) {
+      $ggDrawer.ggToggle();
+      ggObfuscatorToggle();
+    }
   });
 
   $ggObfuscator.on('click', (event) => {
     event.preventDefault();
-    $ggDrawer.ggToggle('hide');
-    ggObfuscatorToggle('hide');
+    if ($ggLayout.width() < ggMediumWidth) {
+      $ggDrawer.ggToggle('hide');
+      ggObfuscatorToggle('hide');
+    }
   });
 
 
@@ -31,14 +36,14 @@ export default function () {
   let drawerSwipe = new Hammer($ggLayout[0]);
 
   drawerSwipe.on('swipeleft', () => {
-    if ($ggDrawer.hasClass('is-visible')) {
+    if ($ggDrawer.hasClass('is-visible') && $ggLayout.width() < ggMediumWidth) {
       $ggDrawer.ggToggle('hide');
       ggObfuscatorToggle('hide');
     }
   });
 
   drawerSwipe.on('swiperight', () => {
-    if (!$ggDrawer.hasClass('is-visible')) {
+    if (!$ggDrawer.hasClass('is-visible') && $ggLayout.width() < ggMediumWidth) {
       $ggDrawer.ggToggle('show');
       ggObfuscatorToggle('show');
     }

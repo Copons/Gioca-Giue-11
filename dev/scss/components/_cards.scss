@@ -3,26 +3,35 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  width: 700px; // DEV
+  width: 100%; // DEV
   max-width: 100%; // DEV
   margin: 0 auto;
+  padding: 0 gg-size(margin);
 }
 
 
 
-$gg-card-width: 100%; // DEV, should be 100%!
+$gg-card-width: 100%; // DEV, should be 100% in PROD!
 
 %gg-card {
-
   display: flex;
   align-content: flex-start;
-  width: calc(#{$gg-card-width} - #{gg-size(padding)});
   margin: gg-size(margin);
   border-radius: gg-size(border-radius);
   @extend %gg-shadow-low;
   @include gg-transition('box-shadow');
   &:hover {
     @extend %gg-shadow-high;
+  }
+
+  @include gg-breakpoint(base) {
+    width: calc(100% - #{gg-size(padding)});
+  }
+  @include gg-breakpoint(xsmall) {
+    width: calc(50% - #{gg-size(padding)});
+  }
+  @include gg-breakpoint(small) {
+    width: calc(33.333% - #{gg-size(padding)});
   }
 
   .gg-card-media {
@@ -185,7 +194,16 @@ $gg-card-width: 100%; // DEV, should be 100%!
 .gg-card-image {
   @extend %gg-card;
   position: relative;
-  padding-bottom: calc(#{$gg-card-width} - #{gg-size(padding)});
+
+  @include gg-breakpoint(base) {
+    padding-bottom: calc(100% - #{gg-size(padding)});
+  }
+  @include gg-breakpoint(xsmall) {
+    padding-bottom: calc(50% - #{gg-size(padding)});
+  }
+  @include gg-breakpoint(small) {
+    padding-bottom: calc(33.333% - #{gg-size(padding)});
+  }
 
   .gg-card-media {
     position: absolute;

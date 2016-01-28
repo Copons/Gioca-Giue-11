@@ -13,4 +13,8 @@
   min-height: 100vh;
   padding-top: gg-size(header-height-portrait) * 2;
   -webkit-overflow-scrolling: touch;
+
+  @include gg-breakpoint(medium) {
+    padding-left: gg-size(drawer-width);
+  }
 }

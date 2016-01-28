@@ -19,6 +19,10 @@
 
   @include gg-transition('visibility, background-color');
 
+  @include gg-breakpoint(medium) {
+    display: none;
+  }
+
   &.is-visible {
     background-color: rgba(0, 0, 0, 0.5);
     visibility: visible;
@@ -32,4 +36,8 @@ body.is-obfuscated {
   //position: fixed;
   //width: 100%;
   overflow: hidden;
+
+  @include gg-breakpoint(medium) {
+    overflow: auto;
+  }
 }

@@ -29,8 +29,8 @@ $gg-breakpoints: (
   large:                      1600px
 );
 
-@mixin breakpoint($breakpoint) {
-  @if $breakpoint == xsmall {
+@mixin gg-breakpoint($breakpoint) {
+  @if $breakpoint == base {
     @media (max-width: #{map-get($gg-breakpoints, xsmall)}) {
       @content;
     }
