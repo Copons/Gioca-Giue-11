@@ -58,6 +58,16 @@
 
 
 
+.gg-icon-chevron {
+  @extend .fa;
+  @extend .fa-chevron-up;
+  transform: rotate(0deg);
+  @include gg-transition('transform');
+  &.is-visible {
+    transform: rotate(180deg);
+  }
+}
+
 .gg-icon-comments {
   @extend .fa;
   @extend .fa-gavel;

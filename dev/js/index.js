@@ -18,3 +18,6 @@ ggHeader();
 
 import ggSearchbar from './components/gg-searchbar';
 ggSearchbar();
+
+import ggCards from './components/gg-cards';
+ggCards();

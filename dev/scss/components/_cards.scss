@@ -113,6 +113,22 @@
     }
   }
 
+  .gg-card-addon {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    max-height: 0px;
+    z-index: gg-z(raised);
+    overflow: hidden;
+    @extend %gg-shadow-high;
+    background: $gg-color-body-background;
+    @include gg-transition('max-height');
+
+    &.is-visible {
+      max-height: 500px;
+    }
+  }
+
 }
 
 %gg-card-light {
