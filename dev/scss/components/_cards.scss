@@ -127,6 +127,10 @@
     &.is-visible {
       max-height: 500px;
     }
+
+    .gg-card-addon-list {
+      @include gg-menu-list($icon-position : left);
+    }
   }
 
 }
