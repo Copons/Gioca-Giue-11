@@ -21,24 +21,32 @@
 
 
 .gg-cards {
-  display: flex;
+  /*display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
-  width: 100%; // DEV
-  max-width: 100%; // DEV
-  margin: 0 auto;
-  padding: 0 gg-size(margin);
+  align-items: flex-start;*/
+  position: relative;
+  width: calc(100% - #{gg-size(margin)});
+  max-width: calc(100% - #{gg-size(margin)});
+  margin: 0 0 0 gg-size(margin);
+  overflow: hidden;
+
+  @include gg-breakpoint(xsmall) {
+    width: calc(100% - #{gg-size(padding)});
+    max-width: calc(100% - #{gg-size(padding)});
+    margin: 0 0 0 gg-size(padding);
+  }
 }
 
 
 
 
 %gg-card {
+  float: left;
   display: flex;
   align-content: flex-start;
-  margin: gg-size(margin);
   border-radius: gg-size(border-radius);
+  background: $gg-color-body-background;
   @extend %gg-shadow-low;
   @include gg-transition('box-shadow');
   &:hover {
@@ -46,10 +54,12 @@
   }
 
   @include gg-breakpoint(base) {
-    width: calc(100% - #{gg-size(padding)});
+    width: calc(100% - #{gg-size(margin)});
+    margin: 4px 0;
   }
   @include gg-breakpoint(xsmall) {
     width: calc(50% - #{gg-size(padding)});
+    margin: gg-size(margin) 0;
   }
   @include gg-breakpoint(small) {
     width: calc(33.333% - #{gg-size(padding)});
