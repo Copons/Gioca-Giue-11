@@ -29,7 +29,8 @@
   width: calc(100% - #{gg-size(margin)});
   max-width: calc(100% - #{gg-size(margin)});
   margin: 0 0 0 gg-size(margin);
-  overflow: hidden;
+
+  // overflow: hidden; DEV
 
   @include gg-breakpoint(xsmall) {
     width: calc(100% - #{gg-size(padding)});
@@ -66,7 +67,8 @@
   }
 
   .gg-card-media {
-    background-color: $gg-color-muted; // DEV
+    background: $gg-color-muted url('http://placehold.it/500x200/ff9800/424242') center center; // DEV
+    background-size: cover; // DEV
   }
 
   .gg-card-headline {
