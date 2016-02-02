@@ -1,19 +1,25 @@
 import $ from 'jquery';
 import Masonry from 'masonry-layout';
 
+const ggCardsClass = '.gg-cards';
 const $ggCardToggleAddon = $('.gg-card-toggle-addon');
 const ggCardAddonClass = '.gg-card-addon';
 
+const $masonryContainer = $('#masonry');
+const masonryBlockClass = '#masonry .gg-card';
+
 export default function () {
 
-  setTimeout(() => {
-    let cardsLayout = new Masonry(document.querySelector('.gg-cards'), {
-      itemSelector : '#masonry .gg-card',
-      gutter : 16,
-      percentPosition : true
-    });
-    cardsLayout.layout();
-  }, 200);
+  if ($masonryContainer.length) {
+    setTimeout(() => {
+      let cardsLayout = new Masonry(document.querySelector(ggCardsClass), {
+        itemSelector : masonryBlockClass,
+        gutter : 16,
+        percentPosition : true
+      });
+      cardsLayout.layout();
+    }, 200);
+  }
 
   $ggCardToggleAddon.on('click', (event) => {
     event.preventDefault();

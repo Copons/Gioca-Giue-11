@@ -29,6 +29,7 @@
   width: calc(100% - #{gg-size(margin)});
   max-width: calc(100% - #{gg-size(margin)});
   margin: 0 0 0 gg-size(margin);
+  padding-top: gg-size(header-height-portrait) * 1.5;
 
   // overflow: hidden; DEV
 

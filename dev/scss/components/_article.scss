@@ -1,0 +1,51 @@
+/**
+ * .gg-article
+ */
+
+
+
+
+.gg-article {
+  width: 100%;
+  //height: 100vh;
+
+
+  > header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    @extend %gg-shadow-low;
+    text-align: center;
+    background: $gg-color-muted url('http://placehold.it/500x200/ff9800/424242') center center; // DEV
+    //background-attachment: fixed; // DEV
+    background-size: cover; // DEV
+
+    h1 {
+      margin: 0;
+      @extend %gg-font-display-2;
+    }
+    h2 {
+      margin: 0;
+      @extend %gg-font-title;
+    }
+  }
+}
+
+
+
+
+.gg-article-body {
+  width: calc(100% - #{gg-size(padding)});
+  max-width: gg-size(article-body) - gg-size(padding);
+  height: 500px; // DEV
+  margin: -50px auto gg-size(margin) auto;
+  z-index: 100;
+  border-radius: gg-size(border-radius);
+  background: $gg-color-body-background;
+  @extend %gg-shadow-high;
+}
