@@ -14,4 +14,5 @@ You can check the development progress over in the [kitchen sink](http://giocagi
 - **Waves v0.7.4** awesome ripple effect
 - **[Marius Craciunoiu](https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c#.5nh4muiku)**'s headroom-like implementation
 - **Hammer.js v2.0.6** for touch gestures
-- **perfect-scrollbar v0.6.8** for perfect scrollbars
+- **perfect-scrollbar v0.6.10** for perfect scrollbars
+- **Masonry v4.4.0** for proper cards layout
