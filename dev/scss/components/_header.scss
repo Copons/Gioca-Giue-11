@@ -165,6 +165,7 @@
   .gg-appbar,
   .gg-searchbar {
     padding-left: gg-size(drawer-width);
+    @include gg-transition('padding-left');
 
     .gg-drawer-toggle {
       display: none;

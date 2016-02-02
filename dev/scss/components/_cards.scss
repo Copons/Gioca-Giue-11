@@ -47,12 +47,18 @@
   float: left;
   display: flex;
   align-content: flex-start;
+  opacity: 0;
   border-radius: gg-size(border-radius);
   background: $gg-color-body-background;
   @extend %gg-shadow-low;
-  @include gg-transition('box-shadow');
+  @include gg-transition('box-shadow, opacity');
+
   &:hover {
     @extend %gg-shadow-high;
+  }
+
+  &.is-visible {
+    opacity: 1;
   }
 
   @include gg-breakpoint(base) {
