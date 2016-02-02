@@ -157,3 +157,17 @@
 
   @include gg-menu-list();
 }
+
+
+
+
+@include gg-breakpoint(medium) {
+  .gg-appbar,
+  .gg-searchbar {
+    padding-left: gg-size(drawer-width);
+
+    .gg-drawer-toggle {
+      display: none;
+    }
+  }
+}

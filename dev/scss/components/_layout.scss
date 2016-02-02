@@ -11,7 +11,10 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
+  padding-left: 0;
   -webkit-overflow-scrolling: touch;
+
+  @include gg-transition('padding-left');
 
   @include gg-breakpoint(medium) {
     padding-left: gg-size(drawer-width);
