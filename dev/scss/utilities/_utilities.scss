@@ -58,7 +58,7 @@
         color: gg-color(md-gray-800);
       }
       &:active, &:focus {
-        color: $body-color;
+        color: $gg-color-text;
       }
 
       span {

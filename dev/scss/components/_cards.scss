@@ -171,7 +171,7 @@
   }
 
   .gg-card-actions {
-    border-top: 1px solid gg-color(md-gray-200);
+    border-top: 1px solid $gg-color-border-light;
     .gg-button-flat,
     .gg-icon-flat {
       color: $gg-color-link;

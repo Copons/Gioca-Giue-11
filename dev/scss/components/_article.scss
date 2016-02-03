@@ -18,7 +18,8 @@
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    overflow: hidden;
+    min-height: 50vh; // DEV
+    padding: gg-size(article-info-height) gg-size(margin);
     @extend %gg-shadow-low;
     text-align: center;
     background: $gg-color-muted url('http://placehold.it/500x200/ff9800/424242') center center; // DEV
@@ -39,13 +40,92 @@
 
 
 
-.gg-article-body {
+.gg-article-container {
   width: calc(100% - #{gg-size(padding)});
   max-width: gg-size(article-body) - gg-size(padding);
   height: 500px; // DEV
-  margin: -50px auto gg-size(margin) auto;
+  margin: - gg-size(article-info-height) auto gg-size(margin) auto;
   z-index: 100;
   border-radius: gg-size(border-radius);
   background: $gg-color-body-background;
   @extend %gg-shadow-high;
+}
+
+
+
+
+.gg-article-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid $gg-color-border-light;
+
+  > :first-child {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: gg-size(padding);
+    .gg-author-image {
+      display: block;
+      flex-grow: 0;
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+    .gg-article-meta {
+      flex-grow: 1;
+      padding-left: gg-size(padding);
+      a {
+        display: block;
+        @extend %gg-font-body-2-device;
+        color: $gg-color-link;
+        line-height: gg-line-height(body-1);
+        &:hover {
+          color: $gg-color-link-hover;
+        }
+      }
+      span {
+        display: block;
+        @extend %gg-font-caption;
+        color: $gg-color-muted;
+        font-weight: 600;
+      }
+    }
+  }
+
+  > :last-child {
+    flex-grow: 0;
+    padding: gg-size(margin);
+    text-align: right;
+  }
+}
+
+
+
+
+.gg-article-actions {
+  padding: gg-size(margin)/4 0;
+  .gg-button-flat,
+  .gg-icon-flat {
+    color: $gg-color-link;
+    &:hover {
+      color: $gg-color-link;
+    }
+    &:active, &:focus {
+      color: $gg-color-link-hover;
+    }
+  }
+  .gg-button-flat .fa {
+    font-size: gg-font-size(subheading-device);
+  }
+  .gg-icon-flat {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: gg-font-size(title);
+  }
 }

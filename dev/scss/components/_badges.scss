@@ -14,10 +14,10 @@
   width: gg-size(badge);
   height: gg-size(badge);
   z-index: 10;
-  border: 2px solid $body-bg;
+  border: 2px solid $gg-color-body-background;
   border-radius: 50%;
   background-color: $gg-color-link;
-  color: $body-bg;
+  color: $gg-color-body-background;
   font-size: 1.0rem;
   line-height: gg-size(badge) - 4px;
   text-align: center;

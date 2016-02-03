@@ -13,7 +13,8 @@ $gg-sizes: (
   button-width:               64px,
   button-height:              36px,
   badge:                      20px,
-  article-body:               716px
+  article-body:               716px,
+  article-info-height:        74px
 );
 
 @function gg-size ($index) {
@@ -103,6 +104,9 @@ $gg-colors: (
 
 $gg-color-primary:            gg-color(md-deep-orange);
 $gg-color-body-background:    gg-color(white);
+
+$gg-color-border-light:      gg-color(md-gray-200);
+
 $gg-color-text:               rgba(gg-color(black), 0.87); //gg-color(md-gray-800);
 $gg-color-text-light:         gg-color(white);
 $gg-color-secondary-text:     rgba(gg-color(black), 0.54);
@@ -111,9 +115,6 @@ $gg-color-muted:              rgba(gg-color(black), 0.38); //gg-color(md-gray-50
 $gg-color-muted-light:        rgba(gg-color(white), 0.3);
 $gg-color-link:               gg-color(md-deep-orange);
 $gg-color-link-hover:         gg-color(md-orange);
-
-$body-bg:                     gg-color(white);
-$body-color:                  gg-color(black);
 
 $link-color:                  gg-color(md-deep-orange);
 $link-hover-color:            darken($link-color, 15%);

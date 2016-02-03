@@ -22,7 +22,7 @@
   padding: 0;
 
   border-right: 1px solid gg-color(gray-lighter);
-  background: $body-bg;
+  background: $gg-color-body-background;
   @extend %gg-shadow-low;
 
   //transform: translateX(- gg-size(drawer-width) - 10px);
