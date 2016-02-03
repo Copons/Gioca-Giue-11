@@ -65,6 +65,7 @@
   background-color: $gg-color-primary;
   @extend %gg-shadow-low;
   color: $gg-color-text-light;
+  @include gg-transition('padding-left');
 
   h1 {
     flex-grow: 1;
@@ -163,7 +164,7 @@
   background: $gg-color-body-background;
   @extend %gg-shadow-low;
 
-  @include gg-transition('visibility, opacity');
+  @include gg-transition('visibility, opacity, padding-left');
 
   &.is-visible {
     visibility: visible;
@@ -180,7 +181,6 @@
   .gg-appbar,
   .gg-searchbar {
     padding-left: gg-size(drawer-width);
-    @include gg-transition('padding-left');
 
     .gg-drawer-toggle {
       display: none;
