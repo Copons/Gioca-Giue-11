@@ -100,4 +100,3 @@ node_modules
 ### Custom ###
 tmp
 npm-debug.log
-dev/build
