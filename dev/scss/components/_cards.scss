@@ -31,7 +31,7 @@
   margin: 0 0 0 gg-size(margin);
   padding-top: gg-size(header-height-portrait) * 1.5;
 
-  // overflow: hidden; DEV
+  // overflow: hidden; // DEV
 
   @include gg-breakpoint(xsmall) {
     width: calc(100% - #{gg-size(padding)});
