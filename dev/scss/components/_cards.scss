@@ -74,8 +74,8 @@
   }
 
   .gg-card-media {
-    background: $gg-color-muted url('http://placehold.it/500x200/ff9800/424242') center center; // DEV
-    background-size: cover; // DEV
+    background: $gg-color-muted center center;
+    background-size: cover;
   }
 
   .gg-card-headline {
@@ -201,6 +201,7 @@
   .gg-card-media {
     width: 100%;
     padding-bottom: 56.25%; // 16:9
+    background-image: url('http://unsplash.it/650/200'); // DEV
   }
 }
 
@@ -222,6 +223,7 @@
     margin-right: gg-size(padding);
     margin-bottom: gg-size(padding);
     padding-bottom: calc((100% - #{gg-size(padding)}) / 3); // 1:1
+    background-image: url('http://unsplash.it/300/300'); // DEV
   }
 
   .gg-card-content {
@@ -270,6 +272,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    background-image: url('http://unsplash.it/600/600'); // DEV
   }
 
   .gg-card-content {
