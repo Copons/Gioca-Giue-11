@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<section class="gg-cards" id="masonry">
+
+  {% for post in posts %}
+  <article class="gg-card gg-card-image">
+    {{post.post_title}}
+  </article>
+  {% endfor %}
+
+</section>
+{% endblock %}

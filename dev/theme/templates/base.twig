@@ -1,0 +1,22 @@
+{% block head %}
+  {% include 'head.twig' %}
+{% endblock %}
+
+  <body class="{{ body_class }}">
+
+    <div class="gg-layout">
+      <div class="gg-obfuscator"></div>
+
+        {% include 'header.twig' %}
+
+        {% block content %}
+          Empty
+        {% endblock %}
+
+        {% include 'drawer.twig' %}
+
+    </div>
+
+    {{ function('wp_footer') }}
+  </body>
+</html>

@@ -8,7 +8,8 @@ const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   js : path.join(__dirname, 'dev', 'js'),
   scss : path.join(__dirname, 'dev', 'scss'),
-  build : path.join(__dirname, 'dev', 'build')
+  theme : path.join(__dirname, 'dev', 'theme'),
+  themeAssets : path.join(__dirname, 'dev', 'theme', 'assets')
 };
 
 
@@ -20,7 +21,7 @@ const common = {
     extensions : ['', '.js', '.jsx']
   },
   output : {
-    path : PATHS.build,
+    path : PATHS.themeAssets,
     filename : 'gg11.js'
   },
   module : {
@@ -42,10 +43,10 @@ const common = {
   }
 };
 
-const dev = merge(common, {
+const live = merge(common, {
   devtool : 'eval-source-map',
   devServer : {
-    contentBase : PATHS.build,
+    contentBase : PATHS.theme,
     historyApiFallback : true,
     hot : true,
     inline : true,
@@ -68,7 +69,7 @@ const dev = merge(common, {
   ]
 });
 
-const devBuild = merge(common, {
+const dev = merge(common, {
   devtool : 'eval-source-map',
   module : {
     loaders : [
@@ -100,10 +101,10 @@ const build = merge(common, {
 
 
 if (TARGET === 'start' || !TARGET) {
-  module.exports = dev;
+  module.exports = live;
 }
-if (TARGET === 'devbuild') {
-  module.exports = devBuild;
+if (TARGET === 'dev') {
+  module.exports = dev;
 }
 if (TARGET === 'build') {
   module.exports = build;
