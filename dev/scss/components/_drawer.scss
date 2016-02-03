@@ -40,4 +40,12 @@
 
   @include gg-menu-list($icon-position : left);
 
+  .admin-bar & {
+    @media screen and (min-width: 600px) {
+      padding-top: gg-size(wp-admin-bar-device);
+    }
+    @media screen and (min-width: 783px) {
+      padding-top: gg-size(wp-admin-bar-desktop);
+    }
+  }
 }

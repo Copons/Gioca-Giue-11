@@ -26,3 +26,12 @@ a {
 }
 
 ::-webkit-input-placeholder { line-height: normal; }
+
+
+
+
+#wpadminbar {
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+}

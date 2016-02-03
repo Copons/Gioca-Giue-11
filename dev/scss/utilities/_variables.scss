@@ -10,11 +10,15 @@ $gg-sizes: (
   header-height-landscape:    48px,
   header-height-portrait:     56px,
   header-height-desktop:      64px,
+  header-hidden-offset:       -70px,
   button-width:               64px,
   button-height:              36px,
   badge:                      20px,
   article-body:               716px,
-  article-info-height:        74px
+  article-info-height:        74px,
+
+  wp-admin-bar-device:        46px,
+  wp-admin-bar-desktop:       32px
 );
 
 @function gg-size ($index) {

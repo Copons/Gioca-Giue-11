@@ -12,7 +12,7 @@
 
 .gg-header {
   position: fixed;
-  top: -70px;
+  top: gg-size(header-hidden-offset);
   left: 0;
   width: 100%;
   height: gg-size(header-height-portrait);
@@ -25,6 +25,21 @@
 
   &.is-visible {
     top: 0;
+  }
+
+  .admin-bar & {
+    @media screen and (min-width: 600px) {
+      top: gg-size(header-hidden-offset) + gg-size(wp-admin-bar-device);
+      &.is-visible {
+        top: gg-size(wp-admin-bar-device);
+      }
+    }
+    @media screen and (min-width: 783px) {
+      top: gg-size(header-hidden-offset) + gg-size(wp-admin-bar-desktop);
+      &.is-visible {
+        top: gg-size(wp-admin-bar-desktop);
+      }
+    }
   }
 }
 
