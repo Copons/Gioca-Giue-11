@@ -35,6 +35,10 @@
       object-fit: cover;
     }
 
+    hgroup {
+      padding-bottom: gg-size(article-info-height) - gg-size(header-height-portrait);
+    }
+
     h1 {
       margin: 0;
       @extend %gg-font-display-2;
@@ -109,6 +113,7 @@
 
   > :last-child {
     flex-grow: 0;
+    //flex-shrink: 0;
     padding: gg-size(margin);
     text-align: right;
   }
