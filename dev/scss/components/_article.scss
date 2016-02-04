@@ -7,10 +7,9 @@
 
 .gg-article {
   width: 100%;
-  //height: 100vh;
-
 
   > header {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -19,12 +18,22 @@
     width: 100%;
     min-height: 100vh;
     min-height: 50vh; // DEV
+    z-index: -1;
     padding: gg-size(article-info-height) gg-size(margin);
+    background-color: $gg-color-muted;
     @extend %gg-shadow-low;
     text-align: center;
-    background: $gg-color-muted url('http://unsplash.it/1000/500') center center; // DEV
-    //background-attachment: fixed; // DEV
-    background-size: cover; // DEV
+
+    img {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     h1 {
       margin: 0;
@@ -41,11 +50,11 @@
 
 
 .gg-article-container {
+  z-index: 1;
   width: calc(100% - #{gg-size(padding)});
   max-width: gg-size(article-body) - gg-size(padding);
   height: 500px; // DEV
   margin: - gg-size(article-info-height) auto gg-size(margin) auto;
-  z-index: 100;
   border-radius: gg-size(border-radius);
   background: $gg-color-body-background;
   @extend %gg-shadow-high;

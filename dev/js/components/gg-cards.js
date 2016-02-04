@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import Masonry from 'masonry-layout';
+import imagesLoaded from 'imagesloaded';
 
 const ggCardsClass = '.gg-cards';
 const ggCardClass = '.gg-card';
@@ -13,16 +14,21 @@ const masonryBlockClass = '#masonry .gg-card';
 export default function () {
 
   if ($masonryContainer.length) {
+
     let cardsLayout;
-    setTimeout(() => {
-      cardsLayout = new Masonry(document.querySelector(ggCardsClass), {
-        itemSelector : masonryBlockClass,
-        gutter : 16,
-        percentPosition : true
-      });
+    let imagesLoadControl = imagesLoaded($masonryContainer);
+
+    cardsLayout = new Masonry(document.querySelector(ggCardsClass), {
+      itemSelector : masonryBlockClass,
+      gutter : 16,
+      percentPosition : true
+    });
+    imagesLoadControl.on('progress', () => {
       cardsLayout.layout();
+    });
+    imagesLoadControl.on('done', () => {
       $(masonryBlockClass).ggToggle('show');
-    }, 200);
+    });
 
     // WordPress Jetpack Infinite Scroll
     let infiniteCount = 0;
@@ -34,6 +40,7 @@ export default function () {
       $(masonryBlockClass).ggToggle('show');
     });
     // CHECK ONCE STAGED!!
+
   }
 
   $ggCardToggleAddon.on('click', (event) => {

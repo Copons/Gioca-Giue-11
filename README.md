@@ -16,3 +16,5 @@ You can check the development progress over in the [kitchen sink](http://giocagi
 - **Hammer.js v2.0.6** for touch gestures
 - **perfect-scrollbar v0.6.10** for perfect scrollbars
 - **Masonry v4.4.0** for proper cards layout
+- **imagesLoaded v4.1.0** to avoid Masonry failing badly
+- **Timber v0.22.5** for a more comfortable theme development

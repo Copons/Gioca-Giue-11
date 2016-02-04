@@ -20,7 +20,9 @@
     padding-left: gg-size(drawer-width);
   }
 
-  @media screen and (max-width: 600px) {
-    margin-top: - gg-size(wp-admin-bar-device);
+  .admin-bar & {
+    @media screen and (max-width: 600px) {
+      margin-top: - gg-size(wp-admin-bar-device);
+    }
   }
 }
