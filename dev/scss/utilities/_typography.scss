@@ -1,6 +1,8 @@
 /**
  * @function gg-font-size
+ * @function gg-font-weight
  * @function gg-line-height
+ * @function gg-font-tracking
  * @mixin gg-font
  * %gg-font-display-4
  * %gg-font-display-3
@@ -19,7 +21,7 @@
 
 
 
-$gg-font-family-sans-serif:   'Open Sans', sans-serif;
+$gg-font-family-sans-serif:   'Roboto', sans-serif;
 $gg-font-family-serif:        serif;
 $gg-font-family-monospace:    monospace;
 
@@ -48,6 +50,20 @@ $gg-font-sizes: (
 }
 
 
+$gg-font-weights: (
+  thin:                       100,
+  light:                      300,
+  regular:                    400,
+  medium:                     500,
+  bold:                       700,
+  black:                      900
+);
+
+@function gg-font-weight($weight) {
+  @return map-get($gg-font-weights, $weight);
+}
+
+
 $gg-line-heights: (
   display-2:                  4.8rem,
   display-1:                  4.0rem,
@@ -62,13 +78,30 @@ $gg-line-heights: (
 }
 
 
+$gg-font-trackings: (
+  xsmall:                     -.01em,
+  small:                      -.005em,
+  large:                      .005em,
+  xlarge:                     .01em,
+  xxlarge:                    .02em
+);
 
-@mixin gg-font ($family, $size, $weight, $leading : '') {
+@function gg-font-tracking($tracking) {
+  @return map-get($gg-font-trackings, $tracking);
+}
+
+
+
+
+@mixin gg-font ($family, $size, $weight, $leading : '', $tracking : '') {
   font-family: $family;
   font-size: gg-font-size($size);
-  font-weight: $weight;
+  font-weight: gg-font-weight($weight);
   @if $leading != '' {
     line-height: gg-line-height($leading);
+  }
+  @if $tracking != '' {
+    letter-spacing: gg-font-tracking($tracking);
   }
 }
 
@@ -77,21 +110,25 @@ $gg-line-heights: (
   @include gg-font(
     $gg-font-family,
     display-4,
-    300
+    light,
+    '',
+    xsmall
   );
 }
 %gg-font-display-3 {
   @include gg-font(
     $gg-font-family,
     display-3,
-    400
+    regular,
+    '',
+    small
   );
 }
 %gg-font-display-2 {
   @include gg-font(
     $gg-font-family,
     display-2,
-    400,
+    regular,
     display-2
   );
 }
@@ -99,7 +136,7 @@ $gg-line-heights: (
   @include gg-font(
     $gg-font-family,
     display-1,
-    400,
+    regular,
     display-1
   );
 }
@@ -107,7 +144,7 @@ $gg-line-heights: (
   @include gg-font(
     $gg-font-family,
     headline,
-    400,
+    regular,
     headline
   );
 }
@@ -115,53 +152,63 @@ $gg-line-heights: (
   @include gg-font(
     $gg-font-family,
     title,
-    600
+    medium,
+    '',
+    large
   );
 }
 %gg-font-subheading-device {
   @include gg-font(
     $gg-font-family,
     subheading-device,
-    400,
-    subheading
+    regular,
+    subheading,
+    xlarge
   );
 }
 %gg-font-subheading-desktop {
   @include gg-font(
     $gg-font-family,
     subheading-desktop,
-    400,
-    subheading
+    regular,
+    subheading,
+    xlarge
   );
 }
 %gg-font-body-2-device {
   @include gg-font(
     $gg-font-family,
     body-device,
-    600,
-    body-2
+    medium,
+    body-2,
+    xxlarge
   );
 }
 %gg-font-body-1-device {
   @include gg-font(
     $gg-font-family,
     body-device,
-    400,
-    body-1
+    regular,
+    body-1,
+    xlarge
   );
 }
 %gg-font-caption {
   @include gg-font(
     $gg-font-family,
     caption,
-    400
+    regular,
+    '',
+    xxlarge
   );
 }
 %gg-font-button {
   @include gg-font(
     $gg-font-family,
     button,
-    600
+    medium,
+    '',
+    xlarge
   );
   text-transform: uppercase;
 }

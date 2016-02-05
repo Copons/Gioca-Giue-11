@@ -85,7 +85,7 @@
   opacity: 0;
   background-color: $gg-color-body-background;
   color: $gg-color-muted;
-  font-weight: 400;
+  font-weight: gg-font-weight(regular);
 
   @include gg-transition('visibility, opacity');
   transition-delay: 0s;

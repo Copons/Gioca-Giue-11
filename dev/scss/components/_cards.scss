@@ -96,7 +96,7 @@
     .gg-card-title {
       margin: 0;
       padding-top: gg-size(margin);
-      @include gg-font($gg-font-family, headline, 400, body-2);
+      @include gg-font($gg-font-family, headline, regular, body-2);
 
       .gg-card-payoff {
         display: block;
@@ -107,7 +107,7 @@
     .gg-card-subtitle {
       margin: 0;
       padding-top: gg-font-size(headline) / 3;
-      @include gg-font($gg-font-family, body-device, 400, body-1);
+      @include gg-font($gg-font-family, body-device, regular, body-1);
     }
   }
 

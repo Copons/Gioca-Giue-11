@@ -98,6 +98,7 @@
       a {
         display: block;
         @extend %gg-font-body-2-device;
+        font-weight: gg-font-weight(bold);
         color: $gg-color-link;
         line-height: gg-line-height(body-1);
         &:hover {
@@ -108,7 +109,6 @@
         display: block;
         @extend %gg-font-caption;
         color: $gg-color-muted;
-        font-weight: 600;
       }
     }
   }
@@ -151,7 +151,8 @@
 
 .gg-article-body {
   padding: gg-size(padding);
-  @extend %gg-font-body-1-device;
+  @extend %gg-font-body-2-device;
+  font-weight: gg-font-weight(regular);
 
   :first-child {
     margin-top: gg-size(margin);
@@ -197,7 +198,7 @@
   }
 
   .gg-article-author {
-    
+
   }
 
 
