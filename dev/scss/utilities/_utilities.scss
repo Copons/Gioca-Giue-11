@@ -1,9 +1,24 @@
 /**
+ * %gg-link
  * %gg-shadow-low
  * %gg-shadow-high
  * @mixin gg-transition
  * @mixin gg-menu-list
+ * .gg-user-info
  */
+
+
+
+
+%gg-link {
+  color: $gg-color-link;
+  &:hover {
+    color: $gg-color-link;
+  }
+  &:active, &:focus {
+    color: $gg-color-link-hover;
+  }
+}
 
 
 
@@ -81,6 +96,45 @@
           flex-grow: 1;
         }
       }
+    }
+  }
+}
+
+
+
+
+.gg-user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: gg-size(padding);
+  .gg-user-image {
+    display: block;
+    flex-grow: 0;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
+  .gg-user-name {
+    flex-grow: 1;
+    padding-left: gg-size(padding);
+    a {
+      display: block;
+      @extend %gg-font-body-2-device;
+      font-weight: gg-font-weight(bold);
+      color: $gg-color-link;
+      line-height: gg-line-height(body-1);
+      &:hover {
+        color: $gg-color-link-hover;
+      }
+    }
+    span {
+      display: block;
+      @extend %gg-font-caption;
+      color: $gg-color-muted;
     }
   }
 }

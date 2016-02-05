@@ -31,8 +31,6 @@
   margin: 0 0 0 gg-size(margin);
   padding-top: gg-size(header-height-portrait) * 1.5;
 
-  // overflow: hidden; // DEV
-
   @include gg-breakpoint(xsmall) {
     width: calc(100% - #{gg-size(padding)});
     max-width: calc(100% - #{gg-size(padding)});
@@ -186,13 +184,7 @@
     border-top: 1px solid $gg-color-border-light;
     .gg-button-flat,
     .gg-icon-flat {
-      color: $gg-color-link;
-      &:hover {
-        color: $gg-color-link;
-      }
-      &:active, &:focus {
-        color: $gg-color-link-hover;
-      }
+      @extend %gg-link;
     }
     .gg-icon-flat {
       width: gg-size(button-height);
