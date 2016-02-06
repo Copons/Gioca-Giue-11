@@ -17,7 +17,7 @@ class GG11 extends TimberSite {
   function __construct () {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'menus' );
-    wp_enqueue_script( 'gg11-script', get_template_directory_uri() . '/assets/gg11.js', array(), '0.3.1', true );
+    wp_enqueue_script( 'gg11-script', get_template_directory_uri() . '/assets/gg11.js', array(), '0.4.4', true );
     //add_filter( 'timber_context', array( $this, 'add_to_context' ) );
     //add_filter( 'get_twig', array( $this, 'add_to_twig') );
     parent::__construct();

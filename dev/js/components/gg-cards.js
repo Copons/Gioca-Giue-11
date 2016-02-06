@@ -23,6 +23,9 @@ export default function () {
       gutter : 16,
       percentPosition : true
     });
+    setTimeout(() => {
+      cardsLayout.layout();
+    }, 200);
     imagesLoadControl.on('progress', () => {
       cardsLayout.layout();
     });
@@ -47,7 +50,7 @@ export default function () {
     event.preventDefault();
     let $toggle = $(event.currentTarget);
     let $container = $toggle.closest(ggCardClass);
-    let $target = $(`${ggCardAddonClass}[data-addon="${$toggle.data('addon')}"]`);
+    let $target = $(`${ggCardAddonClass}[data-addon="${$toggle.data('addon')}"]`, $container);
     let innerHeight = 0;
     $target.children().each((index, $item) => {
       innerHeight += $($item).outerHeight(true);

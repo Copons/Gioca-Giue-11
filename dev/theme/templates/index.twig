@@ -4,9 +4,118 @@
 <section class="gg-cards" id="masonry">
 
   {% for post in posts %}
-  <article class="gg-card gg-card-image">
-    {{post.post_title}}
-  </article>
+
+    {% if post.thumbnail.src %}
+
+      <article class="gg-card gg-card-big">
+
+        <a href="{{ post.link }}" class="gg-card-media">
+          <img src="{{ post.thumbnail.src }}" />
+        </a>
+
+        <div class="gg-card-content">
+          <div class="gg-card-headline">
+            <h1 class="gg-card-title">
+              <small class="gg-card-payoff">Payoff</small>
+              <a href="{{ post.link }}">
+                {{ post.title }}
+              </a>
+            </h1>
+            <h2 class="gg-card-subtitle">
+              <a href="{{ post.author. link }}">
+                {{ post.author.name }}
+              </a> &middot; {{post.post_date | date}}
+            </h2>
+          </div>
+          <div class="gg-card-text">
+            {{ post.get_preview(25, false, '', true) }}
+          </div>
+        </div>
+
+        <div class="gg-card-actions">
+          <div class="gg-card-action-buttons">
+            <a class="gg-button-flat">
+              <span class="gg-icon-comments"></span>
+              {{ post.comment_count }}
+            </a>
+          </div>
+          <div class="gg-card-action-icons">
+            <a class="gg-icon-flat gg-icon-chevron gg-card-toggle-addon" data-addon="addon1"></a>
+          </div>
+        </div>
+
+        <div class="gg-card-addon" data-addon="addon1">
+          <div class="gg-card-addon-list">
+            <ul>
+              {% for category in post.terms('categories') %}
+              <li>
+                <a href="{{ category.link }}">
+                  {{ category.name }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+      </article>
+
+    {% else %}
+
+      <article class="gg-card gg-card-small">
+
+        <div class="gg-card-content">
+
+          <div class="gg-card-headline">
+            <h1 class="gg-card-title">
+              <small class="gg-card-payoff">Payoff</small>
+              <a href="{{ post.link }}">
+                {{ post.title }}
+              </a>
+            </h1>
+            <h2 class="gg-card-subtitle">
+              <a href="{{ post.author. link }}">
+                {{ post.author.name }}
+              </a> &middot; {{post.post_date | date}}
+            </h2>
+          </div>
+
+          <div class="gg-card-text">
+            {{ post.get_preview(25, false, '', true) }}
+          </div>
+
+        </div>
+
+        <div class="gg-card-actions">
+          <div class="gg-card-action-buttons">
+            <a class="gg-button-flat">
+              <span class="gg-icon-comments"></span>
+              {{ post.comment_count }}
+            </a>
+          </div>
+          <div class="gg-card-action-icons">
+            <a class="gg-icon-flat gg-icon-chevron gg-card-toggle-addon" data-addon="addon1"></a>
+          </div>
+        </div>
+
+        <div class="gg-card-addon" data-addon="addon1">
+          <div class="gg-card-addon-list">
+            <ul>
+              {% for category in post.terms('categories') %}
+              <li>
+                <a href="{{ category.link }}">
+                  {{ category.name }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+      </article>
+
+    {% endif %}
+
   {% endfor %}
 
 </section>
