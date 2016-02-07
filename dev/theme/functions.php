@@ -7,8 +7,6 @@ if ( ! class_exists( 'Timber' ) ) :
 	return;
 endif;
 
-Timber::$dirname = array( 'templates', 'views' );
-
 
 
 
