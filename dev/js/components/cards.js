@@ -13,8 +13,8 @@ class Cards {
 
   masonry () {
     if (this.masonryContainer) {
-      let masonryItemsClass = '#masonry .gg-card';
-      let masonryItems = document.querySelectorAll(masonryItemsClass);
+      const masonryItemsClass = '#masonry .gg-card';
+      const masonryItems = document.querySelectorAll(masonryItemsClass);
 
       let imagesLoadControl = imagesLoaded(this.masonryContainer);
 

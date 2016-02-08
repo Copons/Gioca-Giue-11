@@ -19,10 +19,11 @@ class Drawer {
   }
 
   toggle () {
-    let drawerToggle = document.querySelector('.gg-drawer-toggle');
-    drawerToggle.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (this.layout.offsetWidth < this.breakpoint) {
+    document.body.addEventListener('click', (event) => {
+      if (
+        event.target.classList.contains('gg-drawer-toggle') &&
+        this.layout.offsetWidth < this.breakpoint
+      ) {
         toggle(this.drawer);
         obfuscate();
       }
@@ -38,7 +39,7 @@ class Drawer {
 
   swipe () {
     delete Hammer.defaults.cssProps.userSelect;
-    let drawerSwipe = new Hammer(this.layout);
+    const drawerSwipe = new Hammer(this.layout);
 
     drawerSwipe.on('swipeleft', () => {
       if (this.drawer.classList.contains(IS_VISIBLE) && this.layout.offsetWidth < this.breakpoint) {

@@ -13,18 +13,24 @@ class Searchbar {
   }
 
   open () {
-    let searchbarToggle = document.querySelector('.gg-searchbar-toggle');
-    searchbarToggle.addEventListener('click', (event) => {
+    const searchbar = this.searchbar;
+    const searchbarInput = this.searchInput;
+    const searchbarToggleButtons = document.querySelectorAll('.gg-searchbar-toggle');
+    for (let searchbarToggle of searchbarToggleButtons) {
+      searchbarToggle.addEventListener('click', searchbarToggleBindClick);
+    }
+
+    function searchbarToggleBindClick (event) {
       event.preventDefault();
-      toggle(this.searchbar);
+      toggle(searchbar);
       setTimeout(() => {
-        this.searchInput.focus();
+        searchbarInput.focus();
       }, 150);
-    });
+    }
   }
 
   cancel () {
-    let searchbarCancel = this.searchbar.querySelector('.gg-searchbar-cancel');
+    const searchbarCancel = this.searchbar.querySelector('.gg-searchbar-cancel');
     this.searchInput.addEventListener('keyup', () => {
       if (this.searchInput.value) {
         toggle(searchbarCancel, 'show');

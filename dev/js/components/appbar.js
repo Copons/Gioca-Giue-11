@@ -12,15 +12,16 @@ class Appbar {
   }
 
   openMenu () {
-    let appbarMenuToggle = this.appbar.querySelector('.gg-appbar-menu-toggle');
-    appbarMenuToggle.addEventListener('click', (event) => {
-      event.preventDefault();
-      toggle(this.appbarMenu, 'show');
+    this.appbar.addEventListener('click', (event) => {
+      if (event.target.classList.contains('gg-appbar-menu-toggle')) {
+        event.preventDefault();
+        toggle(this.appbarMenu, 'show');
+      }
     });
   }
 
   closeMenu () {
-    document.addEventListener('click', (event) => {
+    document.body.addEventListener('click', (event) => {
       closeOutside(this.appbarMenu, event, '.gg-appbar-menu-toggle');
     });
   }
