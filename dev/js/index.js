@@ -1,23 +1,22 @@
 require('../scss/gg11.scss');
 
-import ggToggle from './plugins/gg-toggle';
-ggToggle();
-
-import ggRipple from './plugins/gg-ripple';
-ggRipple();
+import 'babel-polyfill';
 
 
-import ggAppbar from './components/gg-appbar';
-ggAppbar();
+import Appbar from './components/appbar';
+new Appbar();
 
-import ggDrawer from './components/gg-drawer';
-ggDrawer();
+import Cards from './components/cards';
+new Cards();
 
-import ggHeader from './components/gg-header';
-ggHeader();
+import Drawer from './components/drawer';
+new Drawer();
 
-import ggSearchbar from './components/gg-searchbar';
-ggSearchbar();
+import Header from './components/header';
+new Header();
 
-import ggCards from './components/gg-cards';
-ggCards();
+import Ripple from './components/ripple';
+new Ripple();
+
+import Searchbar from './components/searchbar';
+new Searchbar();

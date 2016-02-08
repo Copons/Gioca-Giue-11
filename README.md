@@ -6,7 +6,6 @@ You can check the development progress over in the [kitchen sink](http://giocagi
 
 ## Thanks and stuff
 
-- **jQuery v2.2.0** but eventually I'm gonna go with v3, if they release it on npm
 - **normalize.css v3.0.3** because how can we live without it
 - **Material Design Lite v1.0.6** for stolen code and inspiration
 - **Bootstrap v4** for stolen code

@@ -37,10 +37,9 @@
     "build": "webpack -p"
   },
   "dependencies": {
+    "babel-polyfill": "^6.5.0",
     "hammerjs": "^2.0.6",
     "imagesloaded": "^4.1.0",
-    "jquery": "^2.2.0",
-    "lodash": "^4.0.0",
     "masonry-layout": "^4.0.0",
     "node-waves": "^0.7.4",
     "perfect-scrollbar": "^0.6.10"
