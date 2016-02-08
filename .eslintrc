@@ -10,7 +10,7 @@
     "jsx" : true,
     "modules" : true
   },
-  
+
   "globals" : {
     "_" : true,
     "Waves" : true,
@@ -73,7 +73,6 @@
     "no-loop-func" : 2,
     "no-multi-str" : 2,
     "no-native-reassign" : 2,
-    "no-new" : 2,
     "no-new-func" : 2,
     "no-new-wrappers" : 2,
     "no-octal" : 2,
