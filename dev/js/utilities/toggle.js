@@ -1,28 +1,21 @@
-import {IS_VISIBLE} from './constants';
+import { IS_VISIBLE } from './constants';
 
 export default function (target, action) {
-
   if (target instanceof NodeList) {
-    for (let element of target) {
+    for (const element of target) {
       if (action === 'show') {
         element.classList.add(IS_VISIBLE);
-      }
-      else if (action === 'hide') {
+      } else if (action === 'hide') {
         element.classList.remove(IS_VISIBLE);
-      }
-      else {
+      } else {
         element.classList.toggle(IS_VISIBLE);
       }
     }
-  }
-  else if (action === 'show') {
+  } else if (action === 'show') {
     target.classList.add(IS_VISIBLE);
-  }
-  else if (action === 'hide') {
+  } else if (action === 'hide') {
     target.classList.remove(IS_VISIBLE);
-  }
-  else {
+  } else {
     target.classList.toggle(IS_VISIBLE);
   }
-
 }

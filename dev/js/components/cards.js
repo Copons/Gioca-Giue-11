@@ -2,7 +2,7 @@ import Masonry from 'masonry-layout';
 import imagesLoaded from 'imagesloaded';
 import toggle from '../utilities/toggle';
 
-class Cards {
+export default class Cards {
 
   constructor () {
     this.cards = document.querySelector('.gg-cards');
@@ -15,17 +15,17 @@ class Cards {
     if (this.masonryContainer) {
       const masonryItemsClass = '#masonry .gg-card';
       const masonryItems = document.querySelectorAll(masonryItemsClass);
-
-      let imagesLoadControl = imagesLoaded(this.masonryContainer);
-
-      let cardsLayout = new Masonry(this.cards, {
+      const imagesLoadControl = imagesLoaded(this.masonryContainer);
+      const cardsLayout = new Masonry(this.cards, {
         itemSelector : masonryItemsClass,
         gutter : 16,
-        percentPosition : true
+        percentPosition : true,
       });
+
       setTimeout(() => {
         cardsLayout.layout();
       }, 200);
+
       imagesLoadControl.on('progress', () => {
         cardsLayout.layout();
       });
@@ -34,18 +34,17 @@ class Cards {
       });
 
       // WordPress Jetpack Infinite Scroll
+      // TODO: CHECK ONCE STAGED!!
       let infiniteCount = 0;
+
       document.body.addEventListener('post-load', () => {
         infiniteCount++;
-        let infiniteContainer = document.querySelector('#infinite-view-' + infiniteCount);
-        let infiniteItems = infiniteContainer.querySelectorAll('.gg-card');
+        const infiniteContainer = document.querySelector(`#infinite-view-${infiniteCount}`);
+        const infiniteItems = infiniteContainer.querySelectorAll('.gg-card');
         cardsLayout.appended(infiniteItems);
         toggle(masonryItems, 'show');
       });
-      // CHECK ONCE STAGED!!
     }
   }
 
 }
-
-export default Cards;

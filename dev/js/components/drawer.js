@@ -1,16 +1,15 @@
 import Hammer from 'hammerjs';
 import Ps from 'perfect-scrollbar';
-import {IS_VISIBLE} from '../utilities/constants';
+import { IS_VISIBLE } from '../utilities/constants';
 import toggle from '../utilities/toggle';
 import obfuscate from '../utilities/obfuscate';
 
-class Drawer {
+export default class Drawer {
 
   constructor () {
     this.drawer = document.querySelector('.gg-drawer');
     this.obfuscator = document.querySelector('.gg-obfuscator');
     this.layout = document.querySelector('.gg-layout');
-
     this.breakpoint = 1280;
 
     this.toggle();
@@ -19,7 +18,7 @@ class Drawer {
   }
 
   toggle () {
-    document.body.addEventListener('click', (event) => {
+    document.body.addEventListener('click', event => {
       if (
         event.target.classList.contains('gg-drawer-toggle') &&
         this.layout.offsetWidth < this.breakpoint
@@ -28,7 +27,8 @@ class Drawer {
         obfuscate();
       }
     });
-    this.obfuscator.addEventListener('click', (event) => {
+
+    this.obfuscator.addEventListener('click', event => {
       event.preventDefault();
       if (this.layout.offsetWidth < this.breakpoint) {
         toggle(this.drawer, 'hide');
@@ -42,19 +42,24 @@ class Drawer {
     const drawerSwipe = new Hammer(this.layout);
 
     drawerSwipe.on('swipeleft', () => {
-      if (this.drawer.classList.contains(IS_VISIBLE) && this.layout.offsetWidth < this.breakpoint) {
+      if (
+        this.drawer.classList.contains(IS_VISIBLE) &&
+        this.layout.offsetWidth < this.breakpoint
+      ) {
         toggle(this.drawer, 'hide');
         obfuscate('hide');
       }
     });
 
     drawerSwipe.on('swiperight', () => {
-      if (!this.drawer.classList.contains(IS_VISIBLE) && this.layout.offsetWidth < this.breakpoint) {
+      if (
+        !this.drawer.classList.contains(IS_VISIBLE) &&
+        this.layout.offsetWidth < this.breakpoint
+      ) {
         toggle(this.drawer);
         obfuscate();
       }
     });
-
   }
 
   scrollbar () {
@@ -62,5 +67,3 @@ class Drawer {
   }
 
 }
-
-export default Drawer;

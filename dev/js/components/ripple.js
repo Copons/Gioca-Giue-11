@@ -1,9 +1,8 @@
 import Waves from 'node-waves';
 
-class Ripple {
+export default class Ripple {
 
   constructor () {
-
     Waves.attach('.gg-appbar-icon', ['waves-circle', 'waves-light']);
 
     Waves.attach('.gg-icon-flat, .gg-searchbar-icon', ['waves-circle']);
@@ -14,7 +13,7 @@ class Ripple {
       '.gg-drawer ul li a, ' +
       '.gg-card-addon-list ul li a, ' +
       '.gg-article-archive .gg-list-categories ul li a'
-      );
+    );
 
     Waves.attach('.gg-button-flat', ['waves-button']);
     Waves.attach('.gg-button-flat-light', ['waves-button', 'waves-light']);
@@ -23,9 +22,6 @@ class Ripple {
     Waves.attach('.gg-chip-flatlight', ['waves-circle', 'waves-light']);
 
     Waves.init();
-
   }
 
 }
-
-export default Ripple;

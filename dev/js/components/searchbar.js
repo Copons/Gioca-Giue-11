@@ -1,7 +1,7 @@
 import toggle from '../utilities/toggle';
 import closeOutside from '../utilities/closeOutside';
 
-class Searchbar {
+export default class Searchbar {
 
   constructor () {
     this.searchbar = document.querySelector('.gg-searchbar');
@@ -16,7 +16,8 @@ class Searchbar {
     const searchbar = this.searchbar;
     const searchbarInput = this.searchInput;
     const searchbarToggleButtons = document.querySelectorAll('.gg-searchbar-toggle');
-    for (let searchbarToggle of searchbarToggleButtons) {
+
+    for (const searchbarToggle of searchbarToggleButtons) {
       searchbarToggle.addEventListener('click', searchbarToggleBindClick);
     }
 
@@ -31,15 +32,16 @@ class Searchbar {
 
   cancel () {
     const searchbarCancel = this.searchbar.querySelector('.gg-searchbar-cancel');
+
     this.searchInput.addEventListener('keyup', () => {
       if (this.searchInput.value) {
         toggle(searchbarCancel, 'show');
-      }
-      else {
+      } else {
         toggle(searchbarCancel, 'hide');
       }
     });
-    searchbarCancel.addEventListener('click', (event) => {
+
+    searchbarCancel.addEventListener('click', event => {
       event.preventDefault();
       this.searchInput.value = '';
       toggle(searchbarCancel, 'hide');
@@ -48,11 +50,9 @@ class Searchbar {
   }
 
   close () {
-    document.addEventListener('click', (event) => {
+    document.addEventListener('click', event => {
       closeOutside(this.searchbar, event, '.gg-searchbar-toggle');
     });
   }
 
 }
-
-export default Searchbar;
