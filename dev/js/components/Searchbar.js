@@ -1,24 +1,25 @@
 import toggle from '../utilities/toggle';
+import { qs, qsa, listen, delegate } from '../utilities/helpers';
 import closeOutside from '../utilities/closeOutside';
 
 export default class Searchbar {
 
-  constructor () {
-    this.searchbar = document.querySelector('.gg-searchbar');
-    this.searchInput = this.searchbar.querySelector('input');
+  constructor() {
+    this.searchbar = qs('.gg-searchbar');
+    this.searchInput = qs('input', this.searchbar);
 
     this.open();
     this.cancel();
     this.close();
   }
 
-  open () {
+  open() {
     const searchbar = this.searchbar;
     const searchbarInput = this.searchInput;
-    const searchbarToggleButtons = document.querySelectorAll('.gg-searchbar-toggle');
+    const searchbarToggleButtons = qsa('.gg-searchbar-toggle');
 
     for (const searchbarToggle of searchbarToggleButtons) {
-      searchbarToggle.addEventListener('click', searchbarToggleBindClick);
+      listen(searchbarToggle, 'click', searchbarToggleBindClick);
     }
 
     function searchbarToggleBindClick (event) {
@@ -30,18 +31,18 @@ export default class Searchbar {
     }
   }
 
-  cancel () {
-    const searchbarCancel = this.searchbar.querySelector('.gg-searchbar-cancel');
+  cancel() {
+    const searchbarCancel = qs('.gg-searchbar-cancel', this.searchbar);
 
-    this.searchInput.addEventListener('keyup', () => {
-      if (this.searchInput.value) {
+    delegate(this.searchbar, 'input', 'keyup', () => {
+      if (event.target.value) {
         toggle(searchbarCancel, 'show');
       } else {
         toggle(searchbarCancel, 'hide');
       }
     });
 
-    searchbarCancel.addEventListener('click', event => {
+    delegate(this.searchbar, '.gg-searchbar-cancel', 'click', event => {
       event.preventDefault();
       this.searchInput.value = '';
       toggle(searchbarCancel, 'hide');
@@ -49,8 +50,8 @@ export default class Searchbar {
     });
   }
 
-  close () {
-    document.addEventListener('click', event => {
+  close() {
+    listen(document.body, 'click', event => {
       closeOutside(this.searchbar, event, '.gg-searchbar-toggle');
     });
   }

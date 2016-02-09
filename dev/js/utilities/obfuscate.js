@@ -1,8 +1,9 @@
 import { IS_OBFUSCATED } from './constants';
+import { qs } from './helpers';
 import toggle from './toggle';
 
 export default function (action) {
-  const obfuscator = document.querySelector('.gg-obfuscator');
+  const obfuscator = qs('.gg-obfuscator');
 
   if (action === 'hide') {
     toggle(obfuscator, 'hide');

@@ -1,4 +1,5 @@
 import { IS_VISIBLE } from './constants';
+import { qsa } from './helpers';
 
 export default function (target, event, excludedSelector) {
   if (target.classList.contains(IS_VISIBLE) &&
@@ -6,7 +7,7 @@ export default function (target, event, excludedSelector) {
       !target.contains(event.target)
   ) {
     if (excludedSelector) {
-      for (const excludedElement of document.querySelectorAll(excludedSelector)) {
+      for (const excludedElement of qsa(excludedSelector)) {
         if (excludedElement === event.target || excludedElement.contains(event.target)) {
           return;
         }

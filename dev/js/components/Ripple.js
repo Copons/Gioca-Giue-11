@@ -2,7 +2,7 @@ import Waves from 'node-waves';
 
 export default class Ripple {
 
-  constructor () {
+  constructor() {
     Waves.attach('.gg-appbar-icon', ['waves-circle', 'waves-light']);
 
     Waves.attach('.gg-icon-flat, .gg-searchbar-icon', ['waves-circle']);

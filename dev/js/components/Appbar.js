@@ -1,27 +1,26 @@
+import { qs, qsa, listen, delegate } from '../utilities/helpers';
 import toggle from '../utilities/toggle';
 import closeOutside from '../utilities/closeOutside';
 
 export default class Appbar {
 
-  constructor () {
-    this.appbar = document.querySelector('.gg-appbar');
-    this.appbarMenu = this.appbar.querySelector('.gg-appbar-menu');
+  constructor() {
+    this.appbar = qs('.gg-appbar');
+    this.appbarMenu = qs('.gg-appbar-menu', this.appbar);
 
     this.openMenu();
     this.closeMenu();
   }
 
-  openMenu () {
-    this.appbar.addEventListener('click', event => {
-      if (event.target.classList.contains('gg-appbar-menu-toggle')) {
-        event.preventDefault();
-        toggle(this.appbarMenu, 'show');
-      }
+  openMenu() {
+    delegate(this.appbar, '.gg-appbar-menu-toggle', 'click', event => {
+      event.preventDefault();
+      toggle(this.appbarMenu, 'show');
     });
   }
 
-  closeMenu () {
-    document.body.addEventListener('click', event => {
+  closeMenu() {
+    listen(document.body, 'click', event => {
       closeOutside(this.appbarMenu, event, '.gg-appbar-menu-toggle');
     });
   }

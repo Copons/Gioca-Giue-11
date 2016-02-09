@@ -1,15 +1,16 @@
 import Hammer from 'hammerjs';
 import Ps from 'perfect-scrollbar';
 import { IS_VISIBLE } from '../utilities/constants';
+import { qs, listen, delegate } from '../utilities/helpers';
 import toggle from '../utilities/toggle';
 import obfuscate from '../utilities/obfuscate';
 
 export default class Drawer {
 
-  constructor () {
-    this.drawer = document.querySelector('.gg-drawer');
-    this.obfuscator = document.querySelector('.gg-obfuscator');
-    this.layout = document.querySelector('.gg-layout');
+  constructor() {
+    this.drawer = qs('.gg-drawer');
+    this.obfuscator = qs('.gg-obfuscator');
+    this.layout = qs('.gg-layout');
     this.breakpoint = 1280;
 
     this.toggle();
@@ -17,18 +18,13 @@ export default class Drawer {
     this.scrollbar();
   }
 
-  toggle () {
-    document.body.addEventListener('click', event => {
-      if (
-        event.target.classList.contains('gg-drawer-toggle') &&
-        this.layout.offsetWidth < this.breakpoint
-      ) {
-        toggle(this.drawer);
-        obfuscate();
-      }
+  toggle() {
+    delegate(document.body, '.gg-drawer-toggle', 'click', event => {
+      toggle(this.drawer);
+      obfuscate();
     });
 
-    this.obfuscator.addEventListener('click', event => {
+    listen(this.obfuscator, 'click', event => {
       event.preventDefault();
       if (this.layout.offsetWidth < this.breakpoint) {
         toggle(this.drawer, 'hide');
@@ -37,7 +33,7 @@ export default class Drawer {
     });
   }
 
-  swipe () {
+  swipe() {
     delete Hammer.defaults.cssProps.userSelect;
     const drawerSwipe = new Hammer(this.layout);
 
@@ -62,7 +58,7 @@ export default class Drawer {
     });
   }
 
-  scrollbar () {
+  scrollbar() {
     Ps.initialize(this.drawer);
   }
 

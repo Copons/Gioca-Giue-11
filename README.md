@@ -17,3 +17,4 @@ You can check the development progress over in the [kitchen sink](http://giocagi
 - **Masonry v4.4.0** for proper cards layout
 - **imagesLoaded v4.1.0** to avoid Masonry failing badly
 - **Timber v0.22.5** for a more comfortable theme development
+- **TodoMVC** (Vanilla ES6) for its handy helper functions

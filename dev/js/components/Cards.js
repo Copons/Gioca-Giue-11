@@ -1,20 +1,21 @@
 import Masonry from 'masonry-layout';
 import imagesLoaded from 'imagesloaded';
+import { qs, qsa, listen } from '../utilities/helpers';
 import toggle from '../utilities/toggle';
 
 export default class Cards {
 
-  constructor () {
-    this.cards = document.querySelector('.gg-cards');
-    this.masonryContainer = document.querySelector('#masonry');
+  constructor() {
+    this.cards = qs('.gg-cards');
+    this.masonryContainer = qs('#masonry');
 
     this.masonry();
   }
 
-  masonry () {
+  masonry() {
     if (this.masonryContainer) {
       const masonryItemsClass = '#masonry .gg-card';
-      const masonryItems = document.querySelectorAll(masonryItemsClass);
+      const masonryItems = qsa(masonryItemsClass);
       const imagesLoadControl = imagesLoaded(this.masonryContainer);
       const cardsLayout = new Masonry(this.cards, {
         itemSelector : masonryItemsClass,
@@ -37,10 +38,10 @@ export default class Cards {
       // TODO: CHECK ONCE STAGED!!
       let infiniteCount = 0;
 
-      document.body.addEventListener('post-load', () => {
+      listen(document.body, 'post-load', () => {
         infiniteCount++;
-        const infiniteContainer = document.querySelector(`#infinite-view-${infiniteCount}`);
-        const infiniteItems = infiniteContainer.querySelectorAll('.gg-card');
+        const infiniteContainer = qs(`#infinite-view-${infiniteCount}`);
+        const infiniteItems = qsa('.gg-card', infiniteContainer);
         cardsLayout.appended(infiniteItems);
         toggle(masonryItems, 'show');
       });

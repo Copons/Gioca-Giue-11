@@ -1,23 +1,24 @@
 import { IS_VISIBLE } from '../utilities/constants';
+import { qs, listen } from '../utilities/helpers';
 import toggle from '../utilities/toggle';
 
 export default class Header {
 
-  constructor () {
-    this.header = document.querySelector('.gg-header');
-    this.searchbar = document.querySelector('.gg-searchbar');
+  constructor() {
+    this.header = qs('.gg-header');
+    this.searchbar = qs('.gg-searchbar');
 
     this.scroll();
     this.resize();
   }
 
-  scroll () {
+  scroll() {
     const scrollDelta = 25;
     let windowDidScroll = false;
     let previousScrollTop = window.pageYOffset;
     let currentScrollTop = 0;
 
-    window.addEventListener('scroll', () => {
+    listen(window, 'scroll', () => {
       windowDidScroll = true;
     });
 
@@ -42,8 +43,8 @@ export default class Header {
     }, 200);
   }
 
-  resize () {
-    window.addEventListener('resize', () => {
+  resize() {
+    listen(window, 'resize', () => {
       if (!this.header.classList.contains(IS_VISIBLE)) {
         toggle(this.header, 'show');
       }
