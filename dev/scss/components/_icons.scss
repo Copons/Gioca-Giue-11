@@ -38,6 +38,32 @@
 
 // ICONS
 
+/**
+ * Font Awesome Index
+ *
+ * bars
+ * search
+ * arrow-left
+ * times
+ * share
+ * chevron-up
+ * gavel
+ * tags
+ * facebook-official
+ * twitter
+ * google-plus
+ * steam
+ * home
+ * star
+ * heart
+ * gamepad
+ * link
+ * envelope
+ * reply
+ * arrow-right
+ * creative-commons
+ */
+
 .gg-drawer-toggle {
   @extend .fa-bars;
 }
@@ -84,10 +110,26 @@
   @extend .fa;
   @extend .fa-facebook-official;
   @extend .fa-lg;
+  color: #3b5998;
 }
 
 .gg-icon-twitter {
   @extend .fa;
   @extend .fa-twitter;
   @extend .fa-lg;
+  color: #55acee;
+}
+
+.gg-icon-google-plus {
+  @extend .fa;
+  @extend .fa-google-plus;
+  @extend .fa-lg;
+  color: #dd4b39;
+}
+
+.gg-icon-steam {
+  @extend .fa;
+  @extend .fa-steam;
+  @extend .fa-lg;
+  color: #000000;
 }
