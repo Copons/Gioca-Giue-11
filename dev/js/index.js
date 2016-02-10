@@ -19,3 +19,6 @@ new Ripple();
 
 import Searchbar from './components/Searchbar';
 new Searchbar();
+
+import Glitch from './components/Glitch';
+new Glitch();

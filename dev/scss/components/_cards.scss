@@ -53,6 +53,10 @@
 
   &:hover {
     @extend %gg-shadow-high;
+    .gg-card-media img {
+      //filter: invert(1) saturate(50) blur(2px)  opacity(.5);
+      filter: sepia(1) hue-rotate(220deg) saturate(5) contrast(3) invert(1) blur(1px) opacity(.5);
+    }
   }
 
   &.is-visible {
@@ -285,6 +289,9 @@
     right: 0;
     bottom: 0;
     left: 0;
+    /*&:hover {
+      @include glitch('card-media', 15, 600, 300, 0, 0);
+    }*/
   }
 
   .gg-card-content {
