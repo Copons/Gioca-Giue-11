@@ -2,8 +2,9 @@ import { IS_OBFUSCATED } from './constants';
 import { qs } from './helpers';
 import toggle from './toggle';
 
-export default function (action) {
+export default function (action, zIndex = 9) {
   const obfuscator = qs('.gg-obfuscator');
+  obfuscator.style.zIndex = zIndex;
 
   if (action === 'hide') {
     toggle(obfuscator, 'hide');

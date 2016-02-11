@@ -19,9 +19,9 @@
 
   @include gg-transition('visibility, background-color');
 
-  @include gg-breakpoint(medium) {
+  /*@include gg-breakpoint(medium) {
     display: none;
-  }
+  }*/
 
   &.is-visible {
     background-color: rgba(0, 0, 0, 0.5);

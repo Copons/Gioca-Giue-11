@@ -164,7 +164,7 @@
   background: $gg-color-body-background;
   @extend %gg-shadow-low;
 
-  @include gg-transition('visibility, opacity, padding-left');
+  @include gg-transition('visibility, opacity');
 
   &.is-visible {
     visibility: visible;

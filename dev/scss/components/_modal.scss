@@ -1,0 +1,28 @@
+.gg-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: gg-z(modal);
+  padding: 0 5vw;
+  visibility: hidden;
+  opacity: 0;
+  @include gg-transition('visibility, opacity');
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    //object-fit: contain;
+    @extend %gg-shadow-high;
+  }
+}
