@@ -9,7 +9,7 @@ const PATHS = {
   js : path.join(__dirname, 'dev', 'js'),
   scss : path.join(__dirname, 'dev', 'scss'),
   theme : path.join(__dirname, 'dev', 'theme'),
-  themeAssets : path.join(__dirname, 'dev', 'theme', 'assets')
+  themeAssets : path.join(__dirname, 'dev', 'theme', 'assets'),
 };
 
 
@@ -18,11 +18,11 @@ const PATHS = {
 const common = {
   entry : PATHS.js,
   resolve : {
-    extensions : ['', '.js', '.jsx']
+    extensions : ['', '.js', '.jsx'],
   },
   output : {
     path : PATHS.themeAssets,
-    filename : 'gg11.js'
+    filename : 'gg11.js',
   },
   module : {
     loaders : [
@@ -31,16 +31,16 @@ const common = {
         loader : 'babel',
         query : {
           cacheDirectory : true,
-          presets : ['es2015']
+          presets : ['es2015'],
         },
-        include : PATHS.js
+        include : PATHS.js,
       },
       {
         test : /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
-        loader : 'url-loader?limit=100000'
-      }
-    ]
-  }
+        loader : 'url-loader?limit=100000',
+      },
+    ],
+  },
 };
 
 const live = merge(common, {
@@ -53,20 +53,20 @@ const live = merge(common, {
     progress : true,
     stats : 'errors-only',
     host : process.env.HOST,
-    port : process.env.PORT
+    port : process.env.PORT,
   },
   module : {
     loaders : [
       {
         test : /\.scss$/,
         loaders : ['style', 'css?sourceMap', 'autoprefixer', 'sass?sourceMap'],
-        include : PATHS.scss
-      }
-    ]
+        include : PATHS.scss,
+      },
+    ],
   },
   plugins : [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 });
 
 const dev = merge(common, {
@@ -76,10 +76,10 @@ const dev = merge(common, {
       {
         test : /\.scss$/,
         loaders : ['style', 'css?sourceMap', 'autoprefixer', 'sass?sourceMap'],
-        include : PATHS.scss
-      }
-    ]
-  }
+        include : PATHS.scss,
+      },
+    ],
+  },
 });
 
 const build = merge(common, {
@@ -88,15 +88,15 @@ const build = merge(common, {
       {
         test : /\.scss$/,
         loader : ExtractTextPlugin.extract('style', 'css!autoprefixer!sass'),
-        include : PATHS.scss
-      }
-    ]
+        include : PATHS.scss,
+      },
+    ],
   },
   plugins : [
     new ExtractTextPlugin('gg11.css', {
-      allChunks : true
-    })
-  ]
+      allChunks : true,
+    }),
+  ],
 });
 
 
