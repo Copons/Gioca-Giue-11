@@ -2,8 +2,19 @@ require('../scss/gg11.scss');
 
 import 'babel-polyfill';
 
-import Appbar from './components/Appbar';
+import './components/appbar-noclass';
+import './components/article-noclass';
+import './components/cards-noclass';
+import './components/drawer-noclass';
+import './components/header-noclass';
+import './components/ripple-noclass';
+import './components/searchbar-noclass';
+
+/*import Appbar from './components/Appbar';
 new Appbar();
+
+import Article from './components/Article';
+new Article();
 
 import Cards from './components/Cards';
 new Cards();
@@ -18,7 +29,4 @@ import Ripple from './components/Ripple';
 new Ripple();
 
 import Searchbar from './components/Searchbar';
-new Searchbar();
-
-import Article from './components/Article';
-new Article();
+new Searchbar();*/
