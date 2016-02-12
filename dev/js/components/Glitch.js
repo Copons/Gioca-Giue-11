@@ -1,4 +1,4 @@
-import { qs, qsa, listen, delegate } from '../utilities/helpers';
+import { qs } from '../utilities/helpers';
 
 export default class Glitch {
 

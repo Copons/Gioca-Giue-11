@@ -1,8 +1,14 @@
 import { IS_VISIBLE } from './constants';
-import { qsa } from './helpers';
+import { qsa, hasClass, removeClass } from './helpers';
 
+/**
+ * Hides an element when a mouse click occurs outside it or outside additional elements.
+ * @param  {Element} target - The element to hide.
+ * @param  {Event}   event - The event interface.
+ * @param  {string}  excludedSelector - A selector of additional elements to exclude.
+ */
 export default function (target, event, excludedSelector) {
-  if (target.classList.contains(IS_VISIBLE) &&
+  if (hasClass(target, IS_VISIBLE) &&
       target !== event.target &&
       !target.contains(event.target)
   ) {
@@ -13,6 +19,6 @@ export default function (target, event, excludedSelector) {
         }
       }
     }
-    target.classList.remove(IS_VISIBLE);
+    removeClass(target, IS_VISIBLE);
   }
 }

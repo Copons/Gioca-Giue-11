@@ -1,21 +1,27 @@
 import { IS_VISIBLE } from './constants';
+import { addClass, removeClass, toggleClass } from './helpers';
 
+/**
+ * Toggles the .is-visible class.
+ * @param  {Element} target - The target element.
+ * @param  {string}  action - Shows, hides or toggles the element.
+ */
 export default function (target, action) {
   if (target instanceof NodeList) {
     for (const element of target) {
       if (action === 'show') {
-        element.classList.add(IS_VISIBLE);
+        addClass(element, IS_VISIBLE);
       } else if (action === 'hide') {
-        element.classList.remove(IS_VISIBLE);
+        removeClass(element, IS_VISIBLE);
       } else {
-        element.classList.toggle(IS_VISIBLE);
+        toggleClass(element, IS_VISIBLE);
       }
     }
   } else if (action === 'show') {
-    target.classList.add(IS_VISIBLE);
+    addClass(target, IS_VISIBLE);
   } else if (action === 'hide') {
-    target.classList.remove(IS_VISIBLE);
+    removeClass(target, IS_VISIBLE);
   } else {
-    target.classList.toggle(IS_VISIBLE);
+    toggleClass(target, IS_VISIBLE);
   }
 }

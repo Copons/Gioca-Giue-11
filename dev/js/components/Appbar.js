@@ -1,4 +1,4 @@
-import { qs, qsa, listen, delegate } from '../utilities/helpers';
+import { qs, listen, delegate } from '../utilities/helpers';
 import toggle from '../utilities/toggle';
 import closeOutside from '../utilities/closeOutside';
 
@@ -13,7 +13,7 @@ export default class Appbar {
   }
 
   openMenu() {
-    delegate(this.appbar, '.gg-appbar-menu-toggle', 'click', event => {
+    delegate('.gg-appbar-menu-toggle', this.appbar, 'click', event => {
       event.preventDefault();
       toggle(this.appbarMenu, 'show');
     });

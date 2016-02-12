@@ -1,8 +1,13 @@
 import { IS_VISIBLE, IS_MODAL_OPEN } from './constants';
-import { qs, qsa, listen, delegate, closest } from './helpers';
+import { qs, qsa, listen, closest, hasClass, addClass, removeClass } from './helpers';
 import toggle from './toggle';
 import obfuscate from './obfuscate';
 
+/**
+ * Converts links pointing directly to images to open in a modal box instead.
+ * @param  {string}  selector - The selector to bind the event.
+ * @param  {Element} container - The container of the selector.
+ */
 export default function (selector, container) {
   const targets = qsa(selector, container);
   let i = 1;
@@ -28,6 +33,13 @@ export default function (selector, container) {
   listen(window, 'resize', scaleImage);
 }
 
+
+
+
+/**
+ * Toggles the image modal box.
+ * @param  {Event} event - The event interface.
+ */
 function toggleModal(event) {
   event.preventDefault();
   // 11 is a zIndex higher than the drawer
@@ -39,16 +51,22 @@ function toggleModal(event) {
     container = closest(event.target, 'a');
   }
   toggle(qs('.gg-modal', container));
-  if (document.body.classList.contains(IS_MODAL_OPEN)) {
-    document.body.classList.remove(IS_MODAL_OPEN);
+  if (hasClass(document.body, IS_MODAL_OPEN)) {
+    removeClass(document.body, IS_MODAL_OPEN);
   } else {
-    document.body.classList.add(IS_MODAL_OPEN);
+    addClass(document.body, IS_MODAL_OPEN);
     scaleImage();
   }
 }
 
+
+
+
+/**
+ * Responsively scales the image contained in an open modal box.
+ */
 function scaleImage() {
-  if (document.body.classList.contains(IS_MODAL_OPEN)) {
+  if (hasClass(document.body, IS_MODAL_OPEN)) {
     const windowSize = {
       width : window.innerWidth,
       height : window.innerHeight,

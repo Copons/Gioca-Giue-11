@@ -34,7 +34,7 @@ export default class Searchbar {
   cancel() {
     const searchbarCancel = qs('.gg-searchbar-cancel', this.searchbar);
 
-    delegate(this.searchbar, 'input', 'keyup', () => {
+    delegate('input', this.searchbar, 'keyup', () => {
       if (event.target.value) {
         toggle(searchbarCancel, 'show');
       } else {
@@ -42,7 +42,7 @@ export default class Searchbar {
       }
     });
 
-    delegate(this.searchbar, '.gg-searchbar-cancel', 'click', event => {
+    delegate('.gg-searchbar-cancel', this.searchbar, 'click', event => {
       event.preventDefault();
       this.searchInput.value = '';
       toggle(searchbarCancel, 'hide');

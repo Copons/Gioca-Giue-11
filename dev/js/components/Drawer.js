@@ -19,7 +19,7 @@ export default class Drawer {
   }
 
   toggle() {
-    delegate(document.body, '.gg-drawer-toggle', 'click', event => {
+    delegate('.gg-drawer-toggle', document.body, 'click', () => {
       toggle(this.drawer);
       obfuscate();
     });

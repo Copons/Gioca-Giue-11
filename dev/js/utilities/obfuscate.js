@@ -1,16 +1,21 @@
 import { IS_OBFUSCATED } from './constants';
-import { qs } from './helpers';
+import { qs, removeClass, toggleClass } from './helpers';
 import toggle from './toggle';
 
+/**
+ * Toggles the obfuscator.
+ * @param  {string} action - Hides or toggles the obfuscator.
+ * @param  {number} zIndex (default: 9) - Modifies the obfuscator z-index.
+ */
 export default function (action, zIndex = 9) {
   const obfuscator = qs('.gg-obfuscator');
   obfuscator.style.zIndex = zIndex;
 
   if (action === 'hide') {
     toggle(obfuscator, 'hide');
-    document.body.classList.remove(IS_OBFUSCATED);
+    removeClass(document.body, IS_OBFUSCATED);
   } else {
     toggle(obfuscator);
-    document.body.classList.toggle(IS_OBFUSCATED);
+    toggleClass(document.body, IS_OBFUSCATED);
   }
 }
