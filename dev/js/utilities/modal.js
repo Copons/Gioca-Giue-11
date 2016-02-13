@@ -10,27 +10,29 @@ import obfuscate from './obfuscate';
  */
 export default function (selector, container) {
   const targets = qsa(selector, container);
-  let i = 1;
-  for (const target of targets) {
-    if (
-      target.tagName.toLowerCase() === 'a' &&
-      target.getAttribute('href') &&
-      target.getAttribute('href').match(/\.(jpeg|jpg|gif|png)$/) !== null &&
-      !qs('.gg-modal', target)
-    ) {
-      target.setAttribute('data-modal', `gg-modal-${i}`);
-      target.insertAdjacentHTML('beforeend', `
-        <div class="gg-modal" data-modal="gg-modal-${i}">
-          <img class="gg-modal-image" src="${target.getAttribute('href')}" />
-        </div>
-      `);
-      i++;
+  if (targets) {
+    let i = 1;
+    for (const target of targets) {
+      if (
+        target.tagName.toLowerCase() === 'a' &&
+        target.getAttribute('href') &&
+        target.getAttribute('href').match(/\.(jpeg|jpg|gif|png)$/) !== null &&
+        !qs('.gg-modal', target)
+      ) {
+        target.setAttribute('data-modal', `gg-modal-${i}`);
+        target.insertAdjacentHTML('beforeend', `
+          <div class="gg-modal" data-modal="gg-modal-${i}">
+            <img class="gg-modal-image" src="${target.getAttribute('href')}" />
+          </div>
+        `);
+        i++;
 
-      listen(target, 'click', toggleModal);
+        listen(target, 'click', toggleModal);
+      }
     }
-  }
 
-  listen(window, 'resize', scaleImage);
+    listen(window, 'resize', scaleImage);
+  }
 }
 
 

@@ -1,0 +1,65 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+  {% for post in posts %}
+
+  <article class="gg-article">
+
+    <header class="gg-article-header">
+      <img src="http://placehold.it/1000x500" />
+      <hgroup>
+        <h1>{{ post.title }}</h1>
+      </hgroup>
+    </header>
+
+    <div class="gg-article-container">
+
+      <div class="gg-article-info">
+        <div class="gg-article-author gg-user-info">
+          <a href="#" class="gg-user-image">
+            <img src="http://placehold.it/40x40" />
+          </a>
+          <div class="gg-user-name">
+            <a href="#">Author</a>
+            <span>01/01/2016</span>
+          </div>
+        </div>
+        <div class="gg-article-actions">
+          <a class="gg-button-flat" href="#comments">
+            <span class="gg-icon-comments"></span>
+            {{ post.comment_count }}
+          </a>
+        </div>
+      </div>
+
+      <div class="gg-article-body">
+        {{ post.content }}
+      </div>
+
+      <footer class="gg-article-footer">
+
+        <div class="gg-article-social">
+          <div class="gg-article-social-icons">
+            <a class="gg-icon-flat gg-icon-facebook"></a>
+            <a class="gg-icon-flat gg-icon-twitter"></a>
+          </div>
+          <div class="gg-article-social-buttons">
+            <a class="gg-button-flat" href="#comments">
+              <span class="gg-icon-comments"></span>
+              {{ post.comment_count }}
+            </a>
+          </div>
+        </div>
+
+      </footer>
+
+      <section class="gg-comments" id="comments">
+        {{ function('comments_template') }}
+      </section>
+
+    </div>
+
+  </article>
+
+  {% endfor %}
+{% endblock %}

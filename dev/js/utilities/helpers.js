@@ -6,6 +6,9 @@
  * @return {Element} The matched element.
  */
 export function qs(selector, container = document.body) {
+  if (!container) {
+    return null;
+  }
   return container.querySelector(selector);
 }
 
@@ -20,6 +23,9 @@ export function qs(selector, container = document.body) {
  * @return {NodeList} The matched element.
  */
 export function qsa(selector, container = document.body) {
+  if (!container) {
+    return null;
+  }
   return container.querySelectorAll(selector);
 }
 
