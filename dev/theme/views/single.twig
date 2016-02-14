@@ -1,13 +1,19 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-  {% for post in posts %}
 
   <article class="gg-article">
 
     <header class="gg-article-header">
-      <img src="http://placehold.it/1000x500" />
+      {% if post.thumbnail.src %}
+        <img src="{{ post.thumbnail.src('post-thumbnail') }}" />
+      {% endif %}
       <hgroup>
+        {% if post.copons_payoff %}
+          <small class="gg-card-payoff">
+            {{ post.copons_payoff }}
+          </small>
+        {% endif %}
         <h1>{{ post.title }}</h1>
       </hgroup>
     </header>
@@ -20,8 +26,12 @@
             <img src="http://placehold.it/40x40" />
           </a>
           <div class="gg-user-name">
-            <a href="#">Author</a>
-            <span>01/01/2016</span>
+            <a href="{{ post.author.link }}">
+              {{ post.author.name }}
+            </a>
+            <span>
+              {{post.post_date | date}}
+            </span>
           </div>
         </div>
         <div class="gg-article-actions">
@@ -33,6 +43,9 @@
       </div>
 
       <div class="gg-article-body">
+        <pre>
+          {{ post.author|print_r }}
+        </pre>
         {{ post.content }}
       </div>
 
@@ -54,12 +67,14 @@
       </footer>
 
       <section class="gg-comments" id="comments">
-        {{ function('comments_template') }}
+        {% for comment in post.comments %}
+          {% include 'comment.twig' with {comment:comment} %}
+        {% endfor %}
+        {{ function('comment_form') }}
       </section>
 
     </div>
 
   </article>
 
-  {% endfor %}
 {% endblock %}

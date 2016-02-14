@@ -9,7 +9,7 @@
 
   {% if post.thumbnail.src %}
     <a href="{{ post.link }}" class="gg-card-media">
-      <img src="{{ post.thumbnail.src }}" />
+      <img src="{{ post.thumbnail.src('medium_large') }}" />
     </a>
   {% endif %}
 
