@@ -2,6 +2,7 @@
  * %gg-button
  * .gg-button-flat
  * .gg-button-flat-light
+ * .gg-button-raised
  */
 
 
@@ -29,5 +30,23 @@
   @extend %gg-button;
   &:hover {
     background-color: rgba(gg-color(md-gray-500), 0.2);
+  }
+}
+
+
+
+
+.gg-button-raised {
+  -webkit-mask-image: none;
+  @extend %gg-button;
+  padding: 0 gg-size(padding);
+  background-color: $gg-color-primary;
+  color: $gg-color-text-light;
+  @include gg-transition('box-shadow');
+  &:hover, &:focus {
+    @extend %gg-shadow-low;
+  }
+  &:active {
+    @extend %gg-shadow-high;
   }
 }

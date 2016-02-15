@@ -80,3 +80,90 @@
     }
   }
 }
+
+
+
+
+.gg-respond {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: gg-size(padding);
+  padding-top: 0;
+
+  .gg-comment-input,
+  .gg-comment-textarea {
+    flex-shrink: 0;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: gg-size(padding) 0;
+
+    label {
+      position: absolute;
+      top: gg-size(margin) + gg-size(padding) + 2;
+      display: block;
+      @extend %gg-font-subheading-device;
+      color: $gg-color-muted;
+      line-height: 1;
+      pointer-events: none;
+      @include gg-transition('top, color, font-size');
+    }
+    &.is-dirty label {
+      top: gg-size(padding) - 12;
+      @extend %gg-font-caption;
+      color: $gg-color-link-hover;
+      .required {
+        color: gg-color(md-red);
+      }
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: gg-size(margin) 0;
+      border: none;
+      border-bottom: 1px solid $gg-color-border-light;
+      outline: none;
+      @extend %gg-font-subheading-device;
+      line-height: 1;
+      @include gg-transition('border-bottom-color');
+      &:focus {
+        padding-bottom: gg-size(margin) - 1px;
+        border-bottom: 2px solid $gg-color-link-hover;
+      }
+    }
+    textarea {
+      height: 81px;
+    }
+    &.is-invalid input,
+    &.is-invalid textarea {
+      padding-bottom: gg-size(margin) - 1px;
+      border-bottom: 2px solid gg-color(md-red);
+    }
+
+
+    @include gg-breakpoint(xsmall) {
+      &.gg-comment-input {
+        width: 50%;
+        &:nth-child(odd) {
+          padding-right: gg-size(margin);
+        }
+        &:nth-child(even) {
+          padding-left: gg-size(margin);
+        }
+      }
+    }
+  }
+
+  .gg-comment-submit {
+    margin: 0;
+    margin-left: - gg-size(margin);
+    padding-top: gg-size(margin);
+    .gg-button-raised {
+      border: none;
+      outline: none;
+    }
+  }
+}

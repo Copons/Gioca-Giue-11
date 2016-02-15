@@ -16,6 +16,7 @@ Waves.attach(`
 
 Waves.attach('.gg-button-flat', ['waves-button']);
 Waves.attach('.gg-button-flat-light', ['waves-button', 'waves-light']);
+Waves.attach('.gg-button-raised', ['waves-button', 'waves-light']);
 
 Waves.attach('.gg-chip-flat', ['waves-circle']);
 Waves.attach('.gg-chip-flatlight', ['waves-circle', 'waves-light']);
