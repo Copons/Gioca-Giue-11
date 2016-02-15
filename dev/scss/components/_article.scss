@@ -178,9 +178,3 @@
     font-size: gg-font-size(title);
   }
 }
-
-.gg-comments {
-  padding: gg-size(padding);
-  @extend %gg-font-body-2-device;
-  font-weight: gg-font-weight(regular);
-}
