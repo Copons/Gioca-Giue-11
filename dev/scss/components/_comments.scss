@@ -6,11 +6,10 @@
 
 
 .gg-comments {
-  border-top: 1px solid $gg-color-border-light; // DEV
-
   h2 {
     margin: gg-size(margin) 0 0 0;
     padding: gg-size(padding);
+    padding-bottom: 0;
     @extend %gg-font-subheading-device;
     font-weight: gg-font-weight(medium);
   }
@@ -26,17 +25,11 @@
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-  padding: gg-size(padding);
-  border-bottom: 1px solid $gg-color-border-light;
-
-  &:last-child {
-    padding-bottom: gg-size(padding) + gg-size(margin);
-    border-bottom: none;
-  }
 
   .gg-user-image {
     display: block;
     flex-grow: 0;
+    padding: gg-size(padding);
     img {
       width: 40px;
       height: 40px;
@@ -45,7 +38,9 @@
   }
 
   .gg-comment-content {
-    padding-left: gg-size(padding);
+    padding: gg-size(padding);
+    padding-left: 0;
+    border-bottom: 1px solid $gg-color-border-light;
 
     .gg-comment-meta {
       display: flex;
@@ -91,7 +86,6 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding: gg-size(padding);
-  padding-top: 0;
 
   .gg-comment-input,
   .gg-comment-textarea {
