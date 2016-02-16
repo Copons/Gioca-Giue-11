@@ -1,23 +1,11 @@
-/**
- * .gg-comments
- */
-
-
-
-
 .gg-comments {
   h2 {
-    margin: gg-size(margin) 0 0 0;
-    padding: gg-size(padding);
-    padding-bottom: 0;
-    @extend %gg-font-subheading-device;
-    font-weight: gg-font-weight(medium);
+    margin: 0;
+    padding: $gg-size-edge $gg-size-padding 0 $gg-size-padding;
+    @extend %gg-font-subheading;
+    font-weight: gg-font-weight('medium');
   }
-
 }
-
-
-
 
 .gg-comment {
   display: flex;
@@ -27,45 +15,37 @@
   width: 100%;
 
   .gg-user-image {
-    display: block;
     flex-grow: 0;
-    padding: gg-size(padding);
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
+    padding: $gg-size-padding;
+    @extend %gg-user-image;
   }
 
   .gg-comment-content {
-    padding: gg-size(padding);
-    padding-left: 0;
-    border-bottom: 1px solid $gg-color-border-light;
+    padding: $gg-size-padding $gg-size-padding $gg-size-padding 0;
+    border-bottom: 1px solid $gg-color-border;
 
     .gg-comment-meta {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      a {
+
+      .gg-user-link {
         display: inline-block;
-        @extend %gg-font-body-2-device;
-        font-weight: gg-font-weight(bold);
-        color: $gg-color-link;
+        @extend %gg-font-body2;
         line-height: gg-line-height(body-1);
-        &:hover {
-          color: $gg-color-link-hover;
-        }
+        @extend %gg-link;
       }
-      span {
+
+      .gg-comment-meta-info {
         display: block;
         @extend %gg-font-caption;
-        color: $gg-color-muted;
+        color: $gg-color-text-muted;
       }
     }
 
     .gg-comment-body {
-      @extend %gg-font-body-1-device;
+      @extend %gg-font-body1;
       > :first-child {
         margin-top: 0;
       }
@@ -76,16 +56,13 @@
   }
 }
 
-
-
-
 .gg-respond {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: gg-size(padding);
+  padding: $gg-size-padding;
 
   .gg-comment-input,
   .gg-comment-textarea {
@@ -93,68 +70,71 @@
     position: relative;
     width: 100%;
     margin: 0;
-    padding: gg-size(padding) 0;
+    padding: $gg-size-padding 0;
 
     label {
       position: absolute;
-      top: gg-size(margin) + gg-size(padding) + 2;
+      top: $gg-size-edge + 2px;
       display: block;
-      @extend %gg-font-subheading-device;
-      color: $gg-color-muted;
+      @extend %gg-font-subheading;
+      color: $gg-color-text-muted;
       line-height: 1;
       pointer-events: none;
       @include gg-transition('top, color, font-size');
     }
+
     &.is-dirty label {
-      top: gg-size(padding) - 12;
+      top: $gg-size-padding - 12px;
       @extend %gg-font-caption;
       color: $gg-color-link-hover;
       .required {
-        color: gg-color(md-red);
+        color: gg-color('md-red');
       }
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
-      padding: gg-size(margin) 0;
+      padding: $gg-size-margin 0;
       border: none;
-      border-bottom: 1px solid $gg-color-border-light;
+      border-bottom: 1px solid $gg-color-border;
       outline: none;
-      @extend %gg-font-subheading-device;
+      @extend %gg-font-subheading;
       line-height: 1;
       @include gg-transition('border-bottom-color');
       &:focus {
-        padding-bottom: gg-size(margin) - 1px;
+        padding-bottom: $gg-size-margin - 1px;
         border-bottom: 2px solid $gg-color-link-hover;
       }
     }
+
     textarea {
       height: 81px;
     }
+
     &.is-invalid input,
     &.is-invalid textarea {
-      padding-bottom: gg-size(margin) - 1px;
-      border-bottom: 2px solid gg-color(md-red);
+      padding-bottom: $gg-size-margin - 1px;
+      border-bottom: 2px solid gg-color('md-red');
     }
+  }
 
-
-    @include gg-breakpoint(xsmall) {
-      &.gg-comment-input {
-        width: 50%;
-        &:nth-child(odd) {
-          padding-right: gg-size(margin);
-        }
-        &:nth-child(even) {
-          padding-left: gg-size(margin);
-        }
+  @include gg-breakpoint('xsmall') {
+    .gg-comment-input {
+      width: 50%;
+      &:nth-child(odd) {
+        padding-right: $gg-size-margin;
+      }
+      &:nth-child(even) {
+        padding-left: $gg-size-margin;
       }
     }
   }
 
   .gg-comment-submit {
     margin: 0;
-    margin-left: - gg-size(margin);
-    padding-top: gg-size(margin);
+    margin-left: - $gg-size-margin;
+    padding-top: $gg-size-margin;
     .gg-button-raised {
       border: none;
       outline: none;

@@ -1,214 +1,128 @@
-/**
- * @function gg-font-size
- * @function gg-font-weight
- * @function gg-line-height
- * @function gg-font-tracking
- * @mixin gg-font
- * %gg-font-display-4
- * %gg-font-display-3
- * %gg-font-display-2
- * %gg-font-display-1
- * %gg-font-headline
- * %gg-font-title
- * %gg-font-subheading-device
- * %gg-font-subheading-desktop
- * %gg-font-body-2-device
- * %gg-font-body-1-device
- * %gg-font-caption
- * %gg-font-button
- */
-
-
-
-
-$gg-font-family-sans-serif:   'Roboto', sans-serif;
-$gg-font-family-serif:        serif;
-$gg-font-family-monospace:    monospace;
-
-$gg-font-family:              $gg-font-family-sans-serif;
-
-$gg-font-size-root:           62.5%;
-
+$gg-font-family-sans-serif: 'Roboto', sans-serif;
+$gg-font-family-serif: serif;
+$gg-font-family-monospace: monospace;
+$gg-font-family: $gg-font-family-sans-serif;
+$gg-font-size-root: 62.5%;
 
 $gg-font-sizes: (
-  display-4:               11.2rem,
-  display-3:               5.6rem,
-  display-2:               4.5rem,
-  display-1:               3.4rem,
-  headline:                2.4rem,
-  title:                   2.0rem,
-  subheading-device:       1.6rem,
-  subheading-desktop:      1.5rem,
-  body-device:             1.4rem,
-  body-desktop:            1.3rem,
-  caption:                 1.2rem,
-  button:                  1.4rem
+  'caption': 1.2rem,
+  'button': 1.4rem,
+  'body': 1.4rem,
+  'subheading': 1.6rem,
+  'title': 2.0rem,
+  'headline': 2.4rem,
+  'display1': 3.4rem,
+  'display2': 4.5rem,
+  'display3': 5.6rem,
+  'display4': 11.2rem
 );
 
-@function gg-font-size($size) {
-  @return map-get($gg-font-sizes, $size);
+@function gg-font-size($font-size) {
+  @if map-has-key($gg-font-sizes, $font-size) {
+    @return map-get($gg-font-sizes, $font-size);
+  }
 }
-
 
 $gg-font-weights: (
-  thin:                       100,
-  light:                      300,
-  regular:                    400,
-  medium:                     500,
-  bold:                       700,
-  black:                      900
+  'thin': 100,
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'bold': 700,
+  'black': 900
 );
 
-@function gg-font-weight($weight) {
-  @return map-get($gg-font-weights, $weight);
+@function gg-font-weight($font-weight) {
+  @if map-has-key($gg-font-weights, $font-weight) {
+    @return map-get($gg-font-weights, $font-weight);
+  }
 }
-
 
 $gg-line-heights: (
-  display-2:                  4.8rem,
-  display-1:                  4.0rem,
-  headline:                   3.2rem,
-  subheading:                 2.4rem,
-  body-2:                     2.4rem,
-  body-1:                     2.0rem
+  'body1': 2.0rem,
+  'body2': 2.4rem,
+  'subheading': 2.4rem,
+  'headline': 3.2rem,
+  'display1': 4.0rem,
+  'display2': 4.8rem
 );
 
-@function gg-line-height($leading) {
-  @return map-get($gg-line-heights, $leading);
-}
-
-
-$gg-font-trackings: (
-  xsmall:                     -.01em,
-  small:                      -.005em,
-  large:                      .005em,
-  xlarge:                     .01em,
-  xxlarge:                    .02em
-);
-
-@function gg-font-tracking($tracking) {
-  @return map-get($gg-font-trackings, $tracking);
-}
-
-
-
-
-@mixin gg-font ($family, $size, $weight, $leading : '', $tracking : '') {
-  font-family: $family;
-  font-size: gg-font-size($size);
-  font-weight: gg-font-weight($weight);
-  @if $leading != '' {
-    line-height: gg-line-height($leading);
+@function gg-line-height($line-height) {
+  @if map-has-key($gg-line-heights, $line-height) {
+    @return map-get($gg-line-heights, $line-height);
   }
-  @if $tracking != '' {
-    letter-spacing: gg-font-tracking($tracking);
+  @else {
+    @return 1;
   }
 }
 
+$gg-font-letter-spacings: (
+  'xsmall': -.01em,
+  'small': -.005em,
+  'large': .005em,
+  'xlarge': .01em,
+  'xxlarge': .02em
+);
 
-%gg-font-display-4 {
-  @include gg-font(
-    $gg-font-family,
-    display-4,
-    light,
-    '',
-    xsmall
-  );
+@function gg-font-letter-spacing($letter-spacing) {
+  @if map-has-key($gg-font-letter-spacings, $letter-spacing) {
+    @return map-get($gg-font-letter-spacings, $letter-spacing);
+  }
 }
-%gg-font-display-3 {
-  @include gg-font(
-    $gg-font-family,
-    display-3,
-    regular,
-    '',
-    small
-  );
+
+@mixin gg-font ($font-family, $font-size, $font-weight, $line-height : '', $letter-spacing : '') {
+  font-family: $font-family;
+  font-size: gg-font-size($font-size);
+  font-weight: gg-font-weight($font-weight);
+  @if $line-height != '' {
+    line-height: gg-line-height($line-height);
+  }
+  @if $letter-spacing != '' {
+    letter-spacing: gg-font-letter-spacing($letter-spacing);
+  }
 }
-%gg-font-display-2 {
-  @include gg-font(
-    $gg-font-family,
-    display-2,
-    regular,
-    display-2
-  );
-}
-%gg-font-display-1 {
-  @include gg-font(
-    $gg-font-family,
-    display-1,
-    regular,
-    display-1
-  );
-}
-%gg-font-headline {
-  @include gg-font(
-    $gg-font-family,
-    headline,
-    regular,
-    headline
-  );
-}
-%gg-font-title {
-  @include gg-font(
-    $gg-font-family,
-    title,
-    medium,
-    '',
-    large
-  );
-}
-%gg-font-subheading-device {
-  @include gg-font(
-    $gg-font-family,
-    subheading-device,
-    regular,
-    subheading,
-    xlarge
-  );
-}
-%gg-font-subheading-desktop {
-  @include gg-font(
-    $gg-font-family,
-    subheading-desktop,
-    regular,
-    subheading,
-    xlarge
-  );
-}
-%gg-font-body-2-device {
-  @include gg-font(
-    $gg-font-family,
-    body-device,
-    medium,
-    body-2,
-    xxlarge
-  );
-}
-%gg-font-body-1-device {
-  @include gg-font(
-    $gg-font-family,
-    body-device,
-    regular,
-    body-1,
-    xlarge
-  );
-}
+
 %gg-font-caption {
-  @include gg-font(
-    $gg-font-family,
-    caption,
-    regular,
-    '',
-    xxlarge
-  );
+  @include gg-font($gg-font-family, 'caption', 'regular', '', 'xxlarge');
 }
+
 %gg-font-button {
-  @include gg-font(
-    $gg-font-family,
-    button,
-    medium,
-    '',
-    xlarge
-  );
+  @include gg-font($gg-font-family, 'button', 'medium', '', 'xlarge');
   text-transform: uppercase;
+}
+
+%gg-font-body1 {
+  @include gg-font($gg-font-family, 'body', 'regular', 'body1', 'xlarge');
+}
+
+%gg-font-body2 {
+  @include gg-font($gg-font-family, 'body', 'medium', 'body2', 'xxlarge');
+}
+
+%gg-font-subheading {
+  @include gg-font($gg-font-family, 'subheading', 'regular', 'subheading', 'xlarge');
+}
+
+%gg-font-title {
+  @include gg-font($gg-font-family, 'title', 'medium', '', 'large');
+}
+
+%gg-font-headline {
+  @include gg-font($gg-font-family, 'headline', 'regular', 'headline');
+}
+
+%gg-font-display1 {
+  @include gg-font($gg-font-family, 'display1', 'regular', 'display1');
+}
+
+%gg-font-display2 {
+  @include gg-font($gg-font-family, 'display2', 'regular', 'display2');
+}
+
+%gg-font-display3 {
+  @include gg-font($gg-font-family, 'display3', 'regular', '', 'small');
+}
+
+%gg-font-display4 {
+  @include gg-font($gg-font-family, 'display4', 'light', '', 'xsmall');
 }

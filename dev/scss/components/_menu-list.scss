@@ -1,0 +1,58 @@
+@mixin gg-menu-list ($padding: 8px 0, $icon-position : right) {
+  ul {
+    width: 100%;
+    margin: 0;
+    padding: $padding;
+    list-style: none;
+    @extend %gg-font-body2;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $gg-color-border;
+    }
+
+    li {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      display: flex;
+      width: 100%;
+      padding: 0 16px;
+      color: gg-color('md-gray-800');
+      line-height: 4.8rem;
+
+      &:hover {
+        color: gg-color('md-gray-800');
+      }
+
+      &:active, &:focus {
+        color: $gg-color-text;
+      }
+
+      span {
+        line-height: 4.8rem;
+      }
+
+      @if $icon-position == 'right' {
+        span:first-child {
+          flex-grow: 1;
+        }
+
+        span:last-child {
+          padding-left: 16px;
+        }
+      }
+      @else {
+        span:first-child {
+          width: 56px;
+        }
+        
+        span:last-child {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}

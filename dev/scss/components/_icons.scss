@@ -1,68 +1,29 @@
-/**
- * %gg-icon
- * .gg-icon-flat
- * .gg-icon-flat-light
- */
-
-
-
-
 %gg-icon {
   @extend .fa;
   display: inline-block;
-  width: gg-size(icon);
-  height: gg-size(icon);
-  margin: gg-size(padding) / 4;
+  width: gg-size('icon-width');
+  height: gg-size('icon-width');
+  margin: $gg-size-padding / 4;
   padding: 0;
   overflow: hidden;
   border-radius: 50%;
-  line-height: gg-size(icon);
+  line-height: gg-size('icon-width');
   text-align: center;
-  @include gg-transition('background-color');
   cursor: pointer;
+  @include gg-transition('background-color');
 }
-
-
-
 
 .gg-icon-flat,
 .gg-icon-flat-light {
   @extend %gg-icon;
+  
   &:hover {
-    background-color: rgba(gg-color(md-gray-500), 0.2);
+    background-color: fade('md-gray-500', 0.2);
   }
 }
 
 
 
-
-// ICONS
-
-/**
- * Font Awesome Index
- *
- * bars
- * search
- * arrow-left
- * times
- * share
- * chevron-up
- * gavel
- * tags
- * facebook-official
- * twitter
- * google-plus
- * steam
- * home
- * star
- * heart
- * gamepad
- * link
- * envelope
- * reply
- * arrow-right
- * creative-commons
- */
 
 .gg-drawer-toggle {
   @extend .fa-bars;
@@ -71,27 +32,17 @@
 .gg-appbar .gg-searchbar-toggle {
   @extend .fa-search;
 }
+
 .gg-searchbar .gg-searchbar-toggle {
   @extend .fa-arrow-left;
 }
+
 .gg-searchbar-cancel {
   @extend .fa-times;
 }
 
 .gg-appbar-menu-toggle {
   @extend .fa-share;
-}
-
-
-
-.gg-icon-chevron {
-  @extend .fa;
-  @extend .fa-chevron-up;
-  transform: rotate(0deg);
-  @include gg-transition('transform');
-  &.is-visible {
-    transform: rotate(180deg);
-  }
 }
 
 .gg-icon-comments {

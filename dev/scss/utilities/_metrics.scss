@@ -1,0 +1,79 @@
+$gg-sizes: (
+  'margin': 8px,
+  'padding': 16px,
+
+  'border-radius': 2px,
+
+  'icon-width': 48px,
+  'button-min-width': 64px,
+  'button-height': 36px,
+
+  'chip-height': 32px,
+  'chip-padding': 12px,
+
+  'header-height-landscape': 48px,
+  'header-height-portrait': 56px,
+  'header-height-desktop': 64px,
+  'header-hidden-offset': -70px,
+
+  'article-width': 716px,
+  'article-info-height': 84px,
+  'drawer-width': 240px,
+  'title-padding-left': 72px,
+  'user-image-width': 40px,
+
+  'wp-admin-bar-device': 46px,
+  'wp-admin-bar-desktop': 32px
+);
+
+@function gg-size($size) {
+  @if map-has-key($gg-sizes, $size) {
+    @return map-get($gg-sizes, $size);
+  }
+}
+
+$gg-size-margin: gg-size('margin');
+$gg-size-padding: gg-size('padding');
+$gg-size-edge: $gg-size-margin + $gg-size-padding;
+
+$gg-size-border-radius: gg-size('border-radius');
+
+
+
+
+$gg-breakpoints: (
+  'xsmall': 600px,
+  'small': 960px,
+  'medium': 1280px,
+  'large': 1600px
+);
+
+@mixin gg-breakpoint($breakpoint) {
+  @if $breakpoint == base {
+    @media (max-width: #{map-get($gg-breakpoints, xsmall)}) {
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: #{map-get($gg-breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+}
+
+
+
+
+$gg-z-indexes: (
+  'raised': 5,
+  'obfuscator': 9,
+  'drawer': 10,
+  'popup': 100,
+  'modal': 500
+);
+
+@function gg-z ($z-index) {
+  @if map-has-key($gg-z-indexes, $z-index) {
+    @return map-get($gg-z-indexes, $z-index);
+  }
+}

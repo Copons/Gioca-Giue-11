@@ -1,0 +1,34 @@
+%gg-post-meta-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: $gg-size-padding;
+
+  .gg-user-image {
+    flex-grow: 0;
+    @extend %gg-user-image;
+  }
+
+  .gg-post-meta {
+    flex-grow: 1;
+    padding-left: $gg-size-padding;
+    color: $gg-color-text-muted;
+    line-height: 1.4; //gg-line-height('body1');
+
+    a {
+      display: inline-block;
+      @extend %gg-link;
+      @include gg-font($gg-font-family, 'body', 'light', '', 'xxlarge');
+    }
+
+    .gg-user-link {
+      font-weight: gg-font-weight(bold);
+    }
+
+    .gg-post-meta-info {
+      display: block;
+      @extend %gg-font-caption;
+    }
+  }
+}

@@ -1,51 +1,38 @@
-/**
- * %gg-button
- * .gg-button-flat
- * .gg-button-flat-light
- * .gg-button-raised
- */
-
-
-
-
 %gg-button {
   display: inline-block;
-  min-width: gg-size(button-width);
-  height: gg-size(button-height);
-  margin: gg-size(margin);
-  padding: 0 gg-size(margin);
-  border-radius: gg-size(border-radius);
+  min-width: gg-size('button-min-width');
+  height: gg-size('button-height');
+  margin: $gg-size-margin;
+  padding: 0 $gg-size-margin;
+  border-radius: $gg-size-border-radius;
   @extend %gg-font-button;
-  line-height: gg-size(button-height);
+  line-height: gg-size('button-height');
   text-align: center;
-  @include gg-transition('background-color');
   cursor: pointer;
+  @include gg-transition('background-color');
 }
-
-
-
 
 .gg-button-flat,
 .gg-button-flat-light {
   @extend %gg-button;
-  &:hover {
-    background-color: rgba(gg-color(md-gray-500), 0.2);
+
+  &:hover, &:focus {
+    background-color: fade('md-gray-500', 0.2);
   }
 }
 
-
-
-
 .gg-button-raised {
-  -webkit-mask-image: none;
   @extend %gg-button;
-  padding: 0 gg-size(padding);
+  -webkit-mask-image: none;
+  padding: 0 $gg-size-padding;
   background-color: $gg-color-primary;
   color: $gg-color-text-light;
   @include gg-transition('box-shadow');
+
   &:hover, &:focus {
     @extend %gg-shadow-low;
   }
+  
   &:active {
     @extend %gg-shadow-high;
   }

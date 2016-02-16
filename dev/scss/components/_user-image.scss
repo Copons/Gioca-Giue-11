@@ -1,0 +1,9 @@
+%gg-user-image {
+  display: block;
+  
+  img {
+    width: gg-size('user-image-width');
+    height: gg-size('user-image-width');
+    border-radius: 50%;
+  }
+}

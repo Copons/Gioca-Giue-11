@@ -1,0 +1,47 @@
+.gg-appbar {
+  @extend %gg-header-inside;
+  background-color: $gg-color-primary;
+  @extend %gg-shadow-low;
+  color: $gg-color-text-light;
+  @include gg-transition('padding-left');
+
+  h1 {
+    flex-grow: 1;
+    height: $gg-size-edge;
+    margin: $gg-size-padding;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+}
+
+.gg-appbar-icon {
+  @extend %gg-icon;
+  flex-shrink: 0;
+  color: $gg-color-text-light;
+
+  &:hover, &:active, &:visited {
+    color: $gg-color-text-light;
+  }
+}
+
+.gg-appbar-menu {
+  display: flex;
+  position: absolute;
+  top: $gg-size-padding / 4;
+  right: $gg-size-padding / 4;
+  width: 200px;
+  z-index: gg-z('raised');
+  visibility: hidden;
+  opacity: 0;
+  background: $gg-color-background;
+  @extend %gg-shadow-low;
+  @include gg-transition('visibility, opacity');
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include gg-menu-list();
+}

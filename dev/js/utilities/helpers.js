@@ -24,7 +24,7 @@ export function qs(selector, container = document.body) {
  */
 export function qsa(selector, container = document.body) {
   if (!container) {
-    return null;
+    return [];
   }
   return container.querySelectorAll(selector);
 }
@@ -41,7 +41,9 @@ export function qsa(selector, container = document.body) {
  * @param  {boolean}  useCapture (default: false) Forces the event to activate at the beginning.
  */
 export function listen(target, eventType, callback, useCapture = false) {
-  target.addEventListener(eventType, callback, !!useCapture);
+  if (target) {
+    target.addEventListener(eventType, callback, !!useCapture);
+  }
 }
 
 

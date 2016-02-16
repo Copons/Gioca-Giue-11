@@ -1,6 +1,33 @@
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
 
+.#{$fa-css-prefix}-bars:before { content: $fa-var-bars; }
+.#{$fa-css-prefix}-search:before { content: $fa-var-search; }
+.#{$fa-css-prefix}-arrow-left:before { content: $fa-var-arrow-left; }
+.#{$fa-css-prefix}-times:before { content: $fa-var-times; }
+.#{$fa-css-prefix}-share:before { content: $fa-var-share; }
+.#{$fa-css-prefix}-chevron-up:before { content: $fa-var-chevron-up; }
+.#{$fa-css-prefix}-gavel:before { content: $fa-var-gavel; }
+.#{$fa-css-prefix}-tags:before { content: $fa-var-tags; }
+.#{$fa-css-prefix}-facebook-official:before { content: $fa-var-facebook-official; }
+.#{$fa-css-prefix}-twitter:before { content: $fa-var-twitter; }
+.#{$fa-css-prefix}-google-plus:before { content: $fa-var-google-plus; }
+.#{$fa-css-prefix}-steam:before { content: $fa-var-steam; }
+.#{$fa-css-prefix}-home:before { content: $fa-var-home; }
+.#{$fa-css-prefix}-star:before { content: $fa-var-star; }
+.#{$fa-css-prefix}-heart:before { content: $fa-var-heart; }
+.#{$fa-css-prefix}-gamepad:before { content: $fa-var-gamepad; }
+.#{$fa-css-prefix}-link:before { content: $fa-var-link; }
+.#{$fa-css-prefix}-envelope:before { content: $fa-var-envelope; }
+.#{$fa-css-prefix}-reply:before { content: $fa-var-reply; }
+.#{$fa-css-prefix}-arrow-right:before { content: $fa-var-arrow-right; }
+.#{$fa-css-prefix}-creative-commons:before { content: $fa-var-creative-commons; }
+.#{$fa-css-prefix}-github:before { content: $fa-var-github; }
+
+
+
+
+/*
 .#{$fa-css-prefix}-glass:before { content: $fa-var-glass; }
 .#{$fa-css-prefix}-music:before { content: $fa-var-music; }
 .#{$fa-css-prefix}-search:before { content: $fa-var-search; }
@@ -695,3 +722,4 @@
 .#{$fa-css-prefix}-bluetooth:before { content: $fa-var-bluetooth; }
 .#{$fa-css-prefix}-bluetooth-b:before { content: $fa-var-bluetooth-b; }
 .#{$fa-css-prefix}-percent:before { content: $fa-var-percent; }
+*/

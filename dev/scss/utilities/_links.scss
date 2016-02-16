@@ -1,0 +1,11 @@
+%gg-link {
+  color: $gg-color-link;
+  &:hover,
+  &:visited {
+    color: $gg-color-link;
+  }
+  &:active,
+  &:focus {
+    color: $gg-color-link-hover;
+  }
+}

@@ -1,32 +1,20 @@
-/**
- * %gg-chip
- * .gg-chip-flat
- * .gg-chip-flat-light
- */
-
-
-
-
 %gg-chip {
   display: inline-block;
-  height: gg-size(chip-height);
-  margin: gg-size(chip-padding) / 4;
-  padding: 0 gg-size(chip-padding);
-  border-radius: gg-size(chip-height) / 2;
+  height: gg-size('chip-height');
+  margin: gg-size('chip-padding') / 4;
+  padding: 0 gg-size('chip-padding');
+  border-radius: gg-size('chip-height') / 2;
   @extend %gg-font-caption;
-  line-height: gg-size(chip-height);
+  line-height: gg-size('chip-height');
   text-align: center;
-  @include gg-transition('background-color');
   cursor: pointer;
+  @include gg-transition('background-color');
 }
 
-
-
-
-.gg-chip-flat,
-.gg-chip-flat-light {
+.gg-chip {
   @extend %gg-chip;
+  
   &:hover {
-    background-color: rgba(gg-color(md-gray-500), 0.2);
+    background-color: fade('md-gray-500', 0.2);
   }
 }

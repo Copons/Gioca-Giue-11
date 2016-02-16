@@ -1,0 +1,51 @@
+.gg-header {
+  position: fixed;
+  top: gg-size('header-hidden-offset');
+  left: 0;
+  width: 100%;
+  height: gg-size('header-height-portrait');
+  z-index: gg-z('raised');
+  margin: 0;
+  @extend %gg-font-title;
+  @include gg-transition('top');
+
+  &.is-visible {
+    top: 0;
+  }
+
+  .admin-bar & {
+    @media screen and (min-width: 600px) {
+      top: gg-size('header-hidden-offset') + gg-size('wp-admin-bar-device');
+      &.is-visible {
+        top: gg-size('wp-admin-bar-device');
+      }
+    }
+
+    @media screen and (min-width: 783px) {
+      top: gg-size('header-hidden-offset') + gg-size('wp-admin-bar-desktop');
+      &.is-visible {
+        top: gg-size('wp-admin-bar-desktop');
+      }
+    }
+  }
+}
+
+%gg-header-inside {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 2.4rem;
+
+  @include gg-breakpoint('medium') {
+    padding-left: gg-size('drawer-width');
+    .gg-drawer-toggle {
+      display: none;
+    }
+  }
+}

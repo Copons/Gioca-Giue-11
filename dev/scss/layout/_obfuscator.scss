@@ -1,43 +1,24 @@
-/**
- * .gg-obfuscator
- * body.is-obfuscated
- */
-
-
-
-
 .gg-obfuscator {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   min-height: 100%;
-  z-index: gg-z(obfuscator);
+  z-index: gg-z('obfuscator');
   visibility: hidden;
-
   background-color: transparent;
-
   @include gg-transition('visibility, background-color');
 
-  /*@include gg-breakpoint(medium) {
-    display: none;
-  }*/
-
   &.is-visible {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: fade('md-black', 0.5);
     visibility: visible;
   }
-
 }
 
-
-
 body.is-obfuscated {
-  //position: fixed;
-  //width: 100%;
   overflow: hidden;
-
-  @include gg-breakpoint(medium) {
+  
+  @include gg-breakpoint('medium') {
     overflow: auto;
   }
 }

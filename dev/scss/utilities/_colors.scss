@@ -1,0 +1,39 @@
+$gg-colors: (
+  'md-deep-orange': #ff5722,
+  'md-orange': #ff9800,
+  'md-teal': #009688,
+  'md-blue': #2196f3,
+  'md-green': #4caf50,
+  'md-red': #f44336,
+
+  'md-white': #ffffff,
+  'md-gray-200': #eeeeee,
+  'md-gray-500': #9e9e9e,
+  'md-gray-600': #757575,
+  'md-gray-800': #424242,
+  'md-black': #000000
+);
+
+@function gg-color($color) {
+  @if map-has-key($gg-colors, $color) {
+    @return map-get($gg-colors, $color);
+  }
+}
+
+@function gg-fade($color, $alpha) {
+  @return rgba(gg-color($color), $alpha);
+}
+
+$gg-color-primary: gg-color('md-deep-orange');
+$gg-color-background: gg-color('md-white');
+$gg-color-border: gg-color('md-gray-200');
+
+$gg-color-text: gg-fade('md-black', 0.87);
+$gg-color-text-light: gg-color('md-white');
+$gg-color-text-secondary: gg-fade('md-black', 0.7);
+$gg-color-text-secondary-light: gg-fade('md-white', 0.7);
+$gg-color-text-muted: gg-fade('md-black', 0.38);
+$gg-color-text-muted-light: gg-fade('md-white', 0.3);
+
+$gg-color-link: gg-color('md-deep-orange');
+$gg-color-link-hover: gg-color('md-orange');

@@ -1,0 +1,55 @@
+.gg-searchbar {
+  @extend %gg-header-inside;
+  visibility: hidden;
+  opacity: 0;
+  background-color: $gg-color-background;
+  color: $gg-color-text-muted;
+  font-weight: gg-font-weight(regular);
+  @include gg-transition('visibility, opacity');
+  transition-delay: 0s;
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  form {
+    flex-grow: 1;
+    height: $gg-size-edge;
+    margin: $gg-size-padding;
+
+    input {
+      display: block;
+      width: 100%;
+      height: $gg-size-edge;
+      padding: 0;
+      border: none;
+      outline: 0;
+      color: $gg-color-text;
+      font-size: 1.8rem; // To avoid long glyphs being cropped
+      line-height: 2.4rem;
+
+      &::placeholder {
+        color: $gg-color-text-muted;
+      }
+    }
+  }
+
+  .gg-searchbar-cancel {
+    visibility: hidden;
+
+    &.is-visible {
+      visibility: visible;
+    }
+  }
+}
+
+.gg-searchbar-icon {
+  @extend %gg-icon;
+  flex-shrink: 0;
+  color: $gg-color-text-muted;
+
+  &:hover, &:active, &:visited {
+    color: $gg-color-text-muted;
+  }
+}
