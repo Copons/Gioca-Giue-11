@@ -2,8 +2,10 @@
 
 {% block content %}
 
+  <!-- START ARTICLE -->
   <article class="gg-article">
 
+    <!-- START ARTICLE HEADER -->
     <header class="gg-article-header">
       {% if post.thumbnail.src %}
         <img src="{{ post.thumbnail.src('post-thumbnail') }}" />
@@ -17,21 +19,30 @@
         <h1>{{ post.title }}</h1>
       </hgroup>
     </header>
+    <!-- END ARTICLE HEADER -->
 
     <div class="gg-article-container">
 
+      <!-- START ARTICLE INFO -->
       <div class="gg-article-info">
-        <div class="gg-article-author gg-user-info">
+        <div class="gg-post-meta-container">
           <a href="#" class="gg-user-image">
             <img src="http://placehold.it/40x40" />
           </a>
-          <div class="gg-user-name">
-            <a href="{{ post.author.link }}">
+          <div class="gg-post-meta">
+            <a href="{{ post.author.link }}" class="gg-user-link">
               {{ post.author.name }}
             </a>
-            <span>
+            <div class="gg-post-meta-info">
               {{post.post_date | date}}
-            </span>
+            </div>
+            <div class="gg-post-meta-info">
+              {% for category in post.terms('categories') %}
+              <a href="{{ category.link }}">
+                {{ category.name }}
+              </a>
+              {% endfor %}
+            </div>
           </div>
         </div>
         <div class="gg-article-actions">
@@ -41,16 +52,16 @@
           </a>
         </div>
       </div>
+      <!-- END ARTICLE INFO -->
 
+      <!-- START ARTICLE BODY -->
       <div class="gg-article-body">
-        <pre>
-          {{ post.author|print_r }}
-        </pre>
         {{ post.content }}
       </div>
+      <!-- END ARTICLE BODY -->
 
+      <!-- START ARTICLE FOOTER -->
       <footer class="gg-article-footer">
-
         <div class="gg-article-social">
           <div class="gg-article-social-icons">
             <a class="gg-icon-flat gg-icon-facebook"></a>
@@ -63,18 +74,21 @@
             </a>
           </div>
         </div>
-
       </footer>
+      <!-- END ARTICLE FOOTER -->
 
+      <!-- START COMMENTS -->
       <section class="gg-comments" id="comments">
         {% for comment in post.comments %}
           {% include 'comment.twig' with {comment:comment} %}
         {% endfor %}
         {{ function('comment_form') }}
       </section>
+      <!-- END COMMENTS -->
 
     </div>
 
   </article>
+  <!-- END ARTICLE -->
 
 {% endblock %}

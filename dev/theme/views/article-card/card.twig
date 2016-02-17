@@ -1,22 +1,17 @@
 {% set classes = ['gg-card'] %}
-{% if post.thumbnail.src %}
-  {% set classes = classes|merge(['gg-card-big']) %}
-{% else %}
-  {% set classes = classes|merge(['gg-card-small']) %}
+{% if post.thumbnail %}
+  {% set classes = classes|merge(['gg-card-image']) %}
 {% endif %}
 
+<!-- START CARD -->
 <article class="{{ classes|join(' ') }}">
-
   {% if post.thumbnail.src %}
     <a href="{{ post.link }}" class="gg-card-media">
       <img src="{{ post.thumbnail.src('medium_large') }}" />
     </a>
   {% endif %}
-
   <div class="gg-card-content">
-
     <div class="gg-card-headline">
-
       <h1 class="gg-card-title">
         {% if post.copons_payoff %}
           <small class="gg-card-payoff">
@@ -27,50 +22,22 @@
           {{ post.title }}
         </a>
       </h1>
-
       <h2 class="gg-card-subtitle">
         <a href="{{ post.author.link }}">
           {{ post.author.name }}
-        </a> &middot; {{post.post_date | date}}
+        </a>
+        &middot; {{post.post_date | date}}
       </h2>
-
     </div>
-
     <div class="gg-card-text">
       {{ post.get_preview(25, false, '', true) }}
     </div>
-
   </div>
-
   <div class="gg-card-actions">
-
-    <div class="gg-card-action-buttons">
-      <a class="gg-button-flat" href="{{ post.link }}#comments">
-        <span class="gg-icon-comments"></span>
-        {{ post.comment_count }}
-      </a>
-    </div>
-
-    <div class="gg-card-action-icons">
-      <a class="gg-icon-flat gg-icon-chevron gg-card-toggle-addon" data-addon="addon-{{ post.ID }}"></a>
-    </div>
-
+    <a class="gg-button-flat" href="{{ post.link }}#comments">
+      <span class="gg-icon-comments"></span>
+      {{ post.comment_count }}
+    </a>
   </div>
-
-  <div class="gg-card-addon" data-addon="addon-{{ post.ID }}">
-
-    <div class="gg-card-addon-list">
-      <ul>
-        {% for category in post.terms('categories') %}
-        <li>
-          <a href="{{ category.link }}">
-            {{ category.name }}
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-  </div>
-
 </article>
+<!-- END CARD -->
