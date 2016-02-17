@@ -10,14 +10,14 @@
   @include gg-transition('visibility, background-color');
 
   &.is-visible {
-    background-color: fade('md-black', 0.5);
+    background-color: gg-fade('md-black', 0.5);
     visibility: visible;
   }
 }
 
 body.is-obfuscated {
   overflow: hidden;
-  
+
   @include gg-breakpoint('medium') {
     overflow: auto;
   }

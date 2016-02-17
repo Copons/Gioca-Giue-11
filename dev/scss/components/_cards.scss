@@ -1,0 +1,110 @@
+.gg-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  opacity: 0;
+  border-radius: $gg-size-border-radius;
+  background: $gg-color-background;
+  @extend %gg-shadow-low;
+  @include gg-transition('opacity');
+
+  &.is-visible {
+    opacity: 1;
+  }
+
+  @include gg-breakpoint('base') {
+    width: calc(100% - #{$gg-size-margin});
+    margin: 4px 0;
+  }
+
+  @include gg-breakpoint('xsmall') {
+    width: calc(50% - #{$gg-size-padding});
+    margin: $gg-size-margin 0;
+  }
+
+  @include gg-breakpoint('small') {
+    width: calc(33.333% - #{$gg-size-padding});
+  }
+
+  .gg-card-content {
+    padding: $gg-size-edge $gg-size-padding;
+  }
+
+  .gg-card-headline {
+    margin: 0;
+    padding-bottom: $gg-size-padding;
+
+    .gg-card-title {
+      margin: 0;
+      @include gg-font($gg-font-family, headline, regular, body-2);
+
+      .gg-card-payoff {
+        display: block;
+        color: $gg-color-text-muted;
+        font-size: gg-font-size('subheading');
+        font-style: italic;
+      }
+
+      a {
+        @extend %gg-link;
+      }
+    }
+
+    .gg-card-subtitle {
+      margin: 0;
+      padding-top: gg-font-size('headline') / 3;
+      @extend %gg-font-body1;
+      color: $gg-color-text-secondary;
+
+      a {
+        @extend %gg-link;
+      }
+    }
+  }
+
+  .gg-card-text {
+    @extend %gg-font-body1;
+  }
+
+  .gg-card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    border-top: 1px solid $gg-color-border;
+
+    .gg-button-flat {
+      @extend %gg-link;
+    }
+  }
+}
+
+.gg-card-image {
+  flex-direction: column;
+
+  .gg-card-media {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9
+    content: '';
+    background-color: $gg-color-link-hover;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+}

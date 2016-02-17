@@ -1,5 +1,5 @@
 import { IS_DIRTY, IS_INVALID } from '../utilities/constants';
-import { qs, qsa, listen, closest, hasClass, addClass, removeClass } from '../utilities/helpers';
+import { qs, qsa, listen, closest, addClass, removeClass } from '../utilities/helpers';
 import modal from '../utilities/modal';
 
 const article = qs('.gg-article');

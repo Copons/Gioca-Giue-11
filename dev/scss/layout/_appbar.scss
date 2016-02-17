@@ -12,6 +12,13 @@
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
+
+    a {
+      color: $gg-color-text-muted;
+      &:hover, &:focus {
+        color: $gg-color-text-secondary-light;
+      }
+    }
   }
 }
 

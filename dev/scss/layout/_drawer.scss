@@ -1,0 +1,39 @@
+.gg-drawer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: gg-z('drawer');
+  overflow: visible;
+  overflow-y: auto;
+  width: gg-size('drawer-width');
+  height: 100%;
+  min-height: 100vh;
+  padding: 0;
+  border-right: 1px solid $gg-color-border;
+  background: $gg-color-background;
+  @extend %gg-shadow-low;
+  transform-style: preserve-3d;
+  @include gg-transition('transform');
+
+  @media (max-width: #{map-get($gg-breakpoints, 'medium')}) {
+    transform: translateX(- gg-size('drawer-width') - 10px);
+  }
+
+  &.is-visible {
+    transform: translateX(0);
+  }
+
+  @include gg-menu-list($icon-position : 'left');
+
+  .admin-bar & {
+    @media screen and (min-width: 600px) {
+      padding-top: gg-size('wp-admin-bar-device');
+    }
+    @media screen and (min-width: 783px) {
+      padding-top: gg-size('wp-admin-bar-desktop');
+    }
+  }
+}

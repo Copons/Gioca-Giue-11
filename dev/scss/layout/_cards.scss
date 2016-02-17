@@ -1,0 +1,17 @@
+.gg-cards {
+  position: relative;
+  width: calc(100% - #{$gg-size-margin});
+  max-width: calc(100% - #{$gg-size-margin});
+  margin: 0 0 0 $gg-size-margin;
+  padding-top: gg-size('header-height-portrait') * 1.5;
+
+  @include gg-breakpoint('xsmall') {
+    width: calc(100% - #{$gg-size-padding});
+    max-width: calc(100% - #{$gg-size-padding});
+    margin: 0 0 0 $gg-size-padding;
+  }
+
+  .gg-card {
+    float: left;
+  }
+}
