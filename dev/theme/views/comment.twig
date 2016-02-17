@@ -1,8 +1,18 @@
 <div class="gg-comment" id="comment-{{ comment.ID }}">
-  <div class="gg-comment-author">
-    {{ comment.author.name }}
-  </div>
-  <div class="gg-comment-body">
-    {{ comment.comment_content|wpautop }}
+  <a href="{{ comment.author.link }}" class="gg-user-image">
+    <img src="{{ comment.author.avatar(40) }}" />
+  </a>
+  <div class="gg-comment-content">
+    <div class="gg-comment-meta">
+      <a href="comment.author.link" class="gg-user-link">
+        {{ comment.author.name }}
+      </a>
+      <div class="gg-comment-meta-info">
+        {{ comment.date | date }}
+      </div>
+    </div>
+    <div class="gg-comment-body">
+      {{ comment.comment_content|wpautop }}
+    </div>
   </div>
 </div>

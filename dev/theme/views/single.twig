@@ -34,7 +34,7 @@
               {{ post.author.name }}
             </a>
             <div class="gg-post-meta-info">
-              {{post.post_date | date}}
+              {{ post.post_date | date }}
             </div>
             <div class="gg-post-meta-info">
               {% for category in post.terms('categories') %}
@@ -80,9 +80,9 @@
       <!-- START COMMENTS -->
       <section class="gg-comments" id="comments">
         {% for comment in post.comments %}
-          {% include 'comment.twig' with {comment:comment} %}
+          {% include 'comment.twig' with { comment:comment } %}
         {% endfor %}
-        {{ function('comment_form') }}
+        {{ gg_respond }}
       </section>
       <!-- END COMMENTS -->
 
