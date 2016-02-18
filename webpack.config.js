@@ -35,10 +35,6 @@ const common = {
         },
         include : PATHS.js,
       },
-      {
-        test : /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
-        loader : 'url-loader?limit=100000',
-      },
     ],
   },
 };
@@ -62,6 +58,10 @@ const live = merge(common, {
         loaders : ['style', 'css?sourceMap', 'autoprefixer', 'sass?sourceMap'],
         include : PATHS.scss,
       },
+      {
+        test : /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+        loader : 'url-loader?limit=100000',
+      },
     ],
   },
   plugins : [
@@ -78,6 +78,10 @@ const dev = merge(common, {
         loaders : ['style', 'css?sourceMap', 'autoprefixer', 'sass?sourceMap'],
         include : PATHS.scss,
       },
+      {
+        test : /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+        loader : 'url-loader?limit=100000',
+      },
     ],
   },
 });
@@ -89,6 +93,10 @@ const build = merge(common, {
         test : /\.scss$/,
         loader : ExtractTextPlugin.extract('style', 'css!autoprefixer!sass'),
         include : PATHS.scss,
+      },
+      {
+        test : /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+        loader : 'url-loader?limit=1',
       },
     ],
   },

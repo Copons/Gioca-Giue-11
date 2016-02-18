@@ -108,3 +108,9 @@
   }
 
 }
+
+.infinite-loader {
+  position: fixed;
+  bottom: $gg-size-margin;
+  right: $gg-size-margin + 28px;
+}

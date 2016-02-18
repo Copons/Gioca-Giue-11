@@ -3,10 +3,10 @@
 
   <!-- START APPBAR -->
   <div class="gg-appbar">
-    <a href="#" class="gg-appbar-icon gg-drawer-toggle"></a>
+    <a class="gg-appbar-icon gg-drawer-toggle"></a>
     <h1>
-      <a href="{{ site.link }}">
-        Home
+      <a href="<?php echo esc_url(home_url('/')); ?>">
+        <?php bloginfo('name'); ?>
       </a>
     </h1>
     <a href="#" class="gg-appbar-icon gg-searchbar-toggle"></a>
