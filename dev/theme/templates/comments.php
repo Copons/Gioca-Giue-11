@@ -1,5 +1,5 @@
 <?php
-function gg_comment($comment, $args, $depth) {
+function ggComment($comment, $args, $depth) {
   if ('' === $comment->comment_type) : ?>
 
     <div id="comment-<?php comment_ID(); ?>" <?php comment_class('gg-comment'); ?> itemscope itemtype="http://schema.org/Comment">
@@ -35,7 +35,7 @@ endif; ?>
 <section class="gg-comments" id="comments">
   <?php if (have_comments()) : ?>
     <h2>Comments</h2>
-    <?php wp_list_comments( array( 'callback' => 'gg_comment' ) ); ?>
+    <?php wp_list_comments(['callback' => 'ggComment']); ?>
     <?php
       $commentFormArgs = array(
         'class_form' => 'gg-respond',

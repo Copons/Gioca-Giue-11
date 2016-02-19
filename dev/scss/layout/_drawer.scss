@@ -26,7 +26,16 @@
     transform: translateX(0);
   }
 
-  @include gg-menu-list($icon-position : 'left');
+  @include gg-menu-list($padding: 0, $icon-position : 'left');
+  
+  nav div > ul {
+    padding: $gg-size-margin 0;
+    border-bottom: 1px solid $gg-color-border;
+    ul a {
+      padding-left: $gg-size-padding * 2;
+      font-weight: gg-font-weight('regular');
+    }
+  }
 
   .admin-bar & {
     @media screen and (min-width: 600px) {

@@ -6,10 +6,6 @@
     list-style: none;
     @extend %gg-font-body2;
 
-    &:not(:last-of-type) {
-      border-bottom: 1px solid $gg-color-border;
-    }
-
     li {
       display: block;
       margin: 0;
@@ -19,9 +15,12 @@
     a {
       display: flex;
       width: 100%;
-      padding: 0 16px;
+      padding: 0 $gg-size-padding;
+      overflow: hidden;
       color: gg-color('md-gray-800');
       line-height: 4.8rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
 
       &:hover {
         color: gg-color('md-gray-800');
@@ -48,7 +47,7 @@
         span:first-child {
           width: 56px;
         }
-        
+
         span:last-child {
           flex-grow: 1;
         }
