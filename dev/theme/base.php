@@ -7,7 +7,7 @@
 
       <?php get_template_part('templates/header'); ?>
 
-      <?php include templatePath() ?>
+      <?php include templatePath(); ?>
 
       <?php get_template_part('templates/drawer'); ?>
     </div>

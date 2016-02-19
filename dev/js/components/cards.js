@@ -29,10 +29,21 @@ if (masonryContainer) {
     toggle(masonryItems, 'show');
   });
 
+  /*let windowDidResize = false;
+
+  listen(window, 'resize', () => {
+    windowDidResize = true;
+  });
+
+  setInterval(() => {
+    if (windowDidResize) {
+      windowDidResize = false;
+      console.log('masonry.layout');
+      masonryLayout.layout();
+    }
+  }, 200);*/
 
   // WordPress Jetpack Infinite Scroll
-  // TODO: CHECK ONCE STAGED!!
-
   const observer = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
       for (const addedNode of mutation.addedNodes) {
@@ -42,23 +53,8 @@ if (masonryContainer) {
           toggle(addedNode, 'show');
         }
       }
+      masonryLayout.layout();
     });
   });
   observer.observe(masonryContainer, { childList : true });
-
-  /*let infiniteCount = 0;
-
-  listen(document.body, 'post-load', () => {
-    console.log('hola!');
-    infiniteCount++;
-    const infiniteContainer = qs(`#infinite-view-${infiniteCount}`);
-    const infiniteItems = qsa('.gg-card', infiniteContainer);
-    for (const newInfiniteItem of infiniteItems) {
-      masonryContainer.insertBefore(newInfiniteItem, infiniteContainer);
-      infiniteContainer.removeChild(newInfiniteItem);
-      masonryLayout.appended(newInfiniteItem);
-      toggle(newInfiniteItem, 'show');
-    }
-    masonryContainer.removeChild(infiniteContainer);
-  });*/
 }

@@ -14,6 +14,37 @@ function featuredImage($postId, $size = 'medium_large') {
   return $featuredImage;
 }
 
+function commentFormInputField( $label, $name, $type, $required ) {
+  $inputField = '<p class="gg-comment-input">'
+    . '<input id="' . $name . '" name="' . $name . '" type="' . $type . '"';
+  if ($required) :
+    $inputField .= ' required="required"';
+  endif;
+  $inputField .= ' />'
+    . '<label for="' . $name . '">'
+    . $label;
+  if ( $required ) :
+    $inputField .= ' <span class="required">*</span>';
+  endif;
+  $inputField .= '</label>'
+    . '</p>';
+  return $inputField;
+}
+
+function commentFormTextField() {
+  return '<p class="gg-comment-textarea">'
+    . '<textarea id="comment" name="comment" required="required"></textarea>'
+    . '<label for="comment">'
+    . 'Comment'
+    . '<span class="required">*</span>'
+    . '</label>'
+    . '</p>';
+}
+
+function commentFormSubmitButton() {
+  return '<button id="submit" name="submit" class="gg-button-raised" type="submit" value="Submit">Submit</button>';
+}
+
 
 function seoExcerpt ($excerpt) {
 	global $post;

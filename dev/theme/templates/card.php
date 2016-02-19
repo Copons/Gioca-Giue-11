@@ -29,7 +29,7 @@ endif;
         </a>
       </h1>
       <h2 class="gg-card-subtitle">
-        <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="byline author vcard" rel="author">
+        <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author">
           <?php echo get_the_author(); ?>
         </a>
         &middot;
