@@ -22,7 +22,7 @@ export default function (selector, container) {
         target.setAttribute('data-modal', `gg-modal-${i}`);
         target.insertAdjacentHTML('beforeend', `
           <div class="gg-modal" data-modal="gg-modal-${i}">
-            <img class="gg-modal-image" src="${target.getAttribute('href')}" />
+            <img class="gg-modal-image" src="${target.getAttribute('href')}">
           </div>
         `);
         i++;

@@ -13,8 +13,8 @@
         src="<?php echo esc_url($featuredImage['src']); ?>"
         srcset="<?php echo esc_attr($featuredImage['srcset']); ?>"
       >
-      <meta itemprop="image" content="<?php echo esc_url($featuredImage['src']); ?>" />
-      <meta itemprop="thumbnailUrl" content="<?php echo esc_url($featuredImage['src']); ?>" />
+      <meta itemprop="image" content="<?php echo esc_url($featuredImage['src']); ?>">
+      <meta itemprop="thumbnailUrl" content="<?php echo esc_url($featuredImage['src']); ?>" >
     <?php endif; ?>
     <hgroup>
       <?php if ($payoff = get_field('copons_payoff')) : ?>
@@ -24,7 +24,7 @@
       <?php endif; ?>
       <h1>
         <?php the_title(); ?>
-        <meta itemprop="url" content="<?php the_permalink(); ?>" />
+        <meta itemprop="url" content="<?php the_permalink(); ?>">
       </h1>
     </hgroup>
   </header>
@@ -32,13 +32,13 @@
 
   <div class="gg-article-container">
 
-    <meta itemprop="description" content="<?php echo wp_strip_all_tags( get_the_excerpt() ); ?>" />
+    <meta itemprop="description" content="<?php echo wp_strip_all_tags( get_the_excerpt() ); ?>">
 
     <!-- START ARTICLE INFO -->
     <div class="gg-article-info">
       <div class="gg-post-meta-container">
         <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="gg-user-image">
-          <img src="http://placehold.it/40x40" />
+          <img src="http://placehold.it/40x40">
         </a>
         <div class="gg-post-meta">
           <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="gg-user-link" rel="author">
@@ -62,7 +62,7 @@
         <a class="gg-button-flat" href="<?php the_permalink(); ?>#comments">
           <span class="gg-icon-comments"></span>
           <?php comments_number('0', '1', '%'); ?>
-          <meta itemprop="interactionCount" content="UserComments:<?php echo get_comments_number(); ?>" />
+          <meta itemprop="interactionCount" content="UserComments:<?php echo get_comments_number(); ?>">
         </a>
       </div>
     </div>

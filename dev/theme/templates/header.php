@@ -34,7 +34,7 @@
   <div class="gg-searchbar">
     <a href="#" class="gg-searchbar-icon gg-searchbar-toggle"></a>
     <form>
-      <input type="search" placeholder="Search and hit enter" />
+      <input type="search" placeholder="Search and hit enter">
     </form>
     <a href="#" class="gg-searchbar-icon gg-searchbar-cancel"></a>
   </div>

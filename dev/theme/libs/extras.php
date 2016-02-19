@@ -20,7 +20,7 @@ function commentFormInputField( $label, $name, $type, $required ) {
   if ($required) :
     $inputField .= ' required="required"';
   endif;
-  $inputField .= ' />'
+  $inputField .= '>'
     . '<label for="' . $name . '">'
     . $label;
   if ( $required ) :
