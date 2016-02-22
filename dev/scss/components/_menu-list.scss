@@ -14,13 +14,11 @@
 
     a {
       display: flex;
+      align-items: center;
       width: 100%;
-      padding: 0 $gg-size-padding;
+      padding: 12px $gg-size-padding;
       overflow: hidden;
       color: gg-color('md-gray-800');
-      line-height: 4.8rem;
-      text-overflow: ellipsis;
-      white-space: nowrap;
 
       &:hover {
         color: gg-color('md-gray-800');
@@ -28,10 +26,6 @@
 
       &:active, &:focus {
         color: $gg-color-text;
-      }
-
-      span {
-        line-height: 4.8rem;
       }
 
       @if $icon-position == 'right' {

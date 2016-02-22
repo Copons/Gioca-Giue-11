@@ -38,6 +38,10 @@ add_action('wp_enqueue_scripts', 'assets');
 
 
 function sidebarInit() {
+  require(__DIR__ . '/../widgets/popular-posts.php');
+
+  register_widget('GGPopularPosts');
+
   register_sidebar([
     'name' => 'Drawer',
     'id' => 'drawer-widgets',

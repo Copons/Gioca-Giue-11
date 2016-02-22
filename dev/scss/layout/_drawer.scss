@@ -26,9 +26,17 @@
     transform: translateX(0);
   }
 
+  h3 {
+    margin: 0;
+    padding: $gg-size-padding $gg-size-padding $gg-size-margin $gg-size-padding;
+    @extend %gg-font-body2;
+    color: $gg-color-text-muted;
+  }
+
   @include gg-menu-list($padding: 0, $icon-position : 'left');
-  
-  nav div > ul {
+
+  nav div > ul,
+  aside section > ul {
     padding: $gg-size-margin 0;
     border-bottom: 1px solid $gg-color-border;
     ul a {
@@ -44,5 +52,13 @@
     @media screen and (min-width: 783px) {
       padding-top: gg-size('wp-admin-bar-desktop');
     }
+  }
+
+  .widget_categories h3 {
+    display: none;
+  }
+
+  .widget_recent_comments {
+
   }
 }
