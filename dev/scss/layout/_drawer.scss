@@ -33,7 +33,7 @@
     color: $gg-color-text-muted;
   }
 
-  @include gg-menu-list($padding: 0, $icon-position : 'left');
+  @include gg-menu-list($padding: 0);
 
   nav div > ul,
   aside section > ul {
@@ -61,4 +61,5 @@
   .widget_recent_comments {
 
   }
+
 }

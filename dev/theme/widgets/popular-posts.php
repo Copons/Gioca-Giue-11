@@ -32,9 +32,11 @@ class GGPopularPosts extends WP_Widget {
     while ($ggPopularPosts->have_posts()) : $ggPopularPosts->the_post(); ?>
       <li>
         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute; ?>">
-          <?php the_title(); ?>
           <span>
-            (<?php comments_number('0', '1', '%'); ?>)
+            <?php the_title(); ?>
+          </span>
+          <span>
+            <?php comments_number('0', '1', '%'); ?>
           </span>
         </a>
       </li>
